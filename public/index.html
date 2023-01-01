@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>muarif-e-quran</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./images/favicon.ico"
+    />
+
+    <!-- font awesome cdn link  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/23e497381f.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- aos css link  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+
+    <!-- custom css file link  -->
+
+    <link rel="stylesheet" href="./style.css" />
+
+    <script id="react-dotenv" src="./env.js"></script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <!-- aos -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- jquery cdn link  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- javascript -->
+    <script>
+      $(document).ready(function () {
+        $(".accordion").click(function () {
+          $(this).toggleClass("active");
+        });
+
+        $("#menu").click(function () {
+          $(this).toggleClass("fa-times");
+          $(".navbar").toggleClass("nav-toggle");
+        });
+
+
+        $("#share").click(function () {
+          $(this).toggleClass("share-active");
+        });
+
+        $(window).on("load scroll", function () {
+          $(".fa-bars").removeClass("fa-times");
+          $(".navbar").removeClass("nav-toggle");
+          $("#share").removeClass("share-active")
+        });
+
+        $('.controls li').click(function () {
+
+          let filter = $(this).attr('data-filter');
+          if (filter == 'all') {
+            $('.books .box').show(400);
+          } else {
+            $('.books .box').not('.' + filter).hide(200);
+            $('.books .box').filter('.' + filter).show(400);
+          }
+
+          $(this).addClass('button-active');
+
+        });
+      });
+
+      AOS.init({
+        duration: 800,
+        delay: 100,
+      });
+    </script>
+  </body>
+</html>
