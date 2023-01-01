@@ -129,10 +129,6 @@ function Lecture() {
             </p>
           </div>
         </div>
-        <video width="320" height="240" autoplay>
-          <source src="https://youtu.be/mQh5IVPi2aE" type="video/mp4"></source>
-          Your browser does not support the video tag.
-        </video>
       </div>
     </section>
   );
