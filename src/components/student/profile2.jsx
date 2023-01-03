@@ -3,6 +3,10 @@ import { useAuth } from "../admin/auth";
 import { useNavigate } from "react-router-dom";
 import FemaleLinks from "./femaleLinks";
 import BackendCall from "../institute/BackendCall";
+import Lecture from "../institute/lectures/lectures";
+import Books from "../books/books";
+import Ladies from "../books/ladies/ladies.pdf";
+import ladies from "../books/ladies/ladies.png";
 
 function FemaleDashboard() {
   const auth = useAuth();
@@ -33,7 +37,29 @@ function FemaleDashboard() {
       </section>
       <section className="contact">
         <h1 className="heading">your Dashboard</h1>
+        <section className="books" id="courses">
+          <div className="box-container">
+            <div className="box maqtal">
+              <div className="image">
+                <img src={ladies} alt="" />
+              </div>
+              <div className="content">
+                <h3>
+                  Ladies masile <span>خواتین کے مخصوص مسائل</span>
+                </h3>
 
+                <a href={Ladies} className="button" download>
+                  <i className="fas fa-file-pdf">
+                    {" "}
+                    <span>download book</span>
+                  </i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+        <Lecture />
+        <Books />
         <FemaleLinks />
         <BackendCall />
       </section>

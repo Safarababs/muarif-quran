@@ -2,8 +2,10 @@ import React from "react";
 import { useAuth } from "../admin/auth";
 import { useNavigate } from "react-router-dom";
 import MaleLinks from "./maleLinks";
-import LoggedinStudent from "./loginpage/LoggedinStudent";
+
 import BackendCall from "../institute/BackendCall";
+import Lecture from "../institute/lectures/lectures";
+import Books from "../books/books";
 
 function MaleDashboard() {
   const auth = useAuth();
@@ -35,8 +37,8 @@ function MaleDashboard() {
       </section>
       <section className="contact">
         <h1 className="heading">your Dashboard</h1>
-        <LoggedinStudent />
-
+        <Lecture />
+        <Books />
         <MaleLinks />
         <BackendCall />
       </section>

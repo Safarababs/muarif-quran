@@ -19,7 +19,7 @@ function Footer() {
 
         <div className="box">
           <a
-            href="https://chat.whatsapp.com/L1Pj9v7GepR1RgRSggrFQL"
+            href="https://chat.whatsapp.com/EteQrDbVdVsChtYZBPNmAU"
             target="_blank"
             rel="noreferrer"
             className="fab fa-whatsapp"
@@ -79,7 +79,7 @@ function Footer() {
               {" "}
             </a>
             <a
-              href="https://chat.whatsapp.com/L1Pj9v7GepR1RgRSggrFQL"
+              href="https://chat.whatsapp.com/EteQrDbVdVsChtYZBPNmAU"
               target="_blank"
               rel="noreferrer"
               className="fab fa-whatsapp"
