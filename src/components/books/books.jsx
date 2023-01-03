@@ -9,6 +9,7 @@ import Tozee from "./tozee/Tozee";
 import Tajweed from "./tajweed/Tajweed";
 import Ahakam from "./ahakam/Ahakam";
 import Maqtal from "./maqtal/Maqtal";
+import BackendCall from "../institute/BackendCall";
 
 function Books() {
   return (
@@ -26,6 +27,7 @@ function Books() {
         <ArabicBooks />
         <PersianBooks />
       </div>
+      <BackendCall />
     </section>
   );
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import BackendCall from "./BackendCall";
 
 function Footer() {
   return (
@@ -101,6 +102,7 @@ function Footer() {
         iltimas-e-dua <span>mr. safar abbas</span> ©copyright{" "}
         {new Date().getFullYear()} | all rights reserved!{" "}
       </div>
+      <BackendCall />
     </section>
   );
 }

@@ -8,7 +8,7 @@ import img7 from "../images/MAFAHEEM.png";
 import img8 from "../images/MAFAHEEM.png";
 import img9 from "../images/tafseer.png";
 import img10 from "../images/prayer.png";
-import AddCourse from "../admin/addcourse";
+import BackendCall from "./BackendCall";
 
 function Courses() {
   const days = [
@@ -359,9 +359,8 @@ function Courses() {
             </div>
           </div>
         </div>
-
-        <AddCourse />
       </div>
+      <BackendCall />
     </section>
   );
 }

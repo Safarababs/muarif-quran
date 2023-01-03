@@ -1,4 +1,5 @@
 import React from "react";
+import BackendCall from "./BackendCall";
 
 function Prayers() {
   const pray = [
@@ -33,6 +34,7 @@ function Prayers() {
       style={{ marginTop: "0", background: "skyblue" }}
     >
       {Prayers()}
+      <BackendCall />
     </section>
   );
 }

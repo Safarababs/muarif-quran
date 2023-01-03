@@ -22,6 +22,7 @@ import img18 from "./images/img18.jpg";
 import img19 from "../images/summer camp/1.jpg";
 import img20 from "../images/summer camp/2.jpg";
 import img21 from "../images/summer camp/3.jpg";
+import BackendCall from "../institute/BackendCall";
 
 function Gallery() {
   return (
@@ -111,6 +112,7 @@ function Gallery() {
           <img src={img1} alt="" />
         </div>
       </div>
+      <BackendCall />
     </section>
   );
 }

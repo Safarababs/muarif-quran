@@ -1,4 +1,5 @@
 import React from "react";
+import BackendCall from "../institute/BackendCall";
 
 function MaleLinks() {
   const days = [
@@ -16,6 +17,7 @@ function MaleLinks() {
 
   return (
     <>
+      <BackendCall />
       <div className="icons-container">
         <div className="icons">
           <i className="fab fa-google"></i>

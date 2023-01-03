@@ -1,8 +1,10 @@
 import React from "react";
+import BackendCall from "./BackendCall";
 
 function MajorActivities() {
   return (
     <>
+      <BackendCall />
       <h1 className="heading">major activities</h1>
 
       <section className="activities">

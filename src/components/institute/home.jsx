@@ -1,10 +1,12 @@
 import HomeCourses from "../institute/homeCourses";
 import Cultural from "../institute/cultural";
 import Doante from "../institute/donate";
+import BackendCall from "./BackendCall";
 
 function Home() {
   return (
     <>
+      <BackendCall />
       <section className="landing" id="home">
         <h1>
           The institute of <br></br>muarif-e-quran and ahel-e-bait a.S

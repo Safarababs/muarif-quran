@@ -4,6 +4,7 @@ import Faq from "../institute/faq";
 import img from "../images/logo.jpg";
 import Donate from "../institute/donate";
 import MaleLinks from "../student/maleLinks";
+import BackendCall from "../institute/BackendCall";
 
 function Contact() {
   return (
@@ -27,6 +28,7 @@ function Contact() {
       </section>
       <Donate />
       <Faq />
+      <BackendCall />
     </>
   );
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import BackendCall from "../institute/BackendCall";
 
 const GeneralBooks = () => {
   return (
@@ -23,6 +24,8 @@ const GeneralBooks = () => {
           <p>tozee ul masile</p>
         </li>
       </ul>
+
+      <BackendCall />
     </>
   );
 };

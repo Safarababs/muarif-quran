@@ -1,5 +1,6 @@
 import React from "react";
 import naqvi from "../images/donate.jpg";
+import BackendCall from "./BackendCall";
 
 function Doante() {
   return (
@@ -27,6 +28,7 @@ function Doante() {
           <img src={naqvi} alt="" />
         </div>
       </section>
+      <BackendCall />
     </>
   );
 }

@@ -3,6 +3,7 @@ import swal from "sweetalert";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import data from "../../data";
+import BackendCall from "../../institute/BackendCall";
 
 const UpdatePassword = () => {
   const navigate = useNavigate();
@@ -77,6 +78,7 @@ const UpdatePassword = () => {
       <button onClick={handleLogin} className="button">
         submit
       </button>
+      <BackendCall />
     </section>
   );
 };

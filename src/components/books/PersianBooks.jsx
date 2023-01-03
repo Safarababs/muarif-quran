@@ -16,6 +16,7 @@ import image3 from "../books/persian/images/all.png";
 import image4 from "../books/persian/images/all.png";
 import image5 from "../books/persian/images/all.png";
 import image6 from "../books/persian/images/all.png";
+import BackendCall from "../institute/BackendCall";
 
 const PersianBooks = () => {
   return (
@@ -145,6 +146,7 @@ const PersianBooks = () => {
           </a>
         </div>
       </div>
+      <BackendCall />
     </>
   );
 };

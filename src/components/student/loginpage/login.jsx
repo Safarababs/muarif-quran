@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import { useAuth } from "../../admin/auth";
 import data from "../../data";
+import BackendCall from "../../institute/BackendCall";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -78,6 +79,7 @@ const Login = () => {
           Forgot Password?
         </a>
       </section>
+      <BackendCall />
     </>
   );
 };

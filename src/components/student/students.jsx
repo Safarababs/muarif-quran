@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import data from "../data";
+import BackendCall from "../institute/BackendCall";
 import NewStudent from "./newStudent";
 
 function Students() {
@@ -52,6 +53,7 @@ function Students() {
           ))}
         </div>
       </section>
+      <BackendCall />
     </>
   );
 }

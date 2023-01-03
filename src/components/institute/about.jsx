@@ -2,6 +2,7 @@ import React from "react";
 import Goals from "./goals";
 import MajorActivities from "./activities";
 import Teachers from "./teachers";
+import BackendCall from "./BackendCall";
 
 function About() {
   return (
@@ -51,6 +52,7 @@ function About() {
       <Teachers />
       <MajorActivities />
       <Goals />
+      <BackendCall />
     </>
   );
 }

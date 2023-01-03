@@ -3,6 +3,7 @@ import { useAuth } from "../admin/auth";
 import { useNavigate } from "react-router-dom";
 import MaleLinks from "./maleLinks";
 import LoggedinStudent from "./loginpage/LoggedinStudent";
+import BackendCall from "../institute/BackendCall";
 
 function MaleDashboard() {
   const auth = useAuth();
@@ -37,6 +38,7 @@ function MaleDashboard() {
         <LoggedinStudent />
 
         <MaleLinks />
+        <BackendCall />
       </section>
     </>
   );

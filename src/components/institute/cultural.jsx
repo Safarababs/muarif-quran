@@ -7,6 +7,7 @@ import img4 from "../images/cultural images/knowledge.jpg";
 import img5 from "../images/cultural images/seminar.jpg";
 import img6 from "../images/cultural images/movies.jpg";
 import img7 from "../images/cultural images/manajaat.jpg";
+import BackendCall from "./BackendCall";
 
 function Cultural() {
   return (
@@ -121,6 +122,7 @@ function Cultural() {
           </div>
         </div>
       </section>
+      <BackendCall />
     </>
   );
 }
