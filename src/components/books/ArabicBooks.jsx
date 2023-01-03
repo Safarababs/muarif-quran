@@ -20,10 +20,28 @@ import image5 from "../books/arabic/images/all.png";
 import image6 from "../books/arabic/images/all.png";
 import image7 from "../books/arabic/images/all.png";
 import image8 from "../books/arabic/images/all.png";
+import why from "../books/arabic/why.pdf";
 
 const ArabicBooks = () => {
   return (
     <>
+      <div className="box course">
+        <div className="image">
+          <img src={image0} alt="" />
+        </div>
+        <div className="content">
+          <h3>
+            arabic language introduction <span> عربی زبان</span>
+          </h3>
+          <a href={why} className="button" download>
+            <i className="fas fa-file-pdf">
+              {" "}
+              <span>download book</span>
+            </i>
+          </a>
+        </div>
+      </div>
+
       <div className="box course">
         <div className="image">
           <img src={image0} alt="" />
