@@ -13,6 +13,8 @@ import image2 from "../maqtal/images/maqtal hussain.png";
 import image3 from "../maqtal/images/MaqtalLahoof.png";
 import balaghaImg from "../maqtal/images/balagha.png";
 import falsafaHijabImg from "../maqtal/images/falsafaHijab.png";
+import SahifaSajjadia from "../sahifa/Sahifa Sajjadia";
+import Mafatee from "../Mafatee/Mafatee";
 
 const Maqtal = () => {
   return (
@@ -88,6 +90,9 @@ const Maqtal = () => {
           </a>
         </div>
       </div>
+
+      <SahifaSajjadia />
+      <Mafatee />
 
       <div className="box maqtal">
         <div className="image">
