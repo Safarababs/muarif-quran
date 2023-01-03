@@ -4,7 +4,7 @@ import data from "../data";
 const BackendCall = () => {
   function Backend() {
     axios.get(data.backend + "/").then((res) => {
-      console.log(res);
+      console.log("connected successfully");
     });
   }
   return Backend();
