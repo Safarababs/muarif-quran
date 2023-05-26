@@ -26,7 +26,7 @@ import SooratKausar from "./quran-quiz/Demo";
 function App() {
   const currentDate = new Date();
   const today = currentDate.getDate();
-  const targetDate = 26;
+  const targetDate = 28;
   const currentHour = currentDate.getUTCHours() + 5;
   const currentMonth = currentDate.getMonth() + 1;
   const currentYear = currentDate.getFullYear();
@@ -49,7 +49,7 @@ function App() {
           <Route path="/register" element={<Register />}></Route>
 
           <Route path="/update" element={<UpdatePassword />}></Route>
-          <Route path="/quranquiz" element={today === targetDate && currentHour >= 12 && currentHour < 21 && currentYear === 2023 ? <Quiz />:<SooratKausar />}></Route>
+          <Route path="/quranquiz" element={today === targetDate && currentHour >= 12 && currentHour < 15 && currentYear === 2023 ? <Quiz />:<SooratKausar />}></Route>
 
           <Route
             path="/male"
