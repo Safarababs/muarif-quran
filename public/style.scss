@@ -1,0 +1,2052 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600&display=swap&family=Noto Nastaliq Urdu&family=Dancing+Script:wght@700&display=swap");
+
+* {
+  font-family: "Nunito", "Noto Nastaliq Urdu" ، sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  transition: all 0.2s linear;
+  text-transform: uppercase;
+}
+
+img {
+  user-select: none;
+}
+
+$green: #89cff0;
+$light-green: #40b5ad;
+$light-color: #777;
+$light-white: #eee;
+$black: black;
+$white: #fff;
+$border: 0.1rem solid $green;
+$box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+$primary-color: #3498db;
+
+@mixin button {
+  height: 4rem;
+  width: 14rem;
+  background: linear-gradient($green, blueviolet);
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  border: none;
+  outline: none;
+
+  &:hover {
+    letter-spacing: 0.2rem;
+    opacity: 0.8;
+  }
+}
+
+@mixin grid($val) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($val, 1fr));
+  gap: 2rem;
+}
+
+@mixin titleText($titleSize) {
+  font-size: $titleSize;
+  text-transform: capitalize;
+  color: $white;
+}
+
+@mixin graphText($graphSize) {
+  font-size: $graphSize;
+  line-height: 2;
+  color: $light-color;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+.heading-link {
+  text-align: center;
+  background: linear-gradient($green, blueviolet);
+  width: 100vw;
+  padding: 5rem;
+  border: $border;
+  box-shadow: $box-shadow;
+  padding-top: 7rem;
+
+  h3 {
+    @include titleText(4rem);
+  }
+
+  p {
+    @include graphText(2rem);
+
+    a {
+      color: $green;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .button {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 1rem 3rem;
+    font-size: 2.8rem;
+    text-align: center;
+    border: $border;
+    background: linear-gradient($green, blueviolet);
+    color: $white;
+    cursor: pointer;
+    text-transform: capitalize;
+    text-decoration: none;
+    box-shadow: $box-shadow;
+    width: 30rem;
+
+    &:hover {
+      background: $green;
+      color: $black;
+    }
+  }
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 3rem;
+  @include titleText(3.5rem);
+  background: linear-gradient($green, blueviolet);
+  height: 6rem;
+  text-align: center;
+}
+
+header {
+  padding-bottom: 2rem;
+
+  .header-2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem;
+    width: 100%;
+    z-index: 1000;
+    background: linear-gradient($green, blueviolet);
+    position: fixed;
+    top: 0;
+    right: 0;
+    box-shadow: $box-shadow;
+
+    a {
+      width: 6rem;
+      height: 6rem;
+      img {
+        margin-left: 4rem;
+        border-radius: 5rem;
+      }
+
+      cursor: pointer;
+    }
+
+    #menu {
+      font-size: 3rem;
+      color: $white;
+      cursor: pointer;
+      display: none;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+
+      li {
+        margin: 0 1rem;
+
+        a {
+          font-size: 2rem;
+          color: $white;
+          text-decoration: none;
+
+          &:active {
+            background: red;
+            border-radius: 2rem;
+          }
+
+          &:hover {
+            color: yellow;
+            background: $green;
+          }
+        }
+      }
+    }
+  }
+}
+
+// home section
+
+.landing {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("./images/Quran.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  // clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+
+  h1 {
+    font-size: 6rem;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 0.3rem 0.5rem #000;
+    text-transform: uppercase;
+  }
+
+  .button {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 1rem 0;
+    font-size: 2.8rem;
+    text-align: center;
+    border: $border;
+    background: linear-gradient($green, blueviolet);
+    color: $white;
+    cursor: pointer;
+    text-transform: capitalize;
+    text-decoration: none;
+    box-shadow: $box-shadow;
+    width: 30rem;
+
+    &:hover {
+      background: $green;
+      color: $black;
+    }
+  }
+}
+
+// home text below landing
+.home {
+  .about {
+    padding: 0 5rem;
+
+    .content {
+      color: black;
+      p {
+        line-height: 5rem;
+      }
+      a {
+        color: blueviolet;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+// share options everywhere
+
+#share {
+  position: fixed;
+  top: 50%;
+  right: -25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.3);
+  z-index: 100;
+  flex-wrap: wrap;
+
+  .box {
+    i {
+      background: #444;
+      color: #fff;
+      font-size: 2rem;
+      padding: 1.5rem 2rem;
+      cursor: pointer;
+
+      &:hover {
+        background: #222;
+      }
+    }
+    a {
+      font-size: 2rem;
+      height: 5rem;
+      width: auto;
+      background: #fff;
+      color: blueviolet;
+      padding: 1.5rem 2rem;
+      cursor: pointer;
+      border-left: 0.1rem solid #444;
+      text-decoration: none;
+
+      &:hover {
+        background: $green;
+        color: #fff;
+        transform: scale(1.02);
+      }
+    }
+  }
+}
+
+#share.share-active {
+  right: 0;
+}
+
+// home courses section
+
+.home {
+  .home-courses {
+    .box-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      .box {
+        height: 45rem;
+        width: 40rem;
+        margin: 0.5rem;
+        border: $border;
+        background: $green;
+        align-items: center;
+        overflow: hidden;
+
+        &:hover {
+          transform: scale(1.05);
+        }
+
+        .image {
+          width: 40rem;
+          height: 20rem;
+
+          img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            overflow: hidden;
+          }
+        }
+
+        .content {
+          text-align: left;
+          margin-top: 2rem;
+          text-align: center;
+
+          h3 {
+            font-size: 2rem;
+            color: white;
+            span {
+              font-family: "Noto Nastaliq Urdu";
+              color: yellow;
+              display: block;
+              padding: 1rem 0;
+            }
+          }
+
+          p {
+            font-size: 1.5rem;
+            color: yellow;
+          }
+
+          .btn {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 1rem;
+            width: auto;
+            font-size: 1.8rem;
+            border: $border;
+            background: linear-gradient($green, blueviolet);
+            color: $white;
+            cursor: pointer;
+            text-transform: capitalize;
+
+            &:hover {
+              background: $white;
+              color: $black;
+              border: $border;
+            }
+          }
+        }
+      }
+    }
+  }
+  // cultural activites
+  .cultural {
+    background: $green;
+
+    .box-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      .box {
+        height: 40rem;
+        width: 40rem;
+        margin: 0.5rem;
+        border: $border;
+        background: linear-gradient($green, blueviolet);
+        align-items: center;
+        overflow: hidden;
+
+        &:hover {
+          transform: scale(1.05);
+        }
+
+        .image {
+          width: 40rem;
+          height: 20rem;
+
+          img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            overflow: hidden;
+          }
+        }
+
+        .content {
+          text-align: left;
+          margin-top: 2rem;
+          text-align: center;
+
+          h3 {
+            font-size: 2rem;
+            color: white;
+            span {
+              font-family: "Noto Nastaliq Urdu";
+              color: yellow;
+              display: block;
+              padding: 1rem 0;
+            }
+          }
+
+          p {
+            font-size: 1.5rem;
+            color: yellow;
+          }
+
+          .btn {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 1rem;
+            width: auto;
+            font-size: 1.8rem;
+            border: $border;
+            background: linear-gradient($green, blueviolet);
+            color: $white;
+            cursor: pointer;
+            text-transform: capitalize;
+
+            &:hover {
+              background: $white;
+              color: $black;
+              border: $border;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// courses section
+.courses {
+  background: $white;
+
+  .box-container {
+    @include grid(30rem);
+    padding: 5rem 10%;
+    margin-top: 7rem;
+
+    .box {
+      background: $green;
+      border: $border;
+      box-shadow: $box-shadow;
+
+      &:hover {
+        transform: scale(1.01);
+        padding: 0.1rem;
+        margin: 0.1rem;
+      }
+
+      .image {
+        height: 25rem;
+        overflow: hidden;
+        position: relative;
+
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+
+        h3 {
+          @include titleText(1.5rem);
+          position: absolute;
+          bottom: 1rem;
+          left: 1rem;
+          padding: 0.5rem 1.5rem;
+          background: $green;
+          color: $white;
+        }
+      }
+
+      .content {
+        padding: 2rem;
+        text-align: center;
+        border: $border;
+
+        h3 {
+          @include titleText(2rem);
+          color: $white;
+
+          span {
+            font-family: "Noto Nastaliq Urdu";
+            color: yellow;
+            display: block;
+            padding: 1rem 0;
+          }
+        }
+
+        p {
+          padding: 1rem 0;
+          @include graphText(1.6rem);
+        }
+
+        .icons {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-top: 2rem;
+          padding-top: 2rem;
+          border-top: 0.1rem solid white;
+
+          span {
+            @include titleText(1.5rem);
+            color: white;
+
+            i {
+              color: $black;
+              padding-right: 0.5rem;
+            }
+          }
+        }
+
+        .button {
+          display: inline-block;
+          margin-top: 1rem;
+          padding: 1rem 3rem;
+          font-size: 1.8rem;
+          border: $border;
+          background: linear-gradient($green, blueviolet);
+          color: white;
+          cursor: pointer;
+          text-transform: capitalize;
+
+          &:hover {
+            background: $white;
+            border: $border;
+
+            i {
+              span {
+                color: $black;
+              }
+            }
+          }
+
+          i {
+            color: red;
+
+            span {
+              color: $white;
+              font-size: 1.8rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// books section
+
+// filter buttons
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 1.5rem 0;
+  list-style: none;
+  margin-top: 7rem;
+
+  li {
+    @include button();
+    margin: 2rem;
+    line-height: 4rem;
+    width: auto;
+    text-align: center;
+    box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.3);
+
+    p {
+      margin: 0 1rem;
+    }
+  }
+}
+
+// books section
+.books {
+  background: $white;
+
+  .box-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5rem 10%;
+    flex-wrap: wrap;
+
+    .box {
+      display: flex;
+      background: linear-gradient($green, blueviolet);
+      border: $border;
+      box-shadow: $box-shadow;
+      margin: 1rem;
+      align-items: center;
+
+      .image {
+        overflow: hidden;
+        position: relative;
+        border: $border;
+        margin-top: 0.5rem;
+
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .content {
+        padding: 2rem;
+        text-align: center;
+
+        h3 {
+          @include titleText(2rem);
+          color: $white;
+
+          span {
+            font-family: "Noto Nastaliq Urdu";
+            color: yellow;
+            display: block;
+            margin: 0.2rem;
+          }
+        }
+
+        .button {
+          display: inline-block;
+          margin-top: 1rem;
+          padding: 1rem 3rem;
+          font-size: 1.8rem;
+          border: $border;
+          background: $white;
+          color: $black;
+          cursor: pointer;
+          text-transform: capitalize;
+
+          i {
+            color: red;
+
+            span {
+              color: $black;
+              font-size: 1.8rem;
+            }
+          }
+
+          &:hover {
+            background: $green;
+
+            i {
+              span {
+                color: $white;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// donate section
+
+.donate {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+  background: $white;
+  padding: 5rem 10%;
+
+  .image {
+    flex: 1 1 40rem;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .content {
+    flex: 1 1 40rem;
+
+    .about-title {
+      @include titleText(3rem);
+    }
+
+    p {
+      @include graphText(2rem);
+      padding: 1rem 0;
+    }
+  }
+}
+
+// about section
+.about {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  .content {
+    flex: 1 1 40rem;
+    min-height: auto;
+    padding: 2rem 5rem;
+
+    .about-title {
+      @include titleText(3rem);
+    }
+
+    p {
+      @include graphText(2rem);
+      padding: 1rem 0;
+    }
+  }
+}
+
+// major activities section
+.activities {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  .content {
+    flex: 1 1 40rem;
+    min-height: auto;
+    padding: 5rem;
+
+    p {
+      @include graphText(2rem);
+      padding: 1rem 0;
+    }
+  }
+}
+
+// goals section
+.goals {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+
+  .content {
+    flex: 1 1 40rem;
+    min-height: 100vh;
+    padding: 5rem 10%;
+
+    p {
+      @include graphText(2rem);
+      padding: 1rem 0;
+    }
+  }
+}
+
+// teacher section
+.trainer {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  min-height: 100vh;
+  padding: 5rem 10%;
+
+  .image {
+    flex: 1 1 40rem;
+
+    img {
+      height: 65rem;
+      padding: 2rem;
+      border: $border;
+    }
+
+    .share {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 2rem;
+
+      .box {
+        margin: 1rem;
+        a {
+          font-size: 2rem;
+          height: 5rem;
+          width: auto;
+          background: blueviolet;
+          color: white;
+          padding: 1.5rem 2rem;
+          cursor: pointer;
+          border: 0.1rem solid #444;
+          text-decoration: none;
+
+          &:hover {
+            background: $green;
+            color: #444;
+            transform: scale(1.02);
+          }
+        }
+      }
+    }
+  }
+
+  .content {
+    flex: 1 1 40rem;
+
+    h3 {
+      text-transform: uppercase;
+      font-size: 5rem;
+      margin-bottom: 0.5rem;
+      font-family: "Dancing";
+      color: $white;
+      background: $green;
+    }
+
+    span {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background-color: $white;
+      color: $green;
+      font-size: 2.5rem;
+      margin: 1rem 0;
+      border: $border;
+    }
+
+    p {
+      font-size: 1.7rem;
+      line-height: 2;
+      padding: 1rem 0;
+      display: block;
+      color: #000;
+    }
+  }
+}
+
+// reviews section
+.reviews {
+  .slide {
+    text-align: center;
+
+    p {
+      @include graphText(1.5rem);
+      position: relative;
+      background: $light-green;
+      border: $border;
+      margin-bottom: 3rem;
+      padding: 2rem;
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: -1.2rem;
+        left: 50%;
+        transform: translateX(-50%) rotate(45deg);
+        background: $light-green;
+        border-bottom: $border;
+        border-right: $border;
+        height: 2rem;
+        width: 2rem;
+      }
+    }
+
+    img {
+      height: 7rem;
+      width: 7rem;
+      border-radius: 50%;
+    }
+
+    h3 {
+      @include titleText(2.2rem);
+      padding: 0.5rem 0;
+    }
+
+    .stars {
+      font-size: 1.2rem;
+      color: $green;
+    }
+  }
+}
+
+// gallery section
+
+.gallery {
+  .box-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 2rem 5%;
+    margin: 7rem 0;
+
+    .box {
+      height: auto;
+      width: auto;
+      margin: 0.5rem;
+      padding: 1rem;
+      box-shadow: $box-shadow;
+      background: $green;
+      overflow: hidden;
+      iframe {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+      }
+
+      img {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+      }
+
+      &:hover {
+        box-shadow: $box-shadow;
+        border: $border;
+      }
+    }
+  }
+}
+
+// lecture section
+.lecture {
+  background: $white;
+
+  .box-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 2rem 5%;
+    margin: 7rem 0;
+    gap: 2rem;
+
+    .box {
+      height: 30rem;
+      width: 30rem;
+      margin: 0.5rem;
+      border: $border;
+      padding: 1rem;
+      background: linear-gradient($green, blueviolet);
+
+      .image {
+        width: 100%rem;
+        overflow: hidden;
+
+        .video {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+
+        &:hover {
+          box-shadow: $box-shadow;
+          border: $border;
+        }
+      }
+
+      .content {
+        text-align: left;
+        margin-top: 2rem;
+
+        h3 {
+          font-size: 2rem;
+          color: white;
+        }
+
+        p {
+          font-size: 1.5rem;
+          color: yellow;
+        }
+      }
+    }
+  }
+}
+
+// lecture search buttons
+
+.buttons {
+  display: block;
+  margin-top: 1rem;
+  padding: 1rem 3rem;
+  font-size: 1.8rem;
+  border: $border;
+  background: linear-gradient($green, blueviolet);
+  color: $white;
+  cursor: pointer;
+  text-transform: capitalize;
+  text-decoration: none;
+  box-shadow: $box-shadow;
+  width: 30rem;
+  text-align: left;
+
+  &:hover {
+    background: $green;
+    color: $black;
+  }
+}
+
+// contact section
+
+.contact {
+  .icons-container {
+    margin-top: 3rem;
+    @include grid(25rem);
+    padding: 5rem 10%;
+
+    .icons {
+      text-align: center;
+      padding: 3rem 2rem;
+      border: $border;
+      background: $green;
+
+      i {
+        height: 6rem;
+        width: 6rem;
+        line-height: 6rem;
+        font-size: 2rem;
+        border-radius: 50%;
+        margin-bottom: 0.5rem;
+        color: $white;
+        background: $light-green;
+      }
+
+      h3 {
+        @include titleText(2rem);
+        padding: 0.5rem 0;
+        color: #000;
+      }
+
+      .paragraph {
+        display: inline-block;
+        margin-top: 1rem;
+        padding: 1rem 3rem;
+        font-size: 1.8rem;
+        text-align: center;
+        border: $border;
+        background: linear-gradient($green, blueviolet);
+        color: $white;
+        cursor: pointer;
+        text-transform: capitalize;
+        text-decoration: none;
+        box-shadow: $box-shadow;
+        width: auto;
+
+        &:hover {
+          background: $green;
+          color: $black;
+        }
+      }
+
+      p {
+        a {
+          display: inline-block;
+          margin-top: 1rem;
+          padding: 1rem 3rem;
+          font-size: 1.8rem;
+          text-align: center;
+          border: $border;
+          background: linear-gradient($green, blueviolet);
+          color: $white;
+          cursor: pointer;
+          text-transform: capitalize;
+          text-decoration: none;
+          box-shadow: $box-shadow;
+          width: auto;
+
+          &:hover {
+            background: $green;
+            color: $black;
+          }
+        }
+      }
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  .row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 5rem 10%;
+
+    .image {
+      flex: 1 1 40rem;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    form {
+      flex: 1 1 40rem;
+      border: $border;
+      padding: 2rem;
+
+      h3 {
+        @include titleText(2.5rem);
+        padding-bottom: 1rem;
+        color: #000;
+      }
+
+      .box {
+        width: 100%;
+        padding: 1.2rem 1.4rem;
+        border: $border;
+        font-size: 1.6rem;
+        margin: 0.7rem 0;
+
+        &:focus {
+          background: $green;
+          color: $white;
+
+          &::placeholder {
+            color: $light-white;
+          }
+        }
+      }
+
+      textarea {
+        height: 15rem;
+        resize: none;
+      }
+
+      .btn {
+        display: inline-block;
+        margin-top: 1rem;
+        padding: 1rem 3rem;
+        font-size: 1.8rem;
+        border: $border;
+        background: $green;
+        color: $white;
+        cursor: pointer;
+        text-transform: capitalize;
+        width: 100%;
+
+        &:hover {
+          background: $white;
+          color: $black;
+        }
+      }
+    }
+  }
+}
+
+// faq section
+.faq {
+  background: $white;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("./images/back.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: auto;
+  width: 100vw;
+
+  .accordion-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: flex-start;
+    padding: 5rem 10%;
+
+    .accordion {
+      flex: 1 1 40rem;
+      border: $border;
+
+      &.active {
+        .accordion-heading {
+          background: $green;
+
+          h3 {
+            color: $white;
+            font-size: 2rem;
+          }
+
+          i {
+            color: $white;
+            transform: rotate(180deg);
+          }
+        }
+
+        .accordion-content {
+          display: block;
+          color: white;
+          font-size: 1.5rem;
+        }
+      }
+
+      .accordion-heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        cursor: pointer;
+        padding: 1.5rem;
+
+        h3 {
+          @include titleText(2rem);
+        }
+
+        i {
+          font-size: 2rem;
+          color: $green;
+        }
+      }
+
+      .accordion-content {
+        padding: 1.5rem;
+        @include graphText(1.5rem);
+        border-top: $border;
+        display: none;
+        column-gap: $white;
+      }
+
+      &:hover {
+        transform: scale(1.02);
+      }
+    }
+  }
+}
+
+// footer section
+
+.credit {
+  text-align: center;
+  margin: 3rem 0 0 0;
+  font-size: 2rem;
+  border-top: $border;
+  height: 1rem;
+
+  span {
+    color: $black;
+  }
+}
+
+
+// user
+// user register
+.register {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-flow: column;
+  box-shadow: $box-shadow;
+  background: $green;
+  width: 100vw;
+  height: auto;
+  text-align: center;
+  padding: 5rem 10%;
+  margin-top: 7rem;
+
+  .input {
+    border-radius: 8px;
+    height: 4rem;
+    width: 60%;
+    color: $green;
+    margin: 0.5rem 0;
+    padding: 0.5rem 0.75rem;
+    font-size: 2rem;
+  }
+
+  .button {
+    background: $light-green;
+    border: $border;
+    color: $white;
+    font-size: 2rem;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 60%;
+
+    &:hover {
+      color: $green;
+      background: $light-white;
+    }
+  }
+
+  p {
+    font-size: 1.5rem;
+  }
+}
+
+// user login
+.login {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-flow: column;
+  box-shadow: $box-shadow;
+  background: $green;
+  width: 100vw;
+  height: auto;
+  text-align: center;
+  padding: 5rem 10%;
+  margin-top: 7rem;
+
+  input {
+    border-radius: 8px;
+    border: $border;
+    height: 4rem;
+    width: 60%;
+    color: $green;
+    margin: 0.5rem 0;
+    padding: 0.5rem 0.75rem;
+    font-size: 2rem;
+  }
+
+  .button {
+    background: $light-green;
+    border: $border;
+    color: $white;
+    font-size: 2rem;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 60%;
+
+    &:hover {
+      color: $green;
+      background: $light-white;
+    }
+  }
+
+  p {
+    font-size: 1.5rem;
+  }
+}
+
+// student cards
+
+.student {
+  .box-container {
+    @include grid(30rem);
+    padding: 5rem 10%;
+
+    .box {
+      background: linear-gradient($green, blueviolet);
+      border: $border;
+      box-shadow: $box-shadow;
+
+      &:hover {
+        transform: scale(1.02);
+      }
+
+      .image {
+        overflow: hidden;
+        position: relative;
+        text-align: center;
+        margin-top: 4rem;
+
+        i {
+          font-size: 20rem;
+        }
+
+        h3 {
+          @include titleText(2rem);
+          color: $white;
+          margin: 2rem;
+        }
+      }
+
+      .content {
+        padding: 2rem;
+        text-align: center;
+        border: $border;
+
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+
+        td,
+        th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+          font-size: 1.2rem;
+          background: $green;
+          color: $black;
+        }
+
+        tr:nth-child(even) {
+          background-color: $green;
+          color: $white;
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+}
+
+// admin dashboard
+
+.admin {
+  background: $white;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("./images/back.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: auto;
+  width: 100vw;
+
+  .box-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-flow: column;
+    padding: 5rem 10%;
+    margin-top: 7rem;
+
+    .youtube {
+      text-align: center;
+      padding: 3rem 2rem;
+      border: $border;
+      width: 80vw;
+
+      h1 {
+        background: transparent;
+      }
+
+      form {
+        .form-group {
+          display: flex;
+          align-items: left;
+          justify-content: space-around;
+
+          .form-control {
+            width: 100%;
+            height: 4rem;
+            margin: 1rem;
+            font-size: 2rem;
+            border: $border;
+            background: transparent;
+            box-shadow: $box-shadow;
+            color: $green;
+          }
+
+          .submit {
+            width: 100%;
+            height: 4rem;
+            margin: 1rem;
+            font-size: 2rem;
+            background: $green;
+            color: $white;
+
+            &:hover {
+              background: $light-green;
+              color: $green;
+            }
+          }
+        }
+      }
+
+      &:hover {
+        transform: scale(1.02);
+      }
+    }
+
+    .facebook {
+      width: 80vw;
+      text-align: center;
+      padding: 3rem 2rem;
+      border: $border;
+      background: transparent;
+      flex-flow: column;
+      margin: 2rem;
+
+      .heading {
+        background: transparent;
+      }
+
+      form {
+        .form-group {
+          display: flex;
+          align-items: left;
+          justify-content: space-around;
+
+          .form-control {
+            width: 100%;
+            height: 4rem;
+            margin: 1rem;
+            font-size: 2rem;
+            border: $border;
+            color: white;
+            background: transparent;
+            box-shadow: $box-shadow;
+          }
+
+          .submit {
+            width: 100%;
+            height: 4rem;
+            margin: 1rem;
+            font-size: 2rem;
+            background: $green;
+            color: $white;
+
+            &:hover {
+              background: $light-green;
+              color: $green;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// create course
+form {
+  .form-group {
+    display: flex;
+    align-items: left;
+    justify-content: space-around;
+
+    .form-control {
+      width: 100%;
+      height: 4rem;
+      margin: 1rem;
+      font-size: 2rem;
+      border: $border;
+      background: transparent;
+      box-shadow: $box-shadow;
+      color: $green;
+    }
+
+    .submit {
+      width: 100%;
+      height: 4rem;
+      margin: 1rem;
+      font-size: 2rem;
+      background: $green;
+      color: $white;
+
+      &:hover {
+        background: $light-green;
+        color: $green;
+      }
+    }
+  }
+}
+
+// chat
+
+.chat-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-flow: column;
+
+  .box {
+    height: auto;
+    width: 80rem;
+
+    h3 {
+      color: $black;
+      font-size: 2rem;
+      background: $green;
+    }
+
+    input {
+      width: 100%;
+      height: 4rem;
+      color: $green;
+      background: $white;
+      border: $border;
+      box-shadow: $box-shadow;
+    }
+  }
+}
+
+// chat area
+.chat {
+  height: 30vh;
+  width: 100vw;
+  background: $green;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  h1 {
+    font-size: 4rem;
+    text-align: center;
+    color: red;
+  }
+}
+
+// quiz section
+.quiz-container {
+  max-width: 100vw;
+  margin-top: 10rem;
+  
+  height: 90vh;
+  z-index: 101;
+
+  font-family: Arial, sans-serif;
+
+  .form-group {
+    background-image: url("./images/1.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    padding: 20px;
+    box-sizing: border-box;
+    flex-flow: column;
+
+    h1 {
+      font-size: 3rem;
+      color: white;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 576px) {
+      height: 92vh;
+    }
+
+    .error {
+      border: 5px solid red;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 2rem;
+      color: $primary-color;
+      background-color: rgba(18, 68, 85, 0.5);
+      margin: 1rem;
+      width: 90%;
+
+      &:focus {
+        border: 2px solid $green;
+        background-color: white;
+        color: black;
+      }
+
+      &::placeholder {
+        color: white;
+        font-size: 2rem;
+      }
+    }
+
+    button {
+      padding: 10px;
+      background: linear-gradient($green, blueviolet);
+      color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      width: 90%;
+      margin: 1rem;
+
+      &:hover {
+        background: $green;
+        color: black;
+      }
+    }
+  }
+
+  .results {
+    padding: 20px;
+    background-color: #f2f2f2;
+    height: 1000vh;
+
+    background-image: url("./images/1.jpg");
+    background-size: cover;
+    background-position: center;
+
+    @media (max-width: 576px) {
+      padding: 15px;
+    }
+
+    p {
+      margin-bottom: 10px;
+      font-size: 2rem;
+      border: solid 1px white;
+      color: white;
+      padding: 1rem;
+    }
+
+    .questions {
+      margin-bottom: 10px;
+      font-size: 2rem;
+      color: white;
+    }
+
+    h3 {
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    div {
+      margin-bottom: 20px;
+      padding: 10px;
+      background: linear-gradient($green, blueviolet);
+      border: 1px solid #550505;
+      border-radius: 4px;
+      color: black;
+
+      .answers {
+        margin-bottom: 5px;
+        font-size: 3rem;
+
+        span {
+          font-size: 3rem;
+          background: white;
+          width: 4rem;
+          height: 4rem;
+          border-radius: 40%;
+          margin-left: 0.5rem;
+        }
+      }
+    }
+  }
+}
+
+.question-container {
+  margin-top: 7rem;
+
+  text-align: center;
+  height: 60vh;
+
+  h2 {
+    font-size: 3rem;
+    margin: 0.5rem;
+  }
+
+  p {
+    padding: 1rem;
+    margin: 1rem;
+    font-weight: bold;
+    font-size: 2.5rem;
+    text-align: righ;
+    border: solid 1px black;
+    background: $green;
+
+    @font-face {
+      font-family: 'UrduFontName';
+      src: url("./fonts/Attari_Quran\ Regular.ttf") format('truetype');
+    }
+    
+  }
+
+  .options {
+    display: inline-block;
+    margin: 2rem 1rem 0 1rem;
+
+    div {
+      border: solid 1px green;
+      height: 6.5rem;
+      width: 6.5rem;
+      margin: 1rem;
+      width: 80vw;
+      text-align: left;
+      label {
+        margin: 2rem 2rem 2rem 0.5rem;
+        font-size: 2rem;
+        padding: 1rem;
+        text-align: right;
+
+        @font-face {
+          font-family: 'Attari_Quran';
+          src: url("./fonts/Attari_Quran\ Regular.ttf") format('truetype');
+        }
+      }
+
+      input {
+        margin: 1rem 0.5rem 1rem 1rem;
+        width: 2rem;
+        height: 2rem;
+      }
+    }
+  }
+  .navigation-buttons {
+    .next {
+      margin: 1rem;
+
+      font-size: 16px;
+      width: 40vw;
+      display: inline-block;
+      height: 3rem;
+      cursor: pointer;
+      color: black;
+      background: linear-gradient($green, blueviolet);
+      border-radius: 5px;
+
+      &:hover {
+        background: #550505;
+        color: white;
+      }
+    }
+    .back {
+      margin: 1rem;
+
+      font-size: 16px;
+      width: 40vw;
+      display: inline-block;
+      border-radius: 5px;
+      height: 3rem;
+      cursor: pointer;
+      color: black;
+      background: linear-gradient($green, blueviolet);
+
+      &:hover {
+        background: #550505;
+        color: white;
+      }
+    }
+  }
+}
+
+.loading {
+  margin: 20px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.dateAdded{
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 10rem 1rem 1rem 1rem;
+   h1{
+    font-size: 4rem;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 1rem;
+
+    span{
+      color: red;
+    }
+   }
+   p{
+    font-size: 2rem;
+    text-align: right;
+    font-family: "Noto Nastaliq Urdu";
+    line-height: 4rem;
+    margin: 1rem;
+   
+   }
+}
+
+// media queries
+
+@media (max-width: 1200px) {
+  .heading-link {
+    padding: 3rem;
+  }
+
+  .screenPadding {
+    padding: 3rem;
+  }
+}
+
+@media (max-width: 991px) {
+  html {
+    font-size: 55%;
+  }
+
+  header {
+    .header-2 {
+      a {
+        img {
+          margin-left: 0.1rem;
+        }
+      }
+      #menu {
+        display: inline-block;
+        margin-right: 2rem;
+      }
+
+      .navbar {
+        position: fixed;
+        top: -200%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 0 0 100vh rgba(0, 0, 0, 0.3);
+        z-index: 10000;
+        opacity: 0;
+
+        ul {
+          flex-flow: column;
+          background: linear-gradient($green, blueviolet);
+          border: 0.2rem solid #fff;
+          box-shadow: 0 0.3rem 0.5rem #000;
+          padding: 4rem 0;
+          width: 27rem;
+
+          li {
+            width: 100%;
+            margin: 1rem 0;
+            text-align: center;
+            display: block;
+
+            a {
+              font-size: 2.5rem;
+            }
+          }
+        }
+      }
+
+      .nav-toggle {
+        top: 50%;
+        opacity: 1;
+      }
+    }
+  }
+
+  .fa-times {
+    transform: rotate(180deg);
+  }
+
+  .login {
+    input {
+      width: 80%;
+    }
+
+    .button {
+      width: 80%;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .landing {
+    h1 {
+      font-size: 3rem;
+    }
+  }
+
+  .register {
+    .input {
+      width: 95%;
+    }
+    .button {
+      width: 95%;
+    }
+  }
+
+  .heading-link {
+    padding: 3rem 1%;
+  }
+
+  .screenPadding {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  html {
+    font-size: 50%;
+  }
+
+  .chat {
+    margin-top: 7rem;
+  }
+  .register {
+    .input {
+      width: 95%;
+    }
+
+    .button {
+      width: 95%;
+    }
+  }
+
+  .heading-link {
+    padding: 1rem;
+  }
+
+  .screenPadding {
+    padding: 1rem;
+  }
+
+  .heading {
+    font-size: 3rem;
+  }
+
+  header {
+    .header-2 {
+      #menu {
+        display: block;
+        margin-left: 2rem;
+      }
+    }
+  }
+
+  .home {
+    .about {
+      .content {
+        padding: 0;
+        p {
+          line-height: auto;
+        }
+      }
+    }
+  }
+
+  .trainer {
+    .image {
+      img {
+        height: auto;
+        width: 100%;
+      }
+    }
+  }
+
+  .admin {
+    padding: 1.5rem;
+  }
+
+  .about .content .about-title {
+    font-size: 4rem;
+  }
+}
