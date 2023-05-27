@@ -49,7 +49,7 @@ function App() {
           <Route path="/register" element={<Register />}></Route>
 
           <Route path="/update" element={<UpdatePassword />}></Route>
-          <Route path="/quranquiz" element={today === targetDate && currentHour >= 18 && currentHour < 20 && currentYear === 2023 ? <Quiz />:<SooratKausar />}></Route>
+          <Route path="/quranquiz" element={today === targetDate && currentHour >= 12 && currentHour < 15 && currentYear === 2023 ? <Quiz />:<SooratKausar />}></Route>
 
           <Route
             path="/male"
