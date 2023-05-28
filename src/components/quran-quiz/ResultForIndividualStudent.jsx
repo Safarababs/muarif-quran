@@ -1,61 +1,77 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import BackendCall from '../institute/BackendCall';
+import React, { useEffect, useState } from "react";
+import data from "../data";
+import BackendCall from "../institute/BackendCall";
+import NewResult from "./newResult";
 
-const ResultCheck = () => {
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [result, setResult] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+function Results() {
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [notes, setNotes] = useState([
+    {
+      name: "",
+      phoneNumber: "",
+      obtainedMarks: "",
+      _id: "",
+    },
+  ]);
+  const [filteredNotes, setFilteredNotes] = useState([]);
 
-  const handlePhoneNumberChange = (event) => {
-    setPhoneNumber(event.target.value);
-  };
-
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
-    setIsLoading(true);
-    setError(null);
-
-    axios
-      .get(`http://localhost:3000/result/${phoneNumber}`) // Replace with your backend API endpoint
-      .then((response) => {
-        setIsLoading(false);
-        setResult(response.data);
+  useEffect(() => {
+    fetch(data.backend + "/results")
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw new Error("Failed to fetch results");
+        }
+      })
+      .then((jsonRes) => {
+        setNotes(jsonRes);
       })
       .catch((error) => {
-        setIsLoading(false);
-        setError('Error occurred while fetching the result.');
+        console.log(error);
       });
+  }, []);
+
+  const handleFilter = (event) => {
+    event.preventDefault();
+
+    // Filter the notes based on the phone number
+    const filtered = notes.filter((note) => note.phoneNumber === phoneNumber);
+    setFilteredNotes(filtered);
   };
 
   return (
-    
-    <div style={{marginTop:"7rem"}}>
-    <BackendCall />
-      <h1>Check Result</h1>
-      <form onSubmit={handleFormSubmit}>
+    <>
+      
+
+      <form onSubmit={handleFilter} className="studentResult">
         <input
           type="text"
           value={phoneNumber}
-          onChange={handlePhoneNumberChange}
-          placeholder="Enter Phone Number"
+          onChange={(event) => setPhoneNumber(event.target.value)}
+          placeholder="Enter your phone number"
         />
-        <button type="submit">Check</button>
+        <button type="submit">Check Results</button>
       </form>
-      {isLoading && <p>Loading...</p>}
-      {error && <p>{error}</p>}
-      {result && (
-        <div>
-          <p>Name: {result.name}</p>
-          <p>Phone Number: {result.phoneNumber}</p>
-          <p>City: {result.city}</p>
-          <p>Obtained Marks: {result.obtainedMarks}</p>
-          {/* Display any other relevant result information */}
-        </div>
-      )}
-    </div>
-  );
-};
 
-export default ResultCheck;
+      {filteredNotes.length > 0 ? (
+        <section className="student" >
+          <div className="box-container" style={{marginTop:"0"}}>
+            {filteredNotes.map((note) => (
+              <NewResult
+                key={note._id}
+                name={note.name}
+                phoneNumber={note.phoneNumber}
+                obtainedMarks={note.obtainedMarks}
+              />
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      <BackendCall />
+    </>
+  );
+}
+
+export default Results;

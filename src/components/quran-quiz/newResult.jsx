@@ -2,7 +2,7 @@ import React from "react";
 
 function NewResult(props) {
   return (
-    <div className="box">
+    <div className="box" style={{marginTop:"0"}}>
       <div className="content">
         <table>
           <tbody>

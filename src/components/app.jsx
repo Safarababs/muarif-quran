@@ -84,7 +84,7 @@ function App() {
         </Routes>
       </AuthProvider>
     </Router>
-    <div className="credit">iltimas-e-dua <span>Safar Abbas</span> all © copyright 2022 - {new Date().getFullYear()} reserved</div>
+    <div className="credit">iltimas-e-dua Safar Abbas all © copyright 2022 - {new Date().getFullYear()} reserved</div>
     </>
   );
 }

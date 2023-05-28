@@ -1247,15 +1247,25 @@ header {
 
 .credit {
   text-align: center;
-  margin: 3rem 0 0 0;
   font-size: 2rem;
-  border-top: $border;
+ 
   height: 1rem;
+  position: fixed;
+  bottom: 3rem;
+  left: 0;
+  right: 0;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90vw;
+  padding: .1rem;
+  
   span {
     color: $black;
   }
 }
+
 
 
 // user
@@ -1872,9 +1882,43 @@ form {
     text-align: right;
     font-family: "Noto Nastaliq Urdu";
     line-height: 4rem;
-    margin: 1rem;
+    margin: 1rem; 
    
    }
+}
+
+// final resutl
+.studentResult{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 15rem;
+  
+  flex-flow: column;
+
+  input{
+    width: 90%;
+    border: $border;
+    color: black;
+    padding: 1rem;
+    height: 4rem;
+    border-radius: 10px;
+    font-size: 2rem;
+    margin: .5rem;
+
+    ::placeholder{
+      color: $green;
+      font-size: 1rem;
+      margin: 1rem;
+    }
+  }
+
+  button{
+    @include button();
+    width: 90%;
+    border-radius: 10px;
+  }
 }
 
 // media queries
