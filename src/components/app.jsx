@@ -22,6 +22,7 @@ import { RequireAuth } from "./admin/requireauth";
 import UpdatePassword from "./student/loginpage/UpdatePassword";
 import Quiz from "./quran-quiz/quiz";
 import SooratKausar from "./quran-quiz/Demo";
+import Results from "./quran-quiz/ResultsForAgha";
 
 function App() {
   const currentDate = new Date();
@@ -48,6 +49,7 @@ function App() {
           <Route path="/about" element={<About />}></Route>
           <Route path="/gallery" element={<Gallery />}></Route>
           <Route path="/register" element={<Register />}></Route>
+          <Route path="/results" element={<Results />}></Route>
 
           <Route path="/update" element={<UpdatePassword />}></Route>
           <Route path="/quranquiz" element={today === targetDate && currentHour >= 11 && currentHour < 15 && currentYear === 2023 ? <Quiz />:<SooratKausar />}></Route>
