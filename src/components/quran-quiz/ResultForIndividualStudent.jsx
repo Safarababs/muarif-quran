@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import BackendCall from '../institute/BackendCall';
 
 const ResultCheck = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -29,7 +30,9 @@ const ResultCheck = () => {
   };
 
   return (
+    
     <div style={{marginTop:"7rem"}}>
+    <BackendCall />
       <h1>Check Result</h1>
       <form onSubmit={handleFormSubmit}>
         <input
