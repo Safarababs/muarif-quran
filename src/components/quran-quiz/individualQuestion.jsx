@@ -51,7 +51,7 @@ const IndividualQuestion = () => {
           )}
         </div>
       )}
-      {!currentQuestionData && <p>Quiz completed!</p>}
+      {!currentQuestionData && <p style={{fontSize:"3rem"}}>Quiz completed!</p>}
     </div>
   );
 };
