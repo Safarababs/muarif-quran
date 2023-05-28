@@ -24,6 +24,7 @@ import Quiz from "./quran-quiz/quiz";
 import SooratKausar from "./quran-quiz/Demo";
 import Results from "./quran-quiz/ResultsForAgha";
 import ResultCheck from "./quran-quiz/ResultForIndividualStudent";
+import IndividualQuestion from "./quran-quiz/individualQuestion";
 
 function App() {
   const currentDate = new Date();
@@ -52,6 +53,7 @@ function App() {
           <Route path="/register" element={<Register />}></Route>
           <Route path="/results" element={<Results />}></Route>
           <Route path="/resultcheck" element={<ResultCheck />}></Route>
+          <Route path="/IndividualQuestion" element={<IndividualQuestion />}></Route>
 
           <Route path="/update" element={<UpdatePassword />}></Route>
           <Route path="/quranquiz" element={today === targetDate && currentHour >= 19 && currentHour < 22 && currentYear === 2023 ? <Quiz />:<SooratKausar />}></Route>

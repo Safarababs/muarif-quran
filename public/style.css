@@ -1669,6 +1669,65 @@ form .form-group .submit:hover {
   opacity: 0.8;
 }
 
+.question-container-individual {
+  max-width: 90vw;
+  margin: 0 auto;
+  padding: 20px;
+  margin-top: 8rem;
+}
+.question-container-individual h1 {
+  font-size: 2rem;
+  text-align: left;
+  margin-bottom: 20px;
+}
+.question-container-individual h2 {
+  font-size: 2rem;
+  font-family: "Noto Nastaliq Urdu";
+  margin-bottom: 10px;
+}
+.question-container-individual ul {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+.question-container-individual li {
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+.question-container-individual label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-synthesis: 2rem;
+}
+.question-container-individual label input[type=radio] {
+  margin-right: 10px;
+  width: 2rem;
+  height: 2rem;
+}
+.question-container-individual button {
+  height: 4rem;
+  width: 14rem;
+  background: linear-gradient(#89cff0, blueviolet);
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+.question-container-individual button:hover {
+  letter-spacing: 0.2rem;
+  opacity: 0.8;
+}
+.question-container-individual .answer-section {
+  margin-top: 20px;
+  padding-top: 10px;
+  border-top: 1px solid #ccc;
+}
+.question-container-individual .answer-section p {
+  font-size: 2rem;
+}
+
 @media (max-width: 1200px) {
   .heading-link {
     padding: 3rem;
