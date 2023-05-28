@@ -36,7 +36,7 @@ function Header() {
               <a href="/contact">contact</a>
             </li>
             <li>
-              <a href="/quranquiz">quiz</a>
+              <a href="/resultcheck">Result</a>
             </li>
             {auth.user ? null : (
               <li>
