@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import questions from './questions';
+import questions from './Questions/SooratIklas';
 
 const IndividualQuestion = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);

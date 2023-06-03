@@ -1,5 +1,5 @@
-// questions.js
-const questions = [
+// SooratIKausar.js
+const SooratIKausar = [
     {
       question: 'سورت الکوثر کی کتنی آیات ہیں؟',
       options: ['1', '2', '3', '4'],
@@ -123,5 +123,5 @@ const questions = [
 
   
   
-  export default questions;
+  export default SooratIKausar;
   

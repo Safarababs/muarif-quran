@@ -20,28 +20,26 @@ import { AuthProvider } from "./admin/auth";
 import { RequireAuth } from "./admin/requireauth";
 
 import UpdatePassword from "./student/loginpage/UpdatePassword";
-import Quiz from "./quran-quiz/quiz";
-import SooratKausar from "./quran-quiz/Demo";
+import Quiz from "../components/quran-quiz/quiz";
+import QuizAccess from "./quran-quiz/Access";
 import Results from "./quran-quiz/ResultsForAgha";
 import ResultCheck from "./quran-quiz/ResultForIndividualStudent";
 import IndividualQuestion from "./quran-quiz/individualQuestion";
 
 function App() {
   const currentDate = new Date();
-  const today = currentDate.getDate();
-  const targetDate = 28;
+  const today = currentDate.getUTCDate();
+  const targetDate = 4;
   const currentHour = currentDate.getUTCHours() + 5;
-  const currentMonth = currentDate.getMonth() + 1;
-  const currentYear = currentDate.getFullYear();
-  console.log(currentHour, currentMonth, currentYear);
-  
-  
+ console.log(today, targetDate, currentHour);
+
 
   return (
     <>
     <Router>
       <AuthProvider>
         <Header />
+    
         <Routes>
           <Route path="/" exact element={<Home />}></Route>
           <Route path="/courses" element={<Courses />}></Route>
@@ -56,7 +54,7 @@ function App() {
           <Route path="/IndividualQuestion" element={<IndividualQuestion />}></Route>
 
           <Route path="/update" element={<UpdatePassword />}></Route>
-          <Route path="/quranquiz" element={today === targetDate && currentHour >= 19 && currentHour < 22 && currentYear === 2023 ? <Quiz />:<SooratKausar />}></Route>
+          <Route path="/quranquiz" element={today === targetDate && currentHour >= 9 && currentDate > 3  ? <Quiz />:<QuizAccess />}></Route>
 
           <Route
             path="/male"

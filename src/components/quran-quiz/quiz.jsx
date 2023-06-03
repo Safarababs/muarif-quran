@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import swal from "sweetalert";
-import questions from "./questions";
+import questions from "./Questions/Question";
 import BackendCall from "../institute/BackendCall";
 import data from "../data";
 
@@ -12,8 +12,12 @@ const Quiz = () => {
     phoneNumber: "",
     city: "",
   });
+  const [userResults, setUserResults] = useState([]);
+
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [answers, setAnswers] = useState(new Array(questions.length).fill(null));
+  const [answers, setAnswers] = useState(
+    new Array(questions.length).fill(null)
+  );
   const [showUserForm, setShowUserForm] = useState(true);
   const [showResults, setShowResults] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -63,7 +67,7 @@ const Quiz = () => {
     setCurrentQuestionIndex((prevIndex) => prevIndex - 1);
   };
 
-  const calculateMarks = () => {
+  const calculateMarks = useCallback(() => {
     let totalMarks = shuffledQuestions.length;
     let obtainedMarks = 0;
     let resultDetails = [];
@@ -78,19 +82,17 @@ const Quiz = () => {
     });
 
     return { totalMarks, obtainedMarks: Number(obtainedMarks), resultDetails };
-  };
+  }, [shuffledQuestions, answers]);
 
-  const saveUserDataAndAnswers = () => {
+  const saveUserDataAndAnswers = useCallback(() => {
     setIsLoading(true);
     const obtainedMarks = calculateMarks();
     const name = userData.name;
     const phoneNumber = userData.phoneNumber;
     const city = userData.city;
-    const backUp = { name, phoneNumber, city, obtainedMarks };
+    const backup = { name, phoneNumber, city, obtainedMarks };
 
-    swal("Please wait", "We are saving", "warning");
-
-    axios.post(data.backend + "/result", backUp).then((res) => {
+    axios.post(data.backend + "/result", backup).then((res) => {
       if (res.data.message === "Successfully sent") {
         swal("Thank you!", "Your result has been saved", "success");
         setIsLoading(false);
@@ -103,7 +105,29 @@ const Quiz = () => {
         setIsLoading(false);
       }
     });
-  };
+  }, [calculateMarks, userData]);
+
+  const checkIfUserAlreadyCompletedQuiz = useCallback(() => {
+    const name = userData.name;
+    const phoneNumber = userData.phoneNumber;
+    const city = userData.city;
+
+    axios.get(data.backend + "/results").then((res) => {
+      if (res.data && res.data.length > 0) {
+        const existingResults = res.data.filter(
+          (result) =>
+            result.name === name &&
+            result.phoneNumber === phoneNumber &&
+            result.city === city
+        );
+        setUserResults(existingResults);
+        if (existingResults.length > 0) {
+          setShowUserForm(false);
+          setShowResults(true);
+        }
+      }
+    });
+  }, [userData]);
 
   useEffect(() => {
     const shuffledArray = questions.map((question) => {
@@ -114,6 +138,12 @@ const Quiz = () => {
     });
     setShuffledQuestions(shuffledArray);
   }, []);
+
+  useEffect(() => {
+    if (!showUserForm) {
+      checkIfUserAlreadyCompletedQuiz();
+    }
+  }, [showUserForm, checkIfUserAlreadyCompletedQuiz]);
 
   return (
     <div className="quiz-container" style={{ marginTop: "7rem" }}>
@@ -153,44 +183,54 @@ const Quiz = () => {
         </div>
       ) : showResults ? (
         <div className="results">
-          <p>Name: {userData.name}</p>
-          <p>Phone Number: {userData.phoneNumber}</p>
-          <p>City: {userData.city}</p>
-          <p>Total Marks: {calculateMarks().totalMarks}</p>
-          <p>Obtained Marks: {calculateMarks().obtainedMarks}</p>
-          <h3 style={{ color: "white" }}>Question-wise Results:</h3>
-          {calculateMarks().resultDetails.map((result, index) => (
-            <div key={index}>
-              <p
-                style={{
-                  color: "black",
-                  fontSize: "3rem",
-                }}
-              >
-                Question {index + 1}: {result.question.question}
-              </p>
-              <p className="answers">Correct Answer: {result.question.correctAnswer}</p>
-              <p className="answers">Your Answer: {result.answer}</p>
-
-              {result.isCorrect ? (
-                <p className="answers">
-                  Correct Answer:{" "}
-                  <span style={{ color: "green" }}>&#10004;</span>
-                </p>
-              ) : (
-                <p className="answers">
-                  Wrong Answer:{" "}
-                  <span
+          {userResults.length > 0 ? (
+            <p style={{ color: "red", background: "white" }}>
+              You have already completed the quiz. Please wait for the results.
+            </p>
+          ) : (
+            <>
+              <p>Name: {userData.name}</p>
+              <p>Phone Number: {userData.phoneNumber}</p>
+              <p>City: {userData.city}</p>
+              <p>Total Marks: {calculateMarks().totalMarks}</p>
+              <p>Obtained Marks: {calculateMarks().obtainedMarks}</p>
+              <h3 style={{ color: "white" }}>Question-wise Results:</h3>
+              {calculateMarks().resultDetails.map((result, index) => (
+                <div key={index}>
+                  <p
                     style={{
-                      color: "red",
+                      color: "black",
+                      fontSize: "3rem",
                     }}
                   >
-                    &#10006;
-                  </span>
-                </p>
-              )}
-            </div>
-          ))}
+                    Question {index + 1}: {result.question.question}
+                  </p>
+                  <p className="answers">
+                    Correct Answer: {result.question.correctAnswer}
+                  </p>
+                  <p className="answers">Your Answer: {result.answer}</p>
+
+                  {result.isCorrect ? (
+                    <p className="answers">
+                      Correct Answer:{" "}
+                      <span style={{ color: "green" }}>&#10004;</span>
+                    </p>
+                  ) : (
+                    <p className="answers">
+                      Wrong Answer:{" "}
+                      <span
+                        style={{
+                          color: "red",
+                        }}
+                      >
+                        &#10006;
+                      </span>
+                    </p>
+                  )}
+                </div>
+              ))}
+            </>
+          )}
         </div>
       ) : (
         <div className="question-container">
@@ -200,14 +240,17 @@ const Quiz = () => {
             {shuffledQuestions[currentQuestionIndex].options.map(
               (option, index) => (
                 <div key={index}>
-                  <input
-                    type="radio"
-                    name="option"
-                    value={option}
-                    onChange={handleAnswerSelect}
-                    checked={answers[currentQuestionIndex] === option}
-                  />
-                  <label>{option}</label>
+                  <label>
+                    <input
+                      type="radio"
+                      name="option"
+                      value={option}
+                      onChange={handleAnswerSelect}
+                      checked={answers[currentQuestionIndex] === option}
+                      style={{ textAlign: "right" }}
+                    />
+                    {option}
+                  </label>
                   <BackendCall />
                 </div>
               )

@@ -14,8 +14,10 @@ function Results() {
     },
   ]);
   const [filteredNotes, setFilteredNotes] = useState([]);
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
+    setLoading(true)
     fetch(data.backend + "/results")
       .then((res) => {
         if (res.ok) {
@@ -26,6 +28,7 @@ function Results() {
       })
       .then((jsonRes) => {
         setNotes(jsonRes);
+        setLoading(false)
       })
       .catch((error) => {
         console.log(error);
@@ -51,7 +54,7 @@ function Results() {
           onChange={(event) => setPhoneNumber(event.target.value)}
           placeholder="Enter your phone number"
         />
-        <button type="submit">Check Results</button>
+        <button type="submit">{loading ? "Loading":"Check Results"}</button>
       </form>
 
       {filteredNotes.length > 0 ? (
