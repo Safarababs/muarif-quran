@@ -50,7 +50,15 @@ function App() {
             <Route path="/gallery" element={<Gallery />}></Route>
             <Route path="/register" element={<Register />}></Route>
             <Route path="/results" element={<Results />}></Route>
-            <Route path="/resultcheck" element={<ResultCheck />}></Route>
+            <Route path="/resultcheck" element={today === targetDate+1 ? <ResultCheck />:<h1
+                    style={{
+                      margin: "15rem 4rem",
+                      color: "red",
+                      fontSize: "4rem",
+                    }}
+                  >
+                    Access denied! Tomorrow it will show
+                  </h1>}></Route>
             <Route
               path="/IndividualQuestion"
               element={
