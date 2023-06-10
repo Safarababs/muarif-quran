@@ -1,9 +1,6 @@
 .trainer {
   min-height: 100vh;
   background: white;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
 }
 .trainer .heading span {
   color: #000;
@@ -11,13 +8,13 @@
 .trainer .box-container {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   flex-wrap: wrap;
   padding: 2rem 0;
 }
 .trainer .box-container .box {
   height: 40rem;
-  width: 28rem;
+  width: 25%;
   margin: 2rem;
   border: 0.5rem solid blueviolet;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
@@ -25,8 +22,7 @@
   overflow: hidden;
 }
 .trainer .box-container .box img {
-  height: 100%;
-  width: 100%;
+  width: 50%;
   -o-object-fit: cover;
      object-fit: cover;
 }
