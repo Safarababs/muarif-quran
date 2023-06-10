@@ -403,16 +403,4 @@
   background-color: #89cff0;
   color: #fff;
   font-size: 1.2rem;
-}
-
-.btn {
-  color: blueviolet;
-  border-color: blueviolet;
-  outline-color: blueviolet;
-  width: 90%;
-  text-align: center;
-  border-radius: 10px;
-}
-.btn:hover {
-  color: #fff;
 }/*# sourceMappingURL=quiz.css.map */

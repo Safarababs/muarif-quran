@@ -44,10 +44,10 @@ function Results() {
 
   return (
     <>
-      
-
       <section className="student">
-      <h3 className="heading"><span>here you can find all results</span></h3>
+        <h3 className="heading">
+          <span>here you can find all results</span>
+        </h3>
         <div className="box-container">
           {notes.map((note) => (
             <NewResult
@@ -60,7 +60,20 @@ function Results() {
         </div>
       </section>
 
-      <button onClick={generateFile} className="btn">Generate File</button>
+      <button
+        onClick={generateFile}
+        className="btn"
+        style={{
+          borderColor: "blueviolet",
+          outlineColor: "blueviolet",
+          width: "90%",
+          textAlign: "center",
+          borderRadius: "10px",
+          color: "black",
+        }}
+      >
+        Generate File
+      </button>
 
       <BackendCall />
     </>
