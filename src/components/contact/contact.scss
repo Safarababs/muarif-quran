@@ -1,0 +1,268 @@
+$green: skyblue;
+$border: solid 1px $green;
+$light-green: #40b5ad;
+$light-color: #777;
+$light-white: #eee;
+$black: black;
+$white: #fff;
+$border: 0.1rem solid $green;
+$box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+$primary-color: #3498db;
+@mixin grid($val) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($val, 1fr));
+  gap: 2rem;
+}
+
+@mixin titleText($titleSize) {
+  font-size: $titleSize;
+  text-transform: capitalize;
+  color: $white;
+}
+
+@mixin graphText($graphSize) {
+  font-size: $graphSize;
+  line-height: 2;
+  color: $light-color;
+}
+
+@mixin button {
+  height: 4rem;
+  width: 14rem;
+  background: linear-gradient($green, blueviolet);
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  border: none;
+  outline: none;
+
+  &:hover {
+    letter-spacing: 0.2rem;
+    opacity: 0.8;
+  }
+}
+
+.contact {
+  .icons-container {
+    margin-top: 3rem;
+    @include grid(25rem);
+    padding: 5rem 10%;
+
+    .icons {
+      text-align: center;
+      padding: 3rem 2rem;
+      border: $border;
+      background: $green;
+
+      i {
+        height: 6rem;
+        width: 6rem;
+        line-height: 6rem;
+        font-size: 2rem;
+        border-radius: 50%;
+        margin-bottom: 0.5rem;
+        color: $white;
+        background: $light-green;
+      }
+
+      h3 {
+        @include titleText(2rem);
+        padding: 0.5rem 0;
+        color: #000;
+      }
+
+      .paragraph {
+        display: inline-block;
+        margin-top: 1rem;
+        padding: 1rem 3rem;
+        font-size: 1.8rem;
+        text-align: center;
+        border: $border;
+        background: linear-gradient($green, blueviolet);
+        color: $white;
+        cursor: pointer;
+        text-transform: capitalize;
+        text-decoration: none;
+        box-shadow: $box-shadow;
+        width: auto;
+
+        &:hover {
+          background: $green;
+          color: $black;
+        }
+      }
+
+      p {
+        a {
+          display: inline-block;
+          margin-top: 1rem;
+          padding: 1rem 3rem;
+          font-size: 1.8rem;
+          text-align: center;
+          border: $border;
+          background: linear-gradient($green, blueviolet);
+          color: $white;
+          cursor: pointer;
+          text-transform: capitalize;
+          text-decoration: none;
+          box-shadow: $box-shadow;
+          width: auto;
+
+          &:hover {
+            background: $green;
+            color: $black;
+          }
+        }
+      }
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  .row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 5rem 10%;
+
+    .image {
+      flex: 1 1 40rem;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    form {
+      flex: 1 1 40rem;
+      border: $border;
+      padding: 2rem;
+
+      h3 {
+        @include titleText(2.5rem);
+        padding-bottom: 1rem;
+        color: #000;
+      }
+
+      .box {
+        width: 100%;
+        padding: 1.2rem 1.4rem;
+        border: $border;
+        font-size: 1.6rem;
+        margin: 0.7rem 0;
+
+        &:focus {
+          background: $green;
+          color: $white;
+
+          &::placeholder {
+            color: $light-white;
+          }
+        }
+      }
+
+      textarea {
+        height: 15rem;
+        resize: none;
+      }
+
+      .btn {
+        display: inline-block;
+        margin-top: 1rem;
+        padding: 1rem 3rem;
+        font-size: 1.8rem;
+        border: $border;
+        background: $green;
+        color: $white;
+        cursor: pointer;
+        text-transform: capitalize;
+        width: 100%;
+
+        &:hover {
+          background: $white;
+          color: $black;
+        }
+      }
+    }
+  }
+}
+
+// faq section
+.faq {
+  background: $white;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("./back.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: auto;
+  width: 100vw;
+
+  .accordion-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: flex-start;
+    padding: 5rem 10%;
+
+    .accordion {
+      flex: 1 1 40rem;
+      border: $border;
+
+      &.active {
+        .accordion-heading {
+          background: $green;
+
+          h3 {
+            color: $white;
+            font-size: 2rem;
+          }
+
+          i {
+            color: $white;
+            transform: rotate(180deg);
+          }
+        }
+
+        .accordion-content {
+          display: block;
+          color: white;
+          font-size: 1.5rem;
+        }
+      }
+
+      .accordion-heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        cursor: pointer;
+        padding: 1.5rem;
+
+        h3 {
+          @include titleText(2rem);
+        }
+
+        i {
+          font-size: 2rem;
+          color: $green;
+        }
+      }
+
+      .accordion-content {
+        padding: 1.5rem;
+        @include graphText(1.5rem);
+        border-top: $border;
+        display: none;
+        column-gap: $white;
+      }
+
+      &:hover {
+        transform: scale(1.02);
+      }
+    }
+  }
+}

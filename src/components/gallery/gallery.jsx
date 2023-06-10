@@ -1,4 +1,5 @@
 import React from "react";
+import "./Gallery.css";
 
 // images
 import img1 from "./images/img1.jpg";
@@ -22,98 +23,43 @@ import img18 from "./images/img18.jpg";
 import img19 from "../images/summer camp/1.jpg";
 import img20 from "../images/summer camp/2.jpg";
 import img21 from "../images/summer camp/3.jpg";
-import BackendCall from "../institute/BackendCall";
+
 
 function Gallery() {
+  const images = [
+    { id: 1, src: img1, alt: "Image 1" },
+    { id: 2, src: img2, alt: "Image 2" },
+    { id: 3, src: img3, alt: "Image 3" },
+    { id: 4, src: img4, alt: "Image 1" },
+    { id: 5, src: img5, alt: "Image 2" },
+    { id: 6, src: img6, alt: "Image 3" },
+    { id: 7, src: img7, alt: "Image 1" },
+    { id: 8, src: img8, alt: "Image 2" },
+    { id: 9, src: img9, alt: "Image 3" },
+    { id: 10, src: img10, alt: "Image 1" },
+    { id: 11, src: img11, alt: "Image 2" },
+    { id: 12, src: img12, alt: "Image 3" },
+    { id: 13, src: img13, alt: "Image 1" },
+    { id: 14, src: img14, alt: "Image 2" },
+    { id: 15, src: img15, alt: "Image 3" },
+    { id: 16, src: img16, alt: "Image 1" },
+    { id: 17, src: img17, alt: "Image 2" },
+    { id: 18, src: img18, alt: "Image 3" },
+    { id: 19, src: img19, alt: "Image 1" },
+    { id: 20, src: img20, alt: "Image 2" },
+    { id: 21, src: img21, alt: "Image 3" },
+  ];
   return (
-    <section className="gallery">
-      <div className="box-container">
-        <div className="box">
-          <img src={img18} alt="" />
-        </div>
-
-        <div className="box">
-          <img src={img17} alt="" />
-        </div>
-
-        <div className="box">
-          <img src={img16} alt="" />
-        </div>
-
-        <div className="box">
-          <img src={img15} alt="" />
-        </div>
-
-        <div className="box">
-          <img src={img19} alt="" />
-        </div>
-
-        <div className="box">
-          <img src={img20} alt="" />
-        </div>
-
-        <div className="box">
-          <img src={img21} alt="" />
-        </div>
-
-        <div className="box">
-          <img src={img14} alt="" />
-        </div>
-
-        <div className="box">
-          <img src={img13} alt="" />
-        </div>
-
-        <div className="box">
-          <img src={img12} alt="" />
-        </div>
-
-        <div className="box">
-          <img src={img11} alt="" />
-        </div>
-
-        <div className="box">
-          <img src={img10} alt="" />
-        </div>
-
-        <div className="box">
-          <img src={img9} alt="" />
-        </div>
-
-        <div className="box">
-          <img src={img8} alt="" />
-        </div>
-
-        <div className="box">
-          <img src={img7} alt="" />
-        </div>
-
-        <div className="box">
-          <img src={img6} alt="" />
-        </div>
-
-        <div className="box">
-          <img src={img5} alt="" />
-        </div>
-
-        <div className="box">
-          <img src={img4} alt="" />
-        </div>
-
-        <div className="box">
-          <img src={img3} alt="" />
-        </div>
-
-        <div className="box">
-          <img src={img2} alt="" />
-        </div>
-
-        <div className="box">
-          <img src={img1} alt="" />
-        </div>
-      </div>
-      <BackendCall />
-    </section>
+    <div className="gallery">
+      {images.map((image) => (
+        <img
+          key={image.id}
+          src={image.src}
+          alt={image.alt}
+          className="gallery__image"
+        />
+      ))}
+    </div>
   );
 }
 

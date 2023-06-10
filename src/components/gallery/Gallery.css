@@ -1,0 +1,23 @@
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background: skyblue;
+}
+
+.gallery__image {
+  width: 40rem;
+  height: 40rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin: 10px;
+}
+
+@media (max-width: 450px) {
+  .gallery__image {
+    width: 90%;
+    height: 90%;
+    margin: 10px;
+  }
+}/*# sourceMappingURL=Gallery.css.map */

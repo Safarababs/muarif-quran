@@ -1,0 +1,90 @@
+.books {
+  background: white;
+}
+.books .box-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5rem 10%;
+  flex-wrap: wrap;
+}
+.books .box-container .box {
+  display: flex;
+  background: linear-gradient(blueviolet, blueviolet);
+  border: solid 1px blueviolet;
+  margin: 1rem;
+  align-items: center;
+}
+.books .box-container .box .image {
+  overflow: hidden;
+  position: relative;
+  border: solid 1px blueviolet;
+  margin-top: 0.5rem;
+}
+.books .box-container .box .image img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.books .box-container .box .content {
+  padding: 2rem;
+  text-align: center;
+}
+.books .box-container .box .content h3 {
+  font-size: 2rem;
+  text-transform: capitalize;
+  color: white;
+  color: white;
+}
+.books .box-container .box .content h3 span {
+  font-family: "Noto Nastaliq Urdu";
+  color: yellow;
+  display: block;
+  margin: 0.2rem;
+}
+.books .box-container .box .content .button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 1rem 3rem;
+  font-size: 1.8rem;
+  border: solid 1px blueviolet;
+  background: white;
+  color: black;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+.books .box-container .box .content .button i {
+  color: red;
+}
+.books .box-container .box .content .button i span {
+  color: black;
+  font-size: 1.8rem;
+}
+.books .box-container .box .content .button:hover {
+  background: blueviolet;
+}
+.books .box-container .box .content .button:hover i span {
+  color: white;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding: 1.5rem 0;
+  list-style: none;
+  margin-top: 7rem;
+}
+.controls .btn {
+  color: blueviolet;
+  border-color: blueviolet;
+  outline-color: blueviolet;
+}
+.controls .btn:hover {
+  color: #fff;
+}
+.controls p {
+  margin: 1rem;
+}/*# sourceMappingURL=books.css.map */

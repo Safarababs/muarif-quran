@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import MaleLinks from "./maleLinks";
 
 import BackendCall from "../institute/BackendCall";
-import Lecture from "../institute/lectures/lectures";
+import Lecture from "../lectures/lectures";
 import Books from "../books/books";
 
 function MaleDashboard() {

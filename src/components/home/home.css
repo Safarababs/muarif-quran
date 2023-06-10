@@ -1,0 +1,90 @@
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./Quran.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.home .content {
+  text-align: center;
+  padding: 1rem;
+}
+.home .content h1 {
+  font-size: 6rem;
+  color: #fff;
+  text-shadow: 0 0.3rem 0.5rem #000;
+  text-transform: uppercase;
+}
+
+.about {
+  min-height: 100vh;
+}
+.about .row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2rem;
+  overflow-x: hidden;
+}
+.about .row .image img {
+  width: 200rem;
+  filter: drop-shadow(0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.3));
+}
+.about .row .content {
+  padding: 1rem;
+}
+.about .row .content h3 {
+  font-size: 3.5rem;
+  color: blueviolet;
+}
+.about .row .content p {
+  font-size: 2rem;
+  color: #666;
+  padding: 1rem 0;
+}
+.about .row .content .btn {
+  color: blueviolet;
+  border-color: blueviolet;
+  outline-color: blueviolet;
+}
+.about .row .content .btn:hover {
+  color: #fff;
+}
+
+.donate {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+  background: white;
+  padding: 5rem;
+}
+.donate .image {
+  flex: 1 1 40rem;
+}
+.donate .image img {
+  width: 100%;
+}
+.donate .content {
+  flex: 1 1 40rem;
+}
+.donate .content .about-title {
+  font-size: 3rem;
+  text-transform: capitalize;
+  color: white;
+}
+.donate .content p {
+  font-size: 2rem;
+  line-height: 2;
+  color: blueviolet;
+  padding: 1rem 0;
+}
+
+@media (max-width: 768px) {
+  .home .content h1 {
+    font-size: 5rem;
+  }
+}/*# sourceMappingURL=home.css.map */

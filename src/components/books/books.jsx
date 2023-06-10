@@ -10,10 +10,14 @@ import Tajweed from "./tajweed/Tajweed";
 import Ahakam from "./ahakam/Ahakam";
 import Maqtal from "./maqtal/Maqtal";
 import BackendCall from "../institute/BackendCall";
+import "./books.css";
 
 function Books() {
   return (
     <section className="books" id="courses">
+    <h1 className="heading">
+          <span>here you can find all books</span>
+        </h1>
       <GeneralBooks />
 
       <div className="box-container">

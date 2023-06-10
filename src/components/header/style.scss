@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&display=swap');
+$red: blueviolet;
+
+header {
+  .header-1 {
+    .marquee {
+        width: 100vw;
+        line-height: 30px;
+        color: #000;
+        white-space: nowrap;
+        overflow: hidden;
+        box-sizing: border-box;
+      
+        p {
+          display: inline-block;
+          font-size: 2.5rem;
+          animation: marquee 20s linear infinite;
+          @font-face {
+            font-family: "Attari_Quran Regular";
+            src: url("./fonts/Attari_Quran\ Regular.ttf") format('truetype');
+          }
+        }
+      
+        @keyframes marquee {
+          0% {
+            transform: translate(-100%, 0);
+          }
+          100% {
+            transform: translate(100%, 0);
+          }
+        }
+      }
+  }
+
+  .header-2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background: linear-gradient( $red, skyblue);
+    padding: 0.5rem;
+    position: relative;
+    z-index: 1000;
+
+    .navbar {
+      ul {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        list-style: none;
+
+        li {
+          margin: 1rem;
+
+          a {
+            font-size: 2rem;
+            color: #fff;
+
+            &:hover,
+            .active {
+              color: yellow;
+            }
+          }
+        }
+      }
+    }
+
+    .share {
+      a {
+        font-size: 2rem;
+        color: #fff;
+        margin: 1rem;
+
+        &:hover {
+          color: #ff0;
+        }
+      }
+    }
+
+    #menu {
+      font-size: 3rem;
+      color: #fff;
+      cursor: pointer;
+      margin: 1rem;
+      display: none;
+    }
+
+    .header-active {
+      position: fixed;
+      top: 0;
+      left: 0;
+      box-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.3);
+    }
+  }
+}
+
+// media queries
+
+@media (max-width: 1000px) {
+  header {
+    .header-2 {
+      #menu {
+        display: block;
+      }
+
+      .navbar {
+        position: fixed;
+        top: -200%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 0 0 100vh rgba(0, 0, 0, 0.3);
+        z-index: 10000;
+        opacity: 0;
+
+        ul {
+          flex-flow: column;
+          background: linear-gradient(skyblue, $red);
+          border: 0.2rem solid #fff;
+          box-shadow: 0 0.3rem 0.5rem #000;
+          padding: 4rem 0;
+          width: 15rem;
+
+          li {
+            width: 100%;
+            margin: 1rem 0;
+            text-align: center;
+            display: block;
+
+            a {
+              font-size: 2.7rem;
+              display: block;
+            }
+          }
+        }
+      }
+
+      .fa-times {
+        transform: rotate(180deg);
+      }
+
+      .nav-toggle {
+        top: 50%;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  header {
+    .header-1 {
+      flex-flow: column;
+    }
+
+    .header-2 {
+      .navbar {
+        ul {
+          width: 100vw;
+        }
+      }
+    }
+  }
+}

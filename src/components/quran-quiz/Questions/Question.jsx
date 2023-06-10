@@ -1,7 +1,5 @@
-import SooratIKafiroon from "./SooratKafiroon";
-import SooratINaas from "./SooratNaas";
-import SooratIkhlas from "./SooratIklas";
-import SooratIFalak from "./SooratFalak";
+import SooratHamza from "./SooratHamza";
+import sooratQuraish from "./SooratQuraish";
 
 function shuffleArray(array) {
   const shuffled = [...array];
@@ -13,10 +11,8 @@ function shuffleArray(array) {
 }
 
 const allQuestions = [
-  ...SooratIFalak,
-  ...SooratIKafiroon,
-  ...SooratINaas,
-  ...SooratIkhlas,
+  ...SooratHamza,
+  ...sooratQuraish,
 ];
 
 const questions = shuffleArray(allQuestions);

@@ -1,0 +1,149 @@
+$red: blueviolet;
+
+.trainer {
+  min-height: 100vh;
+  background: white;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  .heading {
+    span {
+      color: #000;
+    }
+  }
+
+  .box-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 2rem 0;
+
+    .box {
+      height: 40rem;
+      width: 60rem;
+      margin: 2rem;
+      border: 0.5rem solid $red;
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+      position: relative;
+      overflow: hidden;
+
+      iframe {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+      .info {
+        position: absolute;
+        bottom: -4rem;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        border-top: 0.5rem solid $red;
+        text-align: center;
+
+        h3 {
+          font-size: 2rem;
+          color: #333;
+          padding: 0.5rem 0;
+        }
+
+        span {
+          font-size: 1.5rem;
+          color: #666;
+        }
+
+        .share {
+          margin-top: 1rem;
+          border-top: 0.1rem solid rgba(0, 0, 0, 0.3);
+          padding: 1rem 0;
+
+          a {
+            font-size: 2rem;
+            margin: 1rem;
+            color: $red;
+
+            &:hover {
+              color: #333;
+            }
+          }
+        }
+      }
+      &:hover .info {
+        bottom: 0rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .trainer {
+    .box-container {
+      .box {
+        height: 46rem;
+        width: 90%;
+
+        iframe{
+            width: 100%;
+            height: 100%;        
+        }
+
+        .info {
+          position: absolute;
+          bottom: 0rem;
+          left: 0;
+          width: 100%;
+          background: #fff;
+          border-top: 0.5rem solid $red;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .trainer {
+    .box-container {
+      .box {
+        height: 46rem;
+        width: 90%;
+
+        .info {
+          position: absolute;
+          bottom: 0rem;
+          left: 0;
+          width: 100%;
+          background: #fff;
+          border-top: 0.5rem solid $red;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .trainer {
+    .box-container {
+      .box {
+        height: 28rem;
+        width: 90%;
+        .info {
+            position: absolute;
+            bottom: -4rem;
+            left: 0;
+            width: 100%;
+            background: #fff;
+            border-top: 0.5rem solid $red;
+            text-align: center;
+          }
+
+        &:hover .info {
+            bottom: 0rem;
+          }
+      }
+    }
+  }
+}

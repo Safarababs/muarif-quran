@@ -3,7 +3,7 @@ import { useAuth } from "../admin/auth";
 import { useNavigate } from "react-router-dom";
 import FemaleLinks from "./femaleLinks";
 import BackendCall from "../institute/BackendCall";
-import Lecture from "../institute/lectures/lectures";
+import Lecture from "../lectures/lectures";
 import Books from "../books/books";
 import Ladies from "../books/ladies/ladies.pdf";
 import ladies from "../books/ladies/ladies.png";

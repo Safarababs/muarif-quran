@@ -1,0 +1,91 @@
+.footer {
+  background: linear-gradient(skyblue, blueviolet);
+}
+
+.footer .box-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.footer .box-container .box {
+  flex: 1 1 23rem;
+  margin: 2rem;
+}
+
+.footer .box-container .box .heading {
+  margin: 0;
+  padding: 0;
+  box-shadow: 0 0.2rem 0.05rem rgba(255, 255, 255, 0.4);
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+
+.footer .box-container .box .heading span {
+  font-size: 2.5rem;
+  color: #fff;
+}
+
+.footer .box-container .box p {
+  font-size: 1.7rem;
+  color: #eee;
+  padding: 1rem 0;
+}
+
+.footer .box-container .box:first-child p {
+  font-size: 1.4rem;
+}
+
+.footer .box-container .box p i {
+  padding: 0 0.5rem;
+  color: #fff;
+}
+
+.footer .box-container .box a {
+  font-size: 1.7rem;
+  display: block;
+  padding: 0.5rem 0;
+  color: #eee;
+}
+
+.footer .box-container .box a:hover {
+  text-decoration: underline;
+}
+
+.footer .credit {
+  font-size: 2rem;
+  text-align: center;
+  padding: 2rem 1rem;
+  color: #fff;
+  border-top: 0.1rem solid rgba(255, 255, 255, 0.3);
+}
+
+.footer .credit span {
+  color: white;
+}
+
+.header-1 .marquee {
+  width: 100vw;
+  line-height: 30px;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.header-1 .marquee p {
+  display: inline-block;
+  font-size: 3rem;
+  animation: marquee 90s linear infinite;
+}
+@font-face {
+  font-family: "Attari_Quran Regular";
+  src: url("../header/fonts/Attari_Quran Regular.ttf") format("truetype");
+}
+@keyframes marquee {
+  0% {
+    transform: translate(-100%, 0);
+  }
+  100% {
+    transform: translate(100%, 0);
+  }
+}/*# sourceMappingURL=footer.css.map */

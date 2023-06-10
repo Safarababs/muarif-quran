@@ -1,0 +1,67 @@
+.activities {
+  min-height: 100vh;
+}
+.activities .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 1rem 0;
+  overflow-x: hidden;
+  flex-wrap: wrap;
+}
+.activities .container .container-content {
+  padding: 1rem;
+}
+.activities .container .container-content .english {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  font-size: 2rem;
+  color: blueviolet;
+  padding: 1rem;
+  text-align: left;
+  border: solid 1px blueviolet;
+  margin: 1rem;
+}
+.activities .container .container-content .english span {
+  color: black;
+  margin-right: 1rem;
+}
+.activities .container .container-content .urdu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  border: solid 1px blueviolet;
+  color: red;
+  font-family: "Noto Nastaliq Urdu";
+  text-align: right;
+  font-size: 2rem;
+  padding: 1rem;
+  margin: 1rem;
+}
+.activities .container .container-content .urdu span {
+  color: blueviolet;
+  margin-left: 1rem;
+  font-family: "Noto Nastaliq Urdu";
+  line-height: 5rem;
+}
+.activities .container .container-content:hover .urdu {
+  color: blueviolet;
+}
+.activities .container .container-content:hover .urdu span {
+  color: red;
+}
+
+@media (max-width: 450px) {
+  .activities .container .container-content .english {
+    font-size: 1.5rem;
+  }
+  .activities .container .container-content .urdu {
+    font-size: 1.5rem;
+  }
+  .activities .container .intro {
+    display: none;
+  }
+}/*# sourceMappingURL=about.css.map */

@@ -4,6 +4,7 @@ import swal from "sweetalert";
 import questions from "./Questions/Question";
 import BackendCall from "../institute/BackendCall";
 import data from "../data";
+import "./quiz.css";
 
 const Quiz = () => {
   const [shuffledQuestions, setShuffledQuestions] = useState([]);
@@ -146,11 +147,15 @@ const Quiz = () => {
   }, [showUserForm, checkIfUserAlreadyCompletedQuiz]);
 
   return (
+    <section className="quiz">
+    
     <div className="quiz-container" style={{ marginTop: "7rem" }}>
       {showUserForm ? (
         <div className="form-group">
+        <h1 className="heading">
+        <span>Muarif Quranic Quiz Competition</span>
+      </h1>
           <BackendCall />
-          <h1>Welcome to Serially Muarif Quranic Quiz Competition</h1>
           <input
             type="text"
             name="name"
@@ -179,7 +184,7 @@ const Quiz = () => {
             placeholder={formErrors.city ? "City is required" : "City"}
             className={formErrors.city ? "error" : ""}
           />
-          <button onClick={handleNextClick}>Start Quiz</button>
+          <button onClick={handleNextClick} className="btn">Start Quiz</button>
         </div>
       ) : showResults ? (
         <div className="results">
@@ -189,11 +194,13 @@ const Quiz = () => {
             </p>
           ) : (
             <>
+            
               <p>Name: {userData.name}</p>
               <p>Phone Number: {userData.phoneNumber}</p>
               <p>City: {userData.city}</p>
               <p>Total Marks: {calculateMarks().totalMarks}</p>
               <p>Obtained Marks: {calculateMarks().obtainedMarks}</p>
+            
               <h3 style={{ color: "white" }}>Question-wise Results:</h3>
               {calculateMarks().resultDetails.map((result, index) => (
                 <div key={index}>
@@ -201,6 +208,7 @@ const Quiz = () => {
                     style={{
                       color: "black",
                       fontSize: "3rem",
+                      fontFamily:"Noto Nastaliq Urdu"
                     }}
                   >
                     Question {index + 1}: {result.question.question}
@@ -234,12 +242,13 @@ const Quiz = () => {
         </div>
       ) : (
         <div className="question-container">
-          <h2>Question {currentQuestionIndex + 1}</h2>
-          <p>{shuffledQuestions[currentQuestionIndex].question}</p>
-          <div className="options">
-            {shuffledQuestions[currentQuestionIndex].options.map(
-              (option, index) => (
-                <div key={index}>
+          <h1>Question {currentQuestionIndex + 1}</h1>
+          <div className="question">
+            <h2>{shuffledQuestions[currentQuestionIndex].question}</h2>
+            <BackendCall />
+            <ul>
+              {shuffledQuestions[currentQuestionIndex].options.map((option) => (
+                <li>
                   <label>
                     <input
                       type="radio"
@@ -251,10 +260,9 @@ const Quiz = () => {
                     />
                     {option}
                   </label>
-                  <BackendCall />
-                </div>
-              )
-            )}
+                </li>
+              ))}
+            </ul>
           </div>
           <div className="navigation-buttons">
             {currentQuestionIndex > 0 && (
@@ -272,6 +280,7 @@ const Quiz = () => {
       )}
       {isLoading && <div className="loading">Saving results...</div>}
     </div>
+    </section>
   );
 };
 

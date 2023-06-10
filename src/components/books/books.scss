@@ -1,0 +1,110 @@
+$red: blueviolet;
+$border: solid 1px $red;
+@mixin titleText($titleSize) {
+  font-size: $titleSize;
+  text-transform: capitalize;
+  color: white;
+}
+
+.books {
+  background: white;
+
+  .box-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5rem 10%;
+    flex-wrap: wrap;
+
+    .box {
+      display: flex;
+      background: linear-gradient($red, blueviolet);
+      border: solid 1px $red;
+      margin: 1rem;
+      align-items: center;
+
+      .image {
+        overflow: hidden;
+        position: relative;
+        border: $border;
+        margin-top: 0.5rem;
+
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .content {
+        padding: 2rem;
+        text-align: center;
+
+        h3 {
+          @include titleText(2rem);
+          color: white;
+
+          span {
+            font-family: "Noto Nastaliq Urdu";
+            color: yellow;
+            display: block;
+            margin: 0.2rem;
+          }
+        }
+
+        .button {
+          display: inline-block;
+          margin-top: 1rem;
+          padding: 1rem 3rem;
+          font-size: 1.8rem;
+          border: $border;
+          background: white;
+          color: black;
+          cursor: pointer;
+          text-transform: capitalize;
+
+          i {
+            color: red;
+
+            span {
+              color: black;
+              font-size: 1.8rem;
+            }
+          }
+
+          &:hover {
+            background: $red;
+
+            i {
+              span {
+                color: white;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding: 1.5rem 0;
+  list-style: none;
+  margin-top: 7rem;
+  .btn {
+    color: $red;
+    border-color: $red;
+    outline-color: $red;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  p {
+    margin: 1rem;
+  }
+}

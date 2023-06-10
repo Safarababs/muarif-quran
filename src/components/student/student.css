@@ -1,0 +1,83 @@
+.login {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-flow: column;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  width: 100vw;
+  height: auto;
+  text-align: center;
+  padding: 5rem 10%;
+  margin-top: 7rem;
+}
+.login input {
+  border-radius: 8px;
+  border: solid 1px blueviolet;
+  height: 4rem;
+  width: 60%;
+  color: #89cff0;
+  margin: 0.5rem 0;
+  padding: 0.5rem 0.75rem;
+  font-size: 2rem;
+}
+.login .button {
+  background: #40b5ad;
+  border: 0.1rem solid #89cff0;
+  color: #fff;
+  font-size: 2rem;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 60%;
+}
+.login .button:hover {
+  color: #89cff0;
+  background: #eee;
+}
+.login p {
+  font-size: 1.5rem;
+}
+
+.register {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-flow: column;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  background: #89cff0;
+  width: 100vw;
+  height: auto;
+  text-align: center;
+  padding: 5rem 10%;
+  margin-top: 7rem;
+}
+.register .input {
+  border-radius: 8px;
+  height: 4rem;
+  width: 60%;
+  color: #89cff0;
+  margin: 0.5rem 0;
+  padding: 0.5rem 0.75rem;
+  font-size: 2rem;
+}
+.register .button {
+  background: #40b5ad;
+  border: 0.1rem solid #89cff0;
+  color: #fff;
+  font-size: 2rem;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 60%;
+}
+.register .button:hover {
+  color: #89cff0;
+  background: #eee;
+}
+.register p {
+  font-size: 1.5rem;
+}/*# sourceMappingURL=student.css.map */

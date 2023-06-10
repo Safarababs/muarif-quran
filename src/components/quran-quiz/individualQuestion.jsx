@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import questions from './Questions/SooratIklas';
+import questions from './Questions/Question';
 
 const IndividualQuestion = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -40,13 +40,13 @@ const IndividualQuestion = () => {
               </li>
             ))}
           </ul>
-          <button onClick={() => setShowAnswer(true)}>Submit</button>
+          <button onClick={() => setShowAnswer(true)} className='btn'>Submit</button>
           {showAnswer && (
             <div className='answer-section'>
               <p>
                 Correct Answer: {currentQuestionData.correctAnswer}
               </p>
-              <button onClick={handleNext}>Next</button>
+              <button onClick={handleNext} className='btn'>Next</button>
             </div>
           )}
         </div>

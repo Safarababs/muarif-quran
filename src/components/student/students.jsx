@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import data from "../data";
 import BackendCall from "../institute/BackendCall";
 import NewStudent from "./newStudent";
+import "./student.css";
 
 function Students() {
   const [notes, setNotes] = useState([

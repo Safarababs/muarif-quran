@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import data from "../data";
 import BackendCall from "../institute/BackendCall";
 import NewResult from "./newResult";
+import "./quiz.css";
 
 function Results() {
   const [notes, setNotes] = useState([
@@ -43,12 +44,10 @@ function Results() {
 
   return (
     <>
-      <section className="heading-link">
-        <h3>Here you can find all results</h3>
-        <p style={{ color: "white" }}>You have a total of {notes.length} results</p>
-      </section>
+      
 
       <section className="student">
+      <h3 className="heading"><span>here you can find all results</span></h3>
         <div className="box-container">
           {notes.map((note) => (
             <NewResult
@@ -61,7 +60,7 @@ function Results() {
         </div>
       </section>
 
-      <button onClick={generateFile}>Generate File</button>
+      <button onClick={generateFile} className="btn">Generate File</button>
 
       <BackendCall />
     </>

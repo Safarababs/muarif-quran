@@ -1,0 +1,497 @@
+$red: blueviolet;
+$green: #89cff0;
+$light-green: #40b5ad;
+$light-color: #777;
+$light-white: #eee;
+$black: black;
+$white: #fff;
+$border: 0.1rem solid $green;
+$box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+$primary-color: #3498db;
+@mixin grid($val) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($val, 1fr));
+  gap: 2rem;
+}
+
+@mixin titleText($titleSize) {
+  font-size: $titleSize;
+  text-transform: capitalize;
+  color: $white;
+}
+
+@mixin graphText($graphSize) {
+  font-size: $graphSize;
+  line-height: 2;
+  color: $light-color;
+}
+
+.quiz {
+  .heading {
+    padding: 0.1rem;
+  }
+
+  .quiz-container {
+    font-family: Arial, sans-serif;
+
+    .form-group {
+      background-image: url("./1.jpg");
+      background-size: cover;
+      background-position: cover;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+      flex-flow: column;
+
+      .heading {
+        color: white;
+        margin: 0;
+        span{
+            padding: 0;
+            color: white;
+        }
+      }
+
+      .error {
+        border: 3px solid red;
+      }
+
+      input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        font-size: 2rem;
+        color: #fff;
+        background-color: rgba(18, 68, 85, 0.5);
+        margin: 1rem;
+        width: 95%;
+
+        &:focus {
+          border: 2px solid $red;
+          background-color: white;
+          color: black;
+        }
+
+        &::placeholder {
+          color: white;
+          font-size: 2rem;
+        }
+      }
+
+      button {
+        padding: 10px;
+        background: linear-gradient(skyblue, $red);
+        color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 16px;
+        width: 95%;
+        margin: 1rem;
+
+        &:hover {
+          background: $red;
+          color: black;
+        }
+      }
+    }
+
+    .results {
+      padding: 1rem;
+      background-color: #f2f2f2;
+      height: auto;
+      background-image: url("./1.jpg");
+      background-size: cover;
+      background-position: center;
+      object-fit: cover;
+
+      p {
+        margin: 1rem;
+        padding: 1rem;
+        font-size: 2rem;
+        border: solid 1px white;
+        border-radius: 5px;
+        color: white;
+        font-family: "Noto Nastaliq Urdu";
+        text-align: left;
+      }
+
+      h3 {
+        margin: 10px;
+        font-size: 18px;
+      }
+
+      div {
+        margin: 10px;
+        padding: 10px;
+        background: linear-gradient(skyblue, $red);
+        border: 1px solid #550505;
+        border-radius: 4px;
+        color: black;
+
+        .answers {
+          margin: 5px;
+          font-size: 3rem;
+
+          span {
+            font-size: 3rem;
+            background: white;
+            width: 4rem;
+            height: 4rem;
+            border-radius: 40%;
+            margin: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+
+  .question-container {
+    max-width: 90vw;
+    margin: 0 auto;
+    margin: 1rem;
+
+    h1 {
+      font-size: 3rem;
+      margin: 0.5rem;
+      font-family: "Noto Nastaliq Urdu";
+    }
+
+    .question {
+      padding: 0 1rem;
+
+      h2 {
+        margin: 1rem 0.1rem;
+        font-size: 2.5rem;
+        text-align: right;
+        font-family: "Noto Nastaliq Urdu";
+        border: solid 1px $red;
+        padding: 1.5rem;
+        border-width: auto;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+        margin-bottom: 20px;
+        width: auto;
+
+        li {
+          margin-bottom: 10px;
+          font-size: 2rem;
+          border: solid 1px $red;
+          height: 6rem;
+          padding: 1rem;
+          width: auto;
+
+          label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            font-size: 2rem;
+            font-family: "Noto Nastaliq Urdu";
+
+            input[type="radio"] {
+              margin: 0 10px;
+              width: 2rem;
+              height: 2rem;
+            }
+          }
+        }
+      }
+    }
+
+    .navigation-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .next {
+        margin: 1rem;
+        font-size: 16px;
+        width: 40vw;
+        display: inline-block;
+        height: 3rem;
+        cursor: pointer;
+        color: black;
+        background: linear-gradient($red, skyblue);
+        border-radius: 5px;
+
+        &:hover {
+          background: #550505;
+          color: white;
+        }
+      }
+      .back {
+        margin: 1rem;
+
+        font-size: 16px;
+        width: 40vw;
+        display: inline-block;
+        border-radius: 5px;
+        height: 3rem;
+        cursor: pointer;
+        color: black;
+        background: linear-gradient($red, skyblue);
+
+        &:hover {
+          background: #550505;
+          color: white;
+        }
+      }
+    }
+  }
+
+  .loading {
+    margin: 20px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 2rem;
+  }
+}
+
+
+.question-container-individual {
+  max-width: 90vw;
+  margin: 0 auto;
+  padding: 20px;
+  margin-top: 8rem;
+
+  h1 {
+    font-size: 2rem;
+    text-align: left;
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-family: "Noto Nastaliq Urdu";
+    margin-bottom: 10px;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+
+  li {
+    margin-bottom: 10px;
+    font-size: 2rem;
+  }
+
+  label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-synthesis: 2rem;
+
+    input[type="radio"] {
+      margin-right: 10px;
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+
+  .btn{
+    color: $red;
+    border-color: $red;
+    outline-color: $red;
+
+    &:hover{
+      color: #fff;
+    }
+  }
+
+  .answer-section {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #ccc;
+
+    p{
+      font-size: 2rem;
+    }
+  }
+}
+
+.dateAdded {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 10rem 1rem 1rem 1rem;
+  h1 {
+    font-size: 4rem;
+    font-family: "Times New Roman", Times, serif;
+    margin: 1rem;
+
+    span {
+      color: red;
+    }
+  }
+  .text {
+    font-size: 2rem;
+    text-align: right;
+    line-height: 4rem;
+    margin: 1rem;
+    font-family: "Noto Nastaliq Urdu";
+    
+    
+  }
+}
+
+.studentResult {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 15rem;
+
+  flex-flow: column;
+
+  input {
+    width: 90%;
+    border: solid 1px $red;
+    color: black;
+    padding: 1rem;
+    height: 4rem;
+    border-radius: 10px;
+    font-size: 2rem;
+    margin: 0.5rem;
+
+    ::placeholder {
+      color: $red;
+      font-size: 1rem;
+      margin: 1rem;
+    }
+  }
+
+  .btn{
+    color: $red;
+    border-color: $red;
+    outline-color: $red;
+
+    &:hover{
+      color: #fff;
+    }
+  }
+}
+
+.studentResult {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 15rem;
+
+  flex-flow: column;
+
+  input {
+    width: 90%;
+    border: solid 1px $red;
+    color: black;
+    padding: 1rem;
+    height: 4rem;
+    border-radius: 10px;
+    font-size: 2rem;
+    margin: 0.5rem;
+
+    ::placeholder {
+      color: $red;
+      font-size: 1rem;
+      margin: 1rem;
+    }
+  }
+
+  .btn{
+    color: $red;
+    border-color: $red;
+    outline-color: $red;
+
+    &:hover{
+      color: #fff;
+    }
+  }
+}
+
+.student {
+  .box-container {
+    @include grid(30rem);
+    padding: 5rem 10%;
+
+    .box {
+      background: linear-gradient($green, blueviolet);
+      border: $border;
+      box-shadow: $box-shadow;
+
+      &:hover {
+        transform: scale(1.02);
+      }
+
+      .image {
+        overflow: hidden;
+        position: relative;
+        text-align: center;
+        margin-top: 4rem;
+
+        i {
+          font-size: 20rem;
+        }
+
+        h3 {
+          @include titleText(2rem);
+          color: $white;
+          margin: 2rem;
+        }
+      }
+
+      .content {
+        padding: 2rem;
+        text-align: center;
+        border: $border;
+
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+
+        td,
+        th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+          font-size: 1.2rem;
+          background: $green;
+          color: $black;
+        }
+
+        tr:nth-child(even) {
+          background-color: $green;
+          color: $white;
+          font-size: 1.2rem;
+        }
+        
+      }
+      
+    }
+    
+  }
+  
+}
+.btn{
+  color: $red;
+  border-color: $red;
+  outline-color: $red;
+  width: 90%;
+  text-align: center;
+  border-radius: 10px;
+
+
+  &:hover{
+    color: #fff;
+  }
+}

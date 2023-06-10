@@ -1,0 +1,200 @@
+.contact .icons-container {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 2rem;
+  padding: 5rem 10%;
+}
+.contact .icons-container .icons {
+  text-align: center;
+  padding: 3rem 2rem;
+  border: 0.1rem solid skyblue;
+  background: skyblue;
+}
+.contact .icons-container .icons i {
+  height: 6rem;
+  width: 6rem;
+  line-height: 6rem;
+  font-size: 2rem;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+  color: #fff;
+  background: #40b5ad;
+}
+.contact .icons-container .icons h3 {
+  font-size: 2rem;
+  text-transform: capitalize;
+  color: #fff;
+  padding: 0.5rem 0;
+  color: #000;
+}
+.contact .icons-container .icons .paragraph {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 1rem 3rem;
+  font-size: 1.8rem;
+  text-align: center;
+  border: 0.1rem solid skyblue;
+  background: linear-gradient(skyblue, blueviolet);
+  color: #fff;
+  cursor: pointer;
+  text-transform: capitalize;
+  text-decoration: none;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  width: auto;
+}
+.contact .icons-container .icons .paragraph:hover {
+  background: skyblue;
+  color: black;
+}
+.contact .icons-container .icons p a {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 1rem 3rem;
+  font-size: 1.8rem;
+  text-align: center;
+  border: 0.1rem solid skyblue;
+  background: linear-gradient(skyblue, blueviolet);
+  color: #fff;
+  cursor: pointer;
+  text-transform: capitalize;
+  text-decoration: none;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  width: auto;
+}
+.contact .icons-container .icons p a:hover {
+  background: skyblue;
+  color: black;
+}
+.contact .icons-container .icons:hover {
+  transform: scale(1.05);
+}
+.contact .row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 5rem 10%;
+}
+.contact .row .image {
+  flex: 1 1 40rem;
+}
+.contact .row .image img {
+  width: 100%;
+}
+.contact .row form {
+  flex: 1 1 40rem;
+  border: 0.1rem solid skyblue;
+  padding: 2rem;
+}
+.contact .row form h3 {
+  font-size: 2.5rem;
+  text-transform: capitalize;
+  color: #fff;
+  padding-bottom: 1rem;
+  color: #000;
+}
+.contact .row form .box {
+  width: 100%;
+  padding: 1.2rem 1.4rem;
+  border: 0.1rem solid skyblue;
+  font-size: 1.6rem;
+  margin: 0.7rem 0;
+}
+.contact .row form .box:focus {
+  background: skyblue;
+  color: #fff;
+}
+.contact .row form .box:focus::-moz-placeholder {
+  color: #eee;
+}
+.contact .row form .box:focus::placeholder {
+  color: #eee;
+}
+.contact .row form textarea {
+  height: 15rem;
+  resize: none;
+}
+.contact .row form .btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 1rem 3rem;
+  font-size: 1.8rem;
+  border: 0.1rem solid skyblue;
+  background: skyblue;
+  color: #fff;
+  cursor: pointer;
+  text-transform: capitalize;
+  width: 100%;
+}
+.contact .row form .btn:hover {
+  background: #fff;
+  color: black;
+}
+
+.faq {
+  background: #fff;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./back.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: auto;
+  width: 100vw;
+}
+.faq .accordion-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+  padding: 5rem 10%;
+}
+.faq .accordion-container .accordion {
+  flex: 1 1 40rem;
+  border: 0.1rem solid skyblue;
+}
+.faq .accordion-container .accordion.active .accordion-heading {
+  background: skyblue;
+}
+.faq .accordion-container .accordion.active .accordion-heading h3 {
+  color: #fff;
+  font-size: 2rem;
+}
+.faq .accordion-container .accordion.active .accordion-heading i {
+  color: #fff;
+  transform: rotate(180deg);
+}
+.faq .accordion-container .accordion.active .accordion-content {
+  display: block;
+  color: white;
+  font-size: 1.5rem;
+}
+.faq .accordion-container .accordion .accordion-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  cursor: pointer;
+  padding: 1.5rem;
+}
+.faq .accordion-container .accordion .accordion-heading h3 {
+  font-size: 2rem;
+  text-transform: capitalize;
+  color: #fff;
+}
+.faq .accordion-container .accordion .accordion-heading i {
+  font-size: 2rem;
+  color: skyblue;
+}
+.faq .accordion-container .accordion .accordion-content {
+  padding: 1.5rem;
+  font-size: 1.5rem;
+  line-height: 2;
+  color: #777;
+  border-top: 0.1rem solid skyblue;
+  display: none;
+  -moz-column-gap: #fff;
+       column-gap: #fff;
+}
+.faq .accordion-container .accordion:hover {
+  transform: scale(1.02);
+}/*# sourceMappingURL=contact.css.map */

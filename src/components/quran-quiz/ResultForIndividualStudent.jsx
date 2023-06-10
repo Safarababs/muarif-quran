@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import data from "../data";
 import BackendCall from "../institute/BackendCall";
 import NewResult from "./newResult";
+import "./quiz.css";
 
 function Results() {
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -54,7 +55,7 @@ function Results() {
           onChange={(event) => setPhoneNumber(event.target.value)}
           placeholder="Enter your phone number"
         />
-        <button type="submit">{loading ? "Loading":"Check Results"}</button>
+        <button type="submit" className="btn">{loading ? "Loading":"Check Results"}</button>
       </form>
 
       {filteredNotes.length > 0 ? (

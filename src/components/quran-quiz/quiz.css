@@ -1,0 +1,418 @@
+.quiz .heading {
+  padding: 0.1rem;
+}
+.quiz .quiz-container {
+  font-family: Arial, sans-serif;
+}
+.quiz .quiz-container .form-group {
+  background-image: url("./1.jpg");
+  background-size: cover;
+  background-position: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  flex-flow: column;
+}
+.quiz .quiz-container .form-group .heading {
+  color: white;
+  margin: 0;
+}
+.quiz .quiz-container .form-group .heading span {
+  padding: 0;
+  color: white;
+}
+.quiz .quiz-container .form-group .error {
+  border: 3px solid red;
+}
+.quiz .quiz-container .form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 2rem;
+  color: #fff;
+  background-color: rgba(18, 68, 85, 0.5);
+  margin: 1rem;
+  width: 95%;
+}
+.quiz .quiz-container .form-group input:focus {
+  border: 2px solid blueviolet;
+  background-color: white;
+  color: black;
+}
+.quiz .quiz-container .form-group input::-moz-placeholder {
+  color: white;
+  font-size: 2rem;
+}
+.quiz .quiz-container .form-group input::placeholder {
+  color: white;
+  font-size: 2rem;
+}
+.quiz .quiz-container .form-group button {
+  padding: 10px;
+  background: linear-gradient(skyblue, blueviolet);
+  color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 95%;
+  margin: 1rem;
+}
+.quiz .quiz-container .form-group button:hover {
+  background: blueviolet;
+  color: black;
+}
+.quiz .quiz-container .results {
+  padding: 1rem;
+  background-color: #f2f2f2;
+  height: auto;
+  background-image: url("./1.jpg");
+  background-size: cover;
+  background-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.quiz .quiz-container .results p {
+  margin: 1rem;
+  padding: 1rem;
+  font-size: 2rem;
+  border: solid 1px white;
+  border-radius: 5px;
+  color: white;
+  font-family: "Noto Nastaliq Urdu";
+  text-align: left;
+}
+.quiz .quiz-container .results h3 {
+  margin: 10px;
+  font-size: 18px;
+}
+.quiz .quiz-container .results div {
+  margin: 10px;
+  padding: 10px;
+  background: linear-gradient(skyblue, blueviolet);
+  border: 1px solid #550505;
+  border-radius: 4px;
+  color: black;
+}
+.quiz .quiz-container .results div .answers {
+  margin: 5px;
+  font-size: 3rem;
+}
+.quiz .quiz-container .results div .answers span {
+  font-size: 3rem;
+  background: white;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 40%;
+  margin: 0.5rem;
+}
+.quiz .question-container {
+  max-width: 90vw;
+  margin: 0 auto;
+  margin: 1rem;
+}
+.quiz .question-container h1 {
+  font-size: 3rem;
+  margin: 0.5rem;
+  font-family: "Noto Nastaliq Urdu";
+}
+.quiz .question-container .question {
+  padding: 0 1rem;
+}
+.quiz .question-container .question h2 {
+  margin: 1rem 0.1rem;
+  font-size: 2.5rem;
+  text-align: right;
+  font-family: "Noto Nastaliq Urdu";
+  border: solid 1px blueviolet;
+  padding: 1.5rem;
+  border-width: auto;
+}
+.quiz .question-container .question ul {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 20px;
+  width: auto;
+}
+.quiz .question-container .question ul li {
+  margin-bottom: 10px;
+  font-size: 2rem;
+  border: solid 1px blueviolet;
+  height: 6rem;
+  padding: 1rem;
+  width: auto;
+}
+.quiz .question-container .question ul li label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 2rem;
+  font-family: "Noto Nastaliq Urdu";
+}
+.quiz .question-container .question ul li label input[type=radio] {
+  margin: 0 10px;
+  width: 2rem;
+  height: 2rem;
+}
+.quiz .question-container .navigation-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.quiz .question-container .navigation-buttons .next {
+  margin: 1rem;
+  font-size: 16px;
+  width: 40vw;
+  display: inline-block;
+  height: 3rem;
+  cursor: pointer;
+  color: black;
+  background: linear-gradient(blueviolet, skyblue);
+  border-radius: 5px;
+}
+.quiz .question-container .navigation-buttons .next:hover {
+  background: #550505;
+  color: white;
+}
+.quiz .question-container .navigation-buttons .back {
+  margin: 1rem;
+  font-size: 16px;
+  width: 40vw;
+  display: inline-block;
+  border-radius: 5px;
+  height: 3rem;
+  cursor: pointer;
+  color: black;
+  background: linear-gradient(blueviolet, skyblue);
+}
+.quiz .question-container .navigation-buttons .back:hover {
+  background: #550505;
+  color: white;
+}
+.quiz .loading {
+  margin: 20px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.question-container-individual {
+  max-width: 90vw;
+  margin: 0 auto;
+  padding: 20px;
+  margin-top: 8rem;
+}
+.question-container-individual h1 {
+  font-size: 2rem;
+  text-align: left;
+  margin-bottom: 20px;
+}
+.question-container-individual h2 {
+  font-size: 2rem;
+  font-family: "Noto Nastaliq Urdu";
+  margin-bottom: 10px;
+}
+.question-container-individual ul {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+.question-container-individual li {
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+.question-container-individual label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-synthesis: 2rem;
+}
+.question-container-individual label input[type=radio] {
+  margin-right: 10px;
+  width: 2rem;
+  height: 2rem;
+}
+.question-container-individual .btn {
+  color: blueviolet;
+  border-color: blueviolet;
+  outline-color: blueviolet;
+}
+.question-container-individual .btn:hover {
+  color: #fff;
+}
+.question-container-individual .answer-section {
+  margin-top: 20px;
+  padding-top: 10px;
+  border-top: 1px solid #ccc;
+}
+.question-container-individual .answer-section p {
+  font-size: 2rem;
+}
+
+.dateAdded {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 10rem 1rem 1rem 1rem;
+}
+.dateAdded h1 {
+  font-size: 4rem;
+  font-family: "Times New Roman", Times, serif;
+  margin: 1rem;
+}
+.dateAdded h1 span {
+  color: red;
+}
+.dateAdded .text {
+  font-size: 2rem;
+  text-align: right;
+  line-height: 4rem;
+  margin: 1rem;
+  font-family: "Noto Nastaliq Urdu";
+}
+
+.studentResult {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 15rem;
+  flex-flow: column;
+}
+.studentResult input {
+  width: 90%;
+  border: solid 1px blueviolet;
+  color: black;
+  padding: 1rem;
+  height: 4rem;
+  border-radius: 10px;
+  font-size: 2rem;
+  margin: 0.5rem;
+}
+.studentResult input ::-moz-placeholder {
+  color: blueviolet;
+  font-size: 1rem;
+  margin: 1rem;
+}
+.studentResult input ::placeholder {
+  color: blueviolet;
+  font-size: 1rem;
+  margin: 1rem;
+}
+.studentResult .btn {
+  color: blueviolet;
+  border-color: blueviolet;
+  outline-color: blueviolet;
+}
+.studentResult .btn:hover {
+  color: #fff;
+}
+
+.studentResult {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 15rem;
+  flex-flow: column;
+}
+.studentResult input {
+  width: 90%;
+  border: solid 1px blueviolet;
+  color: black;
+  padding: 1rem;
+  height: 4rem;
+  border-radius: 10px;
+  font-size: 2rem;
+  margin: 0.5rem;
+}
+.studentResult input ::-moz-placeholder {
+  color: blueviolet;
+  font-size: 1rem;
+  margin: 1rem;
+}
+.studentResult input ::placeholder {
+  color: blueviolet;
+  font-size: 1rem;
+  margin: 1rem;
+}
+.studentResult .btn {
+  color: blueviolet;
+  border-color: blueviolet;
+  outline-color: blueviolet;
+}
+.studentResult .btn:hover {
+  color: #fff;
+}
+
+.student .box-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 2rem;
+  padding: 5rem 10%;
+}
+.student .box-container .box {
+  background: linear-gradient(#89cff0, blueviolet);
+  border: 0.1rem solid #89cff0;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+.student .box-container .box:hover {
+  transform: scale(1.02);
+}
+.student .box-container .box .image {
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  margin-top: 4rem;
+}
+.student .box-container .box .image i {
+  font-size: 20rem;
+}
+.student .box-container .box .image h3 {
+  font-size: 2rem;
+  text-transform: capitalize;
+  color: #fff;
+  color: #fff;
+  margin: 2rem;
+}
+.student .box-container .box .content {
+  padding: 2rem;
+  text-align: center;
+  border: 0.1rem solid #89cff0;
+}
+.student .box-container .box .content table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+.student .box-container .box .content td,
+.student .box-container .box .content th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  font-size: 1.2rem;
+  background: #89cff0;
+  color: black;
+}
+.student .box-container .box .content tr:nth-child(even) {
+  background-color: #89cff0;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.btn {
+  color: blueviolet;
+  border-color: blueviolet;
+  outline-color: blueviolet;
+  width: 90%;
+  text-align: center;
+  border-radius: 10px;
+}
+.btn:hover {
+  color: #fff;
+}/*# sourceMappingURL=quiz.css.map */
