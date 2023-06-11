@@ -31,7 +31,8 @@ function App() {
   const today = currentDate.getUTCDate();
   const targetDate = 11;
   const currentHour = currentDate.getUTCHours() + 5;
-  console.log(today, targetDate, currentHour);
+
+
 
   return (
     <>
@@ -91,7 +92,7 @@ function App() {
             <Route
               path="/quranquiz"
               element={
-                today === targetDate && currentHour >= 9 && currentHour > 21 ? (
+                today === targetDate && currentHour >= 9 && currentHour < 21 ? (
                   <Quiz />
                 ) : (
                   <QuizAccess />

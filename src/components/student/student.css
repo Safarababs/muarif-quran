@@ -86,6 +86,9 @@
   color: blueviolet;
   border-color: blueviolet;
   outline-color: blueviolet;
+  width: 90%;
+  text-align: center;
+  margin: 1.5rem;
 }
 .dashboard .btn:hover {
   color: #fff;

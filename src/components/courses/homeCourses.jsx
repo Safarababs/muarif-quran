@@ -29,7 +29,7 @@ function HomeCourses() {
           </div>
         </div>
 
-        <div className="box" d>
+        <div className="box" >
           <div className="image">
             <img src={img2} alt="" />
             <a href="/courses" >
@@ -39,7 +39,7 @@ function HomeCourses() {
           
         </div>
 
-        <div className="box" da>
+        <div className="box" >
           <div className="image">
             <img src={img3} alt="" />
             <a href="/courses" >
@@ -49,7 +49,7 @@ function HomeCourses() {
           
         </div>
 
-        <div className="box" d>
+        <div className="box" >
           <div className="image">
             <img src={img4} alt="" />
             <a href="/courses">
@@ -59,7 +59,7 @@ function HomeCourses() {
           
         </div>
 
-        <div className="box" d>
+        <div className="box" >
           <div className="image">
             <img src={img5} alt="" />
             <a href="/courses">
@@ -69,7 +69,7 @@ function HomeCourses() {
           
         </div>
 
-        <div className="box" da>
+        <div className="box" >
           <div className="image">
             <img src={img6} alt="" />
             <a href="/courses">
@@ -79,7 +79,7 @@ function HomeCourses() {
           
         </div>
 
-        <div className="box" da>
+        <div className="box" >
           <div className="image">
             <img src={img7} alt="" />
             <a href="/courses">
@@ -89,7 +89,7 @@ function HomeCourses() {
           
         </div>
 
-        <div className="box" da>
+        <div className="box" >
           <div className="image">
             <img src={img8} alt="" />
             <a href="/courses">
@@ -99,7 +99,7 @@ function HomeCourses() {
           
         </div>
 
-        <div className="box" d>
+        <div className="box" >
           <div className="image">
             <img src={img9} alt="" />
             <a href="/courses">
@@ -109,7 +109,7 @@ function HomeCourses() {
           
         </div>
 
-        <div className="box" d>
+        <div className="box" >
           <div className="image">
             <img src={img10} alt="" />
             <a href="/courses">

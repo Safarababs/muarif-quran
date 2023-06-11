@@ -15,7 +15,7 @@ function Dashboard() {
     const isLoggedIn = localStorage.getItem("isLoggedIn");
     if (!isLoggedIn) {
       // User is not logged in, navigate to the login page
-      navigate("/login"); // Replace with your login page URL
+      navigate("/login");
     }
   }, [navigate]);
 
@@ -24,7 +24,6 @@ function Dashboard() {
     localStorage.removeItem("userData");
     localStorage.removeItem("isLoggedIn");
 
-
     // Redirect to the login page
     navigate("/logout");
   };
@@ -32,10 +31,12 @@ function Dashboard() {
   return (
     <>
       <section className="dashboard">
-        
-      <h1 className="heading"><span>hi {userData?.fName}! welcome to Muarif-e-quran & ahelaibait</span></h1>
-
-        <button onClick={handleLogout} className="btn">Logout</button>
+        <h1 className="heading">
+          <span>hi {userData?.fName}! welcome to Muarif-e-quran & ahelaibait</span>
+        </h1>
+        <button onClick={handleLogout} className="btn">
+          Logout
+        </button>
         <Lecture />
         <Books title="Ladies Books" pdf={Ladies} image={ladies} />
       </section>
