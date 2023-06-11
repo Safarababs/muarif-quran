@@ -28,16 +28,19 @@ header .header-2 {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 1.5rem;
   width: 100%;
-  background: linear-gradient(blueviolet, skyblue);
-  padding: 0.5rem;
-  position: relative;
   z-index: 1000;
+  background: linear-gradient(skyblue, blueviolet);
+  position: fixed;
+  top: 0;
+  right: 0;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
 }
 header .header-2 .navbar ul {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   list-style: none;
 }
 header .header-2 .navbar ul li {
@@ -46,10 +49,13 @@ header .header-2 .navbar ul li {
 header .header-2 .navbar ul li a {
   font-size: 2rem;
   color: #fff;
+  text-decoration: none;
 }
 header .header-2 .navbar ul li a:hover,
 header .header-2 .navbar ul li a .active {
   color: yellow;
+  background: blueviolet;
+  border-radius: 5px;
 }
 header .header-2 .share a {
   font-size: 2rem;
@@ -75,7 +81,7 @@ header .header-2 .header-active {
 
 @media (max-width: 1000px) {
   header .header-2 #menu {
-    display: block;
+    display: inline-block;
   }
   header .header-2 .navbar {
     position: fixed;
@@ -92,7 +98,7 @@ header .header-2 .header-active {
     border: 0.2rem solid #fff;
     box-shadow: 0 0.3rem 0.5rem #000;
     padding: 4rem 0;
-    width: 15rem;
+    width: 27rem;
   }
   header .header-2 .navbar ul li {
     width: 100%;
@@ -110,13 +116,5 @@ header .header-2 .header-active {
   header .header-2 .nav-toggle {
     top: 50%;
     opacity: 1;
-  }
-}
-@media (max-width: 400px) {
-  header .header-1 {
-    flex-flow: column;
-  }
-  header .header-2 .navbar ul {
-    width: 100vw;
   }
 }/*# sourceMappingURL=style.css.map */

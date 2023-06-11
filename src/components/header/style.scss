@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&display=swap');
 $red: blueviolet;
+$box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
 
 header {
   .header-1 {
@@ -36,17 +37,20 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 1.5rem;
     width: 100%;
-    background: linear-gradient( $red, skyblue);
-    padding: 0.5rem;
-    position: relative;
     z-index: 1000;
+    background: linear-gradient(skyblue, $red);
+    position: fixed;
+    top: 0;
+    right: 0;
+    box-shadow: $box-shadow;
 
     .navbar {
       ul {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: space-evenly;
         list-style: none;
 
         li {
@@ -55,10 +59,13 @@ header {
           a {
             font-size: 2rem;
             color: #fff;
+            text-decoration: none;
 
             &:hover,
             .active {
               color: yellow;
+              background: $red;
+              border-radius: 5px;
             }
           }
         }
@@ -100,7 +107,7 @@ header {
   header {
     .header-2 {
       #menu {
-        display: block;
+        display: inline-block;
       }
 
       .navbar {
@@ -118,7 +125,7 @@ header {
           border: 0.2rem solid #fff;
           box-shadow: 0 0.3rem 0.5rem #000;
           padding: 4rem 0;
-          width: 15rem;
+          width: 27rem;
 
           li {
             width: 100%;
@@ -146,18 +153,3 @@ header {
   }
 }
 
-@media (max-width: 400px) {
-  header {
-    .header-1 {
-      flex-flow: column;
-    }
-
-    .header-2 {
-      .navbar {
-        ul {
-          width: 100vw;
-        }
-      }
-    }
-  }
-}

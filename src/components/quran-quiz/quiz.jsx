@@ -5,6 +5,7 @@ import questions from "./Questions/Question";
 import BackendCall from "../institute/BackendCall";
 import data from "../data";
 import "./quiz.css";
+import BackgroundVideo from "./backgroundMusic";
 
 const Quiz = () => {
   const [shuffledQuestions, setShuffledQuestions] = useState([]);
@@ -148,6 +149,7 @@ const Quiz = () => {
 
   return (
     <section className="quiz">
+    <BackgroundVideo />
     
     <div className="quiz-container" style={{ marginTop: "7rem" }}>
       {showUserForm ? (
@@ -242,7 +244,8 @@ const Quiz = () => {
         </div>
       ) : (
         <div className="question-container">
-          <h1>Question {currentQuestionIndex + 1}</h1>
+        <BackgroundVideo />
+          <h1>Hi {userData.name}! your Question no {currentQuestionIndex + 1}</h1>
           <div className="question">
             <h2>{shuffledQuestions[currentQuestionIndex].question}</h2>
             <BackendCall />

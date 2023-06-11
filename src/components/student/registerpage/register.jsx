@@ -201,7 +201,7 @@ const Register = () => {
           type="number"
           name="whatsapp"
           value={user.whatsapp}
-          placeholder="whatsapp or telegram number"
+          placeholder="whatsapp number"
           onChange={handleChange}
         ></input>
         <select
@@ -228,7 +228,7 @@ const Register = () => {
           type="text"
           name="dateOfBirth"
           value={user.dateOfBirth}
-          placeholder="date of birth (dd/mm/yyyy)"
+          placeholder="date of birth (dD/mM/yYYY)"
           onChange={handleChange}
         ></input>
         <input
