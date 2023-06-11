@@ -22,7 +22,7 @@ function Dashboard() {
   const handleLogout = () => {
     // Clear user data from local storage and set isLoggedIn to false
     localStorage.removeItem("userData");
-    localStorage.setItem("isLoggedIn", false);
+    localStorage.removeItem("isLoggedIn");
 
 
     // Redirect to the login page
