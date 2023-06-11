@@ -2,43 +2,12 @@ import React from "react";
 import BackendCall from "../institute/BackendCall";
 
 function MaleLinks() {
-  const days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  const d = new Date();
-  let weekday = days[d.getDay()];
-  let hour = d.getUTCHours();
+  
 
   return (
     <>
       <BackendCall />
       <div className="icons-container">
-        <div className="icons">
-          <i className="fab fa-google"></i>
-          <h3>google meet</h3>
-          {!weekday === "Thursday" && hour === 16 ? (
-            <p>
-              <a
-                href="http://meet.google.com/twv-pkwa-efv"
-                target="_blank"
-                rel="noreferrer"
-              >
-                click to join class
-              </a>
-            </p>
-          ) : (
-            <p>
-              <a href="/courses">see Class Time?</a>
-            </p>
-          )}
-        </div>
-
         <div className="icons">
           <i className="fas fa-phone"></i>
           <h3>phone :</h3>
@@ -63,19 +32,6 @@ function MaleLinks() {
           </p>
         </div>
 
-        <div className="icons">
-          <i className="fab fa-telegram"></i>
-          <h3>telegram official group:</h3>
-          <p>
-            <a
-              href="https://t.me/short_islamic_courses"
-              target="_blank"
-              rel="noreferrer"
-            >
-              click to join telegram
-            </a>
-          </p>
-        </div>
         <div className="icons">
           <i className="fab fa-facebook-f"></i>
           <h3>facebook official</h3>
@@ -106,62 +62,6 @@ function MaleLinks() {
 
         <div className="icons">
           <i className="fab fa-whatsapp"></i>
-          <h3>whatsapp official group 1</h3>
-          <p>
-            <a
-              href="https://chat.whatsapp.com/L1Pj9v7GepR1RgRSggrFQL"
-              target="_blank"
-              rel="noreferrer"
-            >
-              click to join
-            </a>
-          </p>
-        </div>
-
-        <div className="icons">
-          <i className="fab fa-whatsapp"></i>
-          <h3>whatsapp official group 2</h3>
-          <p>
-            <a
-              href="https://chat.whatsapp.com/EsUysEO4AufA6501lQ4z5f"
-              target="_blank"
-              rel="noreferrer"
-            >
-              click to join
-            </a>
-          </p>
-        </div>
-
-        <div className="icons">
-          <i className="fab fa-whatsapp"></i>
-          <h3>whatsapp group muarif-quran & ahle bait 1</h3>
-          <p>
-            <a
-              href="https://chat.whatsapp.com/Hi4OC3oy765Bn2Rg0AX26p"
-              target="_blank"
-              rel="noreferrer"
-            >
-              click to join
-            </a>
-          </p>
-        </div>
-
-        <div className="icons">
-          <i className="fab fa-whatsapp"></i>
-          <h3>whatsapp group muarif-quran & ahle bait 2</h3>
-          <p>
-            <a
-              href="https://chat.whatsapp.com/Lx5cuKA5pGcDp8G866VjuH"
-              target="_blank"
-              rel="noreferrer"
-            >
-              click to join
-            </a>
-          </p>
-        </div>
-
-        <div className="icons">
-          <i className="fab fa-whatsapp"></i>
           <h3>whatsapp mr. sajjad naqvi</h3>
           <p>
             <a
@@ -169,7 +69,7 @@ function MaleLinks() {
               target="_blank"
               rel="noreferrer"
             >
-              click to send message
+              message now!
             </a>
           </p>
         </div>

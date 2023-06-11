@@ -3,7 +3,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   gap: 2rem;
-  padding: 5rem 10%;
+  padding: 1rem;
 }
 .contact .icons-container .icons {
   text-align: center;
@@ -86,6 +86,7 @@
   flex: 1 1 40rem;
   border: 0.1rem solid skyblue;
   padding: 2rem;
+  border-radius: 10px;
 }
 .contact .row form h3 {
   font-size: 2.5rem;
@@ -100,6 +101,7 @@
   border: 0.1rem solid skyblue;
   font-size: 1.6rem;
   margin: 0.7rem 0;
+  border-radius: 10px;
 }
 .contact .row form .box:focus {
   background: skyblue;
@@ -126,6 +128,7 @@
   cursor: pointer;
   text-transform: capitalize;
   width: 100%;
+  border-radius: 10px;
 }
 .contact .row form .btn:hover {
   background: #fff;

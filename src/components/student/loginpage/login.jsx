@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
@@ -30,25 +30,32 @@ function Login() {
     try {
       const res = await axios.post(data.backend + "/login", user);
       if (res.data.message === "Login successfully") {
-        swal(res.data.message, "", "success");
+        // Store user data in local storage
+        localStorage.setItem("userData", JSON.stringify(res.data.student));
+        localStorage.setItem("isLoggedIn", true);
+        auth.login(user);
+        navigate(res.data.student.gender === "admin" ? "/admin" : "/dashboard");
       } else {
         swal(res.data.message, "", "warning");
-      }
-
-      auth.login(user);
-
-      if (res.data.student.gender === "female") {
-        navigate("/female");
-      } else if (res.data.student.gender === "male") {
-        navigate("/male");
-      } else if (res.data.student.gender === "admin") {
-        navigate("/admin");
       }
     } catch (error) {
       swal("Error", "An error occurred while logging in", "error");
     }
     setLoading(false);
   }
+
+  useEffect(() => {
+    // Check if user is already logged in
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+    if (isLoggedIn) {
+      const userData = JSON.parse(localStorage.getItem("userData"));
+      if (userData) {
+        navigate(userData.gender === "admin" ? "/admin" : "/dashboard");
+      }
+    }
+  }, [navigate]); // Empty dependency array to run the effect only once
+
+ 
 
   return (
     <>

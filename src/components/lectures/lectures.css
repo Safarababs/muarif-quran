@@ -1,21 +1,21 @@
-.trainer {
+.lecture {
   min-height: 100vh;
   background: white;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
 }
-.trainer .heading span {
+.lecture .heading span {
   color: #000;
 }
-.trainer .box-container {
+.lecture .box-container {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
   padding: 2rem 0;
 }
-.trainer .box-container .box {
+.lecture .box-container .box {
   height: 40rem;
   width: 60rem;
   margin: 2rem;
@@ -24,13 +24,13 @@
   position: relative;
   overflow: hidden;
 }
-.trainer .box-container .box iframe {
+.lecture .box-container .box iframe {
   height: 100%;
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
-.trainer .box-container .box .info {
+.lecture .box-container .box .info {
   position: absolute;
   bottom: -4rem;
   left: 0;
@@ -39,42 +39,42 @@
   border-top: 0.5rem solid blueviolet;
   text-align: center;
 }
-.trainer .box-container .box .info h3 {
+.lecture .box-container .box .info h3 {
   font-size: 2rem;
   color: #333;
   padding: 0.5rem 0;
 }
-.trainer .box-container .box .info span {
+.lecture .box-container .box .info span {
   font-size: 1.5rem;
   color: #666;
 }
-.trainer .box-container .box .info .share {
+.lecture .box-container .box .info .share {
   margin-top: 1rem;
   border-top: 0.1rem solid rgba(0, 0, 0, 0.3);
   padding: 1rem 0;
 }
-.trainer .box-container .box .info .share a {
+.lecture .box-container .box .info .share a {
   font-size: 2rem;
   margin: 1rem;
   color: blueviolet;
 }
-.trainer .box-container .box .info .share a:hover {
+.lecture .box-container .box .info .share a:hover {
   color: #333;
 }
-.trainer .box-container .box:hover .info {
+.lecture .box-container .box:hover .info {
   bottom: 0rem;
 }
 
 @media (max-width: 900px) {
-  .trainer .box-container .box {
+  .lecture .box-container .box {
     height: 46rem;
     width: 90%;
   }
-  .trainer .box-container .box iframe {
+  .lecture .box-container .box iframe {
     width: 100%;
     height: 100%;
   }
-  .trainer .box-container .box .info {
+  .lecture .box-container .box .info {
     position: absolute;
     bottom: 0rem;
     left: 0;
@@ -85,11 +85,11 @@
   }
 }
 @media (max-width: 1200px) {
-  .trainer .box-container .box {
+  .lecture .box-container .box {
     height: 46rem;
     width: 90%;
   }
-  .trainer .box-container .box .info {
+  .lecture .box-container .box .info {
     position: absolute;
     bottom: 0rem;
     left: 0;
@@ -100,11 +100,11 @@
   }
 }
 @media (max-width: 450px) {
-  .trainer .box-container .box {
+  .lecture .box-container .box {
     height: 28rem;
     width: 90%;
   }
-  .trainer .box-container .box .info {
+  .lecture .box-container .box .info {
     position: absolute;
     bottom: -4rem;
     left: 0;
@@ -113,7 +113,7 @@
     border-top: 0.5rem solid blueviolet;
     text-align: center;
   }
-  .trainer .box-container .box:hover .info {
+  .lecture .box-container .box:hover .info {
     bottom: 0rem;
   }
 }/*# sourceMappingURL=lectures.css.map */

@@ -101,3 +101,15 @@ $red: blueviolet;
     font-size: 1.5rem;
   }
 }
+
+.dashboard{
+  .btn{
+    color: $red;
+    border-color: $red;
+    outline-color: $red;
+
+    &:hover{
+      color: #fff;
+    }
+  }
+}

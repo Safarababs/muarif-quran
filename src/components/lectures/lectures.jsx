@@ -79,7 +79,7 @@ function Lecture() {
   ];
 
   return (
-    <section className="trainer">
+    <section className="lecture">
       <h1 className="heading">
         <span>Here you can find all previos lectures</span>
       </h1>

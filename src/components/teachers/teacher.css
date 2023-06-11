@@ -8,13 +8,13 @@
 .trainer .box-container {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: wrap;
   padding: 2rem 0;
 }
 .trainer .box-container .box {
   height: 40rem;
-  width: 25%;
+  width: 35rem;
   margin: 2rem;
   border: 0.5rem solid blueviolet;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
@@ -22,7 +22,8 @@
   overflow: hidden;
 }
 .trainer .box-container .box img {
-  width: 50%;
+  height: 100%;
+  width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -60,15 +61,19 @@
 .trainer .box-container .box:hover .info {
   bottom: 0rem;
 }
+.trainer .box-container .box:hover {
+  transform: scale(1.03);
+}
 
 @media (max-width: 768px) {
-  .trainer .box-container .box {
-    height: 46rem;
-    width: 28rem;
+  .trainer .box-container .box img {
+    width: 100%;
+    height: 100%;
+    text-align: center;
   }
   .trainer .box-container .box .info {
     position: absolute;
-    bottom: 0rem;
+    bottom: -2rem;
     left: 0;
     width: 100%;
     background: #fff;

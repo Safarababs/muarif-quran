@@ -6,15 +6,13 @@ import Courses from "./courses/courses";
 import Creation from "./admin/admin";
 import Lecture from "./lectures/lectures";
 import Contact from "./contact/contact";
-
 import Books from "./books/books";
 import About from "./about/about";
 
 import Gallery from "../components/gallery/gallery";
 import Register from "./student/registerpage/register";
 import Login from "./student/loginpage/login";
-import FemaleDashboard from "./student/profile2";
-import MaleDashboard from "./student/profile";
+import Dashboard from "./student/Dashboard";
 
 import { AuthProvider } from "./admin/auth";
 import { RequireAuth } from "./admin/requireauth";
@@ -26,6 +24,7 @@ import Results from "./quran-quiz/ResultsForAgha";
 import ResultCheck from "./quran-quiz/ResultForIndividualStudent";
 import IndividualQuestion from "./quran-quiz/individualQuestion";
 import Footer from "./footer/Footer";
+import Logout from "./student/loginpage/logout";
 
 function App() {
   const currentDate = new Date();
@@ -50,7 +49,13 @@ function App() {
             <Route path="/gallery" element={<Gallery />}></Route>
             <Route path="/register" element={<Register />}></Route>
             <Route path="/results" element={<Results />}></Route>
-            <Route path="/resultcheck" element={today === targetDate+1 ? <ResultCheck />:<h1
+            <Route
+              path="/resultcheck"
+              element={
+                today === targetDate + 1 ? (
+                  <ResultCheck />
+                ) : (
+                  <h1
                     style={{
                       margin: "15rem 4rem",
                       color: "red",
@@ -58,7 +63,10 @@ function App() {
                     }}
                   >
                     Access denied! Tomorrow it will show
-                  </h1>}></Route>
+                  </h1>
+                )
+              }
+            ></Route>
             <Route
               path="/IndividualQuestion"
               element={
@@ -90,15 +98,6 @@ function App() {
                 )
               }
             ></Route>
-
-            <Route
-              path="/male"
-              element={
-                <RequireAuth>
-                  <MaleDashboard />
-                </RequireAuth>
-              }
-            ></Route>
             <Route
               path="/admin"
               element={
@@ -107,15 +106,9 @@ function App() {
                 </RequireAuth>
               }
             ></Route>
-            <Route
-              path="/female"
-              element={
-                <RequireAuth>
-                  <FemaleDashboard />
-                </RequireAuth>
-              }
-            ></Route>
+            <Route path="/dashboard" element={<Dashboard />}></Route>
             <Route path="/login" element={<Login />}></Route>
+            <Route path="/logout" element={<Logout />}></Route>
           </Routes>
         </AuthProvider>
       </Router>{" "}

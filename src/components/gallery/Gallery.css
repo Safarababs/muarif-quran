@@ -13,6 +13,9 @@
      object-fit: cover;
   margin: 10px;
 }
+.gallery__image:hover {
+  transform: scale(1.05);
+}
 
 @media (max-width: 450px) {
   .gallery__image {

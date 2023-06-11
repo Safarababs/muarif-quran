@@ -80,4 +80,13 @@
 }
 .register p {
   font-size: 1.5rem;
+}
+
+.dashboard .btn {
+  color: blueviolet;
+  border-color: blueviolet;
+  outline-color: blueviolet;
+}
+.dashboard .btn:hover {
+  color: #fff;
 }/*# sourceMappingURL=student.css.map */

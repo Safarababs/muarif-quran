@@ -1,25 +1,35 @@
 .books {
   background: white;
 }
+.books .heading {
+  padding-top: 1rem;
+}
 .books .box-container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 5rem 10%;
+  justify-content: center;
+  padding: 1rem;
   flex-wrap: wrap;
 }
 .books .box-container .box {
   display: flex;
-  background: linear-gradient(blueviolet, blueviolet);
   border: solid 1px blueviolet;
   margin: 1rem;
   align-items: center;
+  width: 35rem;
+  height: 45rem;
+  flex-flow: column;
+  background: linear-gradient(skyblue, blueviolet);
 }
 .books .box-container .box .image {
   overflow: hidden;
   position: relative;
   border: solid 1px blueviolet;
-  margin-top: 0.5rem;
+  margin: 0.5rem;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .books .box-container .box .image img {
   height: 100%;
@@ -28,7 +38,7 @@
      object-fit: cover;
 }
 .books .box-container .box .content {
-  padding: 2rem;
+  padding: 1rem;
   text-align: center;
 }
 .books .box-container .box .content h3 {
@@ -36,36 +46,38 @@
   text-transform: capitalize;
   color: white;
   color: white;
+  padding: 0.1rem;
+  margin: 0.1rem;
 }
 .books .box-container .box .content h3 span {
   font-family: "Noto Nastaliq Urdu";
   color: yellow;
   display: block;
-  margin: 0.2rem;
+  margin: 1rem;
+  padding: 1rem;
 }
 .books .box-container .box .content .button {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 1rem 3rem;
-  font-size: 1.8rem;
-  border: solid 1px blueviolet;
-  background: white;
-  color: black;
+  width: auto;
+  height: 5rem;
+  border: 0.2rem solid #fff;
+  outline: 0.2rem solid #fff;
+  outline-offset: -0.8rem;
+  font-size: 2rem;
+  margin: 1;
+  padding: 1rem;
   cursor: pointer;
-  text-transform: capitalize;
+  background: #fff;
+  color: black;
 }
 .books .box-container .box .content .button i {
   color: red;
 }
-.books .box-container .box .content .button i span {
+.books .box-container .box .content .button span {
   color: black;
-  font-size: 1.8rem;
 }
 .books .box-container .box .content .button:hover {
-  background: blueviolet;
-}
-.books .box-container .box .content .button:hover i span {
-  color: white;
+  outline-offset: 0.4rem;
+  background: linear-gradient(blueviolet, blueviolet);
 }
 
 .controls {

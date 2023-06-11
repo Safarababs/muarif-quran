@@ -1,8 +1,8 @@
-import { useAuth } from "../admin/auth";
+
 import "./style.css";
 
 function Header() {
-  const auth = useAuth();
+
 
   return (
     <header>
@@ -46,11 +46,11 @@ function Header() {
             <li>
               <a href="/quranquiz">Quiz</a>
             </li>
-            {auth.user ? null : (
+           
               <li>
-                <a href="/login">login</a>
+                <a href="/dashboard">dashboard</a>
               </li>
-            )}
+         
           </ul>
         </nav>
 

@@ -1,0 +1,95 @@
+.admin {
+  background: #fff;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/back.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: auto;
+  width: 100vw;
+}
+.admin .box-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-flow: column;
+  padding: 5rem 10%;
+  margin-top: 7rem;
+}
+.admin .box-container .youtube {
+  text-align: center;
+  padding: 3rem 2rem;
+  border: 0.1rem solid #89cff0;
+  width: 80vw;
+}
+.admin .box-container .youtube h1 {
+  background: transparent;
+}
+.admin .box-container .youtube form .form-group {
+  display: flex;
+  align-items: left;
+  justify-content: space-around;
+}
+.admin .box-container .youtube form .form-group .form-control {
+  width: 100%;
+  height: 4rem;
+  margin: 1rem;
+  font-size: 2rem;
+  border: 0.1rem solid #89cff0;
+  background: transparent;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  color: #89cff0;
+}
+.admin .box-container .youtube form .form-group .submit {
+  width: 100%;
+  height: 4rem;
+  margin: 1rem;
+  font-size: 2rem;
+  background: #89cff0;
+  color: #fff;
+}
+.admin .box-container .youtube form .form-group .submit:hover {
+  background: #40b5ad;
+  color: #89cff0;
+}
+.admin .box-container .youtube:hover {
+  transform: scale(1.02);
+}
+.admin .box-container .facebook {
+  width: 80vw;
+  text-align: center;
+  padding: 3rem 2rem;
+  border: 0.1rem solid #89cff0;
+  background: transparent;
+  flex-flow: column;
+  margin: 2rem;
+}
+.admin .box-container .facebook .heading {
+  background: transparent;
+}
+.admin .box-container .facebook form .form-group {
+  display: flex;
+  align-items: left;
+  justify-content: space-around;
+}
+.admin .box-container .facebook form .form-group .form-control {
+  width: 100%;
+  height: 4rem;
+  margin: 1rem;
+  font-size: 2rem;
+  border: 0.1rem solid #89cff0;
+  color: white;
+  background: transparent;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+.admin .box-container .facebook form .form-group .submit {
+  width: 100%;
+  height: 4rem;
+  margin: 1rem;
+  font-size: 2rem;
+  background: #89cff0;
+  color: #fff;
+}
+.admin .box-container .facebook form .form-group .submit:hover {
+  background: #40b5ad;
+  color: #89cff0;
+}/*# sourceMappingURL=admin.css.map */
