@@ -1,11 +1,13 @@
 
 import "./style.css";
+import Darood from "../quran-quiz/Darood";
 
 function Header() {
 
 
   return (
     <header>
+    <Darood />
       <div className="header-1">
         <div className="form-container">
           <div className="marquee">

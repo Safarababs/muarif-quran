@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import video from "./video.mp4";
+import video from "./darood.mp4";
 
-const BackgroundVideo = () => {
+const Darood = () => {
   useEffect(() => {
     const video = document.getElementById("background-video");
     video.play();
@@ -14,4 +14,4 @@ const BackgroundVideo = () => {
   );
 };
 
-export default BackgroundVideo;
+export default Darood;

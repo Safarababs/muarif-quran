@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import questions from './Questions/Question';
+import Darood from './Darood';
 
 const IndividualQuestion = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -20,6 +21,7 @@ const IndividualQuestion = () => {
 
   return (
     <div className="question-container-individual">
+    <Darood />
       <h1>Solved Quiz</h1>
       {currentQuestionData && (
         <div>

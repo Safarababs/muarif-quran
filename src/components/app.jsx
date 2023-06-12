@@ -26,16 +26,18 @@ import IndividualQuestion from "./quran-quiz/individualQuestion";
 import Footer from "./footer/Footer";
 import Logout from "./student/loginpage/logout";
 
+
 function App() {
   const currentDate = new Date();
   const today = currentDate.getUTCDate();
   const targetDate = 11;
   const currentHour = currentDate.getUTCHours() + 5;
-console.log(today, currentHour);
+console.log(today, currentHour -5 );
 
 
   return (
     <>
+    
       <Router>
         <AuthProvider>
           <Header />

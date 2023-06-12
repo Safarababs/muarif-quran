@@ -4,10 +4,12 @@ import BackendCall from "../institute/BackendCall";
 import "./home.css";
 import Teachers from "../teachers/teachers";
 
+
 function Home() {
   return (
     <>
       <BackendCall />
+
       <section className="home" id="home">
         <div className="content">
           <h1>

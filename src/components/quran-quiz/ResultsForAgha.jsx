@@ -41,12 +41,12 @@ function Results() {
         console.error("Error fetching results:", error);
       });
   }, []);
-  
+
   return (
     <>
       <section className="student">
         <h3 className="heading">
-          <span>here you can find all {notes.length} results</span>
+          <span>here you can find all results</span>
         </h3>
         <div className="box-container">
           {notes.map((note) => (

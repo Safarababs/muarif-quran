@@ -5,7 +5,7 @@ import questions from "./Questions/Question";
 import BackendCall from "../institute/BackendCall";
 import data from "../data";
 import "./quiz.css";
-import BackgroundVideo from "./backgroundMusic";
+import Darood from "./Darood";
 
 const Quiz = () => {
   const [shuffledQuestions, setShuffledQuestions] = useState([]);
@@ -149,7 +149,6 @@ const Quiz = () => {
 
   return (
     <section className="quiz">
-    <BackgroundVideo />
     
     <div className="quiz-container" style={{ marginTop: "7rem" }}>
       {showUserForm ? (
@@ -190,6 +189,7 @@ const Quiz = () => {
         </div>
       ) : showResults ? (
         <div className="results">
+        <Darood />
           {userResults.length > 0 ? (
             <p style={{ color: "red", background: "white" }}>
               You have already completed the quiz. Please wait for the results.
@@ -244,7 +244,6 @@ const Quiz = () => {
         </div>
       ) : (
         <div className="question-container">
-        <BackgroundVideo />
           <h1>Hi {userData.name}! your Question no {currentQuestionIndex + 1}</h1>
           <div className="question">
             <h2>{shuffledQuestions[currentQuestionIndex].question}</h2>

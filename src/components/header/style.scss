@@ -1,27 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&display=swap");
 $red: blueviolet;
 $box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
 
 header {
   .header-1 {
-    .marquee {
+    .form-container {
+      .marquee {
         width: 100vw;
         line-height: 30px;
         color: #000;
         white-space: nowrap;
         overflow: hidden;
         box-sizing: border-box;
-      
+
         p {
           display: inline-block;
           font-size: 2.5rem;
           animation: marquee 20s linear infinite;
           @font-face {
             font-family: "Attari_Quran Regular";
-            src: url("./fonts/Attari_Quran\ Regular.ttf") format('truetype');
+            src: url("./fonts/Attari_Quran\ Regular.ttf") format("truetype");
           }
         }
-      
+
         @keyframes marquee {
           0% {
             transform: translate(-100%, 0);
@@ -31,6 +32,7 @@ header {
           }
         }
       }
+    }
   }
 
   .header-2 {
@@ -41,7 +43,6 @@ header {
     width: 100%;
     z-index: 1000;
     background: linear-gradient(skyblue, $red);
-    position: fixed;
     top: 0;
     right: 0;
     box-shadow: $box-shadow;
@@ -152,4 +153,3 @@ header {
     }
   }
 }
-
