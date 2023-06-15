@@ -99,7 +99,7 @@
 }
 .quiz .quiz-container .results div .answers {
   margin: 5px;
-  font-size: 3rem;
+  font-size: 1.5rem;
 }
 .quiz .quiz-container .results div .answers span {
   font-size: 3rem;
@@ -124,12 +124,13 @@
 }
 .quiz .question-container .question h2 {
   margin: 1rem 0.1rem;
-  font-size: 2.5rem;
+  font-size: 2rem;
   text-align: right;
   font-family: "Noto Nastaliq Urdu";
   border: solid 1px blueviolet;
   padding: 1.5rem;
   border-width: auto;
+  line-height: 5rem;
 }
 .quiz .question-container .question ul {
   list-style-type: none;
@@ -149,7 +150,7 @@
   display: flex;
   align-items: center;
   cursor: pointer;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-family: "Noto Nastaliq Urdu";
 }
 .quiz .question-container .question ul li label input[type=radio] {

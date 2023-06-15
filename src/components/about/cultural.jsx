@@ -16,7 +16,7 @@ function Cultural() {
           <span>Arranging Gatherings and Events for Students</span>
         </h1>
         <div className="box-container">
-          <div className="box" d>
+          <div className="box" >
             <div className="image">
               <img src={img7} alt="" />
 

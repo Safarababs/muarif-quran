@@ -46,7 +46,7 @@ function Results() {
     <>
       <section className="student">
         <h3 className="heading">
-          <span>here you can find all results</span>
+          <span>here you can find all {notes.length} results</span>
         </h3>
         <div className="box-container">
           {notes.map((note) => (

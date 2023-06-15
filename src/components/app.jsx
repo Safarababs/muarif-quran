@@ -26,18 +26,15 @@ import IndividualQuestion from "./quran-quiz/individualQuestion";
 import Footer from "./footer/Footer";
 import Logout from "./student/loginpage/logout";
 
-
 function App() {
   const currentDate = new Date();
   const today = currentDate.getUTCDate();
-  const targetDate = 11;
+  const targetDate = 18;
   const currentHour = currentDate.getUTCHours() + 5;
-console.log(today, currentHour -5 );
-
+  console.log(today, currentHour - 5);
 
   return (
     <>
-    
       <Router>
         <AuthProvider>
           <Header />
@@ -52,24 +49,7 @@ console.log(today, currentHour -5 );
             <Route path="/gallery" element={<Gallery />}></Route>
             <Route path="/register" element={<Register />}></Route>
             <Route path="/results" element={<Results />}></Route>
-            <Route
-              path="/resultcheck"
-              element={
-                today === targetDate + 1 ? (
-                  <ResultCheck />
-                ) : (
-                  <h1
-                    style={{
-                      margin: "15rem 4rem",
-                      color: "red",
-                      fontSize: "4rem",
-                    }}
-                  >
-                    Access denied! Tomorrow it will show
-                  </h1>
-                )
-              }
-            ></Route>
+            <Route path="/resultcheck" element={<ResultCheck />}></Route>
             <Route
               path="/IndividualQuestion"
               element={
@@ -83,18 +63,18 @@ console.log(today, currentHour -5 );
                       fontSize: "4rem",
                     }}
                   >
-                    Access denied! Tomorrow it will show
+                    Access denied! contact developer
                   </h1>
                 )
               }
             ></Route>
-            <Route path="/demo" element={<IndividualQuestion />}></Route>
+            <Route path="/demoquestion" element={<IndividualQuestion />}></Route>
 
             <Route path="/update" element={<UpdatePassword />}></Route>
             <Route
               path="/quranquiz"
               element={
-                today === targetDate && currentHour >= 9 && currentHour < 29 ? (
+                today === targetDate && currentHour >= 9 && currentHour < 21 ? (
                   <Quiz />
                 ) : (
                   <QuizAccess />

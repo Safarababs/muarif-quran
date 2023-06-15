@@ -209,11 +209,11 @@ const Quiz = () => {
                   <p
                     style={{
                       color: "black",
-                      fontSize: "3rem",
+                      fontSize: "2rem",
                       fontFamily:"Noto Nastaliq Urdu"
                     }}
                   >
-                    Question {index + 1}: {result.question.question}
+                    Question {index + 1}:<br></br> {result.question.question}
                   </p>
                   <p className="answers">
                     Correct Answer: {result.question.correctAnswer}

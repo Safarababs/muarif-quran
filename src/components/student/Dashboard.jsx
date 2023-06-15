@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import BackendCall from "../institute/BackendCall";
 import Lecture from "../lectures/lectures";
 import Books from "../books/books";
-import Ladies from "../books/ladies/ladies.pdf";
-import ladies from "../books/ladies/ladies.png";
+import LadiesPDF from "../books/ladies/ladies.pdf";
+import ladiesImage from "../books/ladies/ladies.png";
 
 import { useNavigate } from "react-router-dom";
 
@@ -32,13 +32,16 @@ function Dashboard() {
     <>
       <section className="dashboard">
         <h1 className="heading">
-          <span>hi {userData?.fName}! welcome to Muarif-e-quran & ahelaibait</span>
+          <span>
+            Hi {userData?.fName}! Welcome to Muarif-e-Quran & Ahelaibait
+          </span>
         </h1>
+
         <button onClick={handleLogout} className="btn">
           Logout
         </button>
         <Lecture />
-        <Books title="Ladies Books" pdf={Ladies} image={ladies} />
+        <Books title="Ladies Books" pdf={LadiesPDF} image={ladiesImage} />
       </section>
       <BackendCall />
     </>
