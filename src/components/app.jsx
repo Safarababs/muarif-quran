@@ -74,7 +74,7 @@ function App() {
             <Route
               path="/quranquiz"
               element={
-                today === targetDate && currentHour >= 9 && currentHour < 21 ? (
+                today === targetDate && currentHour >= 8 && currentHour < 21 ? (
                   <Quiz />
                 ) : (
                   <QuizAccess />
