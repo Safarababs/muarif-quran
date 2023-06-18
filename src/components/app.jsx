@@ -29,9 +29,12 @@ import Logout from "./student/loginpage/logout";
 function App() {
   const currentDate = new Date();
   const today = currentDate.getUTCDate();
-  const targetDate = 18;
   const currentHour = currentDate.getUTCHours() + 5;
-  console.log(today, currentHour - 5);
+  // test date and time
+  const targetDate = 18;
+  const from = 8;
+  const to = 21
+
 
   return (
     <>
@@ -74,10 +77,10 @@ function App() {
             <Route
               path="/quranquiz"
               element={
-                today === targetDate && currentHour >= 8 && currentHour < 21 ? (
+                today === targetDate && currentHour >= from && currentHour < to ? (
                   <Quiz />
                 ) : (
-                  <QuizAccess />
+                  <QuizAccess date={targetDate} from={from} to={to}/>
                 )
               }
             ></Route>
