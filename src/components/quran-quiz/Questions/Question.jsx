@@ -1,6 +1,4 @@
-import SooratINasar from "./sooratNasar";
-import SooratMahoon from "./SooratMahoon";
-import SooratFeel from "./SooratFeel";
+import FinalQuiz from "./FinalText";
 
 function shuffleArray(array) {
   const shuffled = [...array];
@@ -12,9 +10,7 @@ function shuffleArray(array) {
 }
 
 const allQuestions = [
-  ...SooratINasar,
-  ...SooratFeel,
-  ...SooratMahoon
+  ...FinalQuiz
 ];
 
 const questions = shuffleArray(allQuestions);

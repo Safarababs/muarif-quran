@@ -110,6 +110,12 @@
   margin: 0.5rem;
 }
 .quiz .question-container {
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   max-width: 90vw;
   margin: 0 auto;
   margin: 1rem;
@@ -121,6 +127,9 @@
 }
 .quiz .question-container .question {
   padding: 0 1rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 .quiz .question-container .question h2 {
   margin: 1rem 0.1rem;
@@ -207,9 +216,10 @@
   margin-top: 8rem;
 }
 .question-container-individual h1 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   text-align: left;
   margin-bottom: 20px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .question-container-individual h2 {
   font-size: 2rem;
@@ -229,7 +239,8 @@
   display: flex;
   align-items: center;
   cursor: pointer;
-  font-synthesis: 2rem;
+  font-size: 2rem;
+  font-family: "Noto Nastaliq Urdu";
 }
 .question-container-individual label input[type=radio] {
   margin-right: 10px;

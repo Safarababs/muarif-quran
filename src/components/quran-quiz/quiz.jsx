@@ -15,6 +15,7 @@ const Quiz = () => {
     city: "",
   });
   const [userResults, setUserResults] = useState([]);
+  const [timer, setTimer] = useState(0);
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState(
@@ -39,35 +40,28 @@ const Quiz = () => {
     });
   };
 
-  const handleNextClick = () => {
-    if (showUserForm) {
-      if (!userData.name || !userData.phoneNumber || !userData.city) {
-        const errors = {
-          name: !userData.name,
-          phoneNumber: !userData.phoneNumber,
-          city: !userData.city,
-        };
-        setFormErrors(errors);
-      } else {
-        setFormErrors({});
-        setShowUserForm(false);
-      }
-    } else {
-      if (currentQuestionIndex === shuffledQuestions.length - 1) {
-        setShowResults(true);
-        saveUserDataAndAnswers();
-      } else {
-        setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
-      }
-    }
-  };
-
-  const handleBackClick = () => {
-    if (currentQuestionIndex === 0) {
-      return;
-    }
-    setCurrentQuestionIndex((prevIndex) => prevIndex - 1);
-  };
+  // const handleNextClick = () => {
+  //   if (showUserForm) {
+  //     if (!userData.name || !userData.phoneNumber || !userData.city) {
+  //       const errors = {
+  //         name: !userData.name,
+  //         phoneNumber: !userData.phoneNumber,
+  //         city: !userData.city,
+  //       };
+  //       setFormErrors(errors);
+  //     } else {
+  //       setFormErrors({});
+  //       setShowUserForm(false);
+  //     }
+  //   } else {
+  //     if (currentQuestionIndex === shuffledQuestions.length - 1) {
+  //       setShowResults(true);
+  //       saveUserDataAndAnswers();
+  //     } else {
+  //       setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+  //     }
+  //   }
+  // };
 
   const calculateMarks = useCallback(() => {
     let totalMarks = shuffledQuestions.length;
@@ -109,6 +103,62 @@ const Quiz = () => {
     });
   }, [calculateMarks, userData]);
 
+  // timer
+  useEffect(() => {
+    const timerId = setInterval(() => {
+      setTimer((prevTimer) => prevTimer - 1);
+    }, 1000);
+
+    return () => {
+      clearInterval(timerId);
+    };
+  }, []);
+
+  const handleNextClick = useCallback(() => {
+    if (showUserForm) {
+      if (!userData.name || !userData.phoneNumber || !userData.city) {
+        const errors = {
+          name: !userData.name,
+          phoneNumber: !userData.phoneNumber,
+          city: !userData.city,
+        };
+        setFormErrors(errors);
+      } else {
+        setFormErrors({});
+        setShowUserForm(false);
+        setTimer(questions.length * 60);
+      }
+    } else {
+      if (currentQuestionIndex === shuffledQuestions.length - 1) {
+        setShowResults(true);
+        saveUserDataAndAnswers();
+      } else {
+        setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+      }
+    }
+  }, [currentQuestionIndex, saveUserDataAndAnswers, setTimer, setShowResults, setFormErrors, setShowUserForm, shuffledQuestions.length, userData.city, userData.name, userData.phoneNumber, showUserForm]);
+  
+  useEffect(() => {
+    if (timer === 0) {
+      handleNextClick();
+    }
+  }, [handleNextClick, timer]);
+  
+  
+  
+  
+
+  const handleBackClick = () => {
+    if (currentQuestionIndex === 0) {
+      return;
+    }
+    setCurrentQuestionIndex((prevIndex) => prevIndex - 1);
+  };
+
+  
+
+
+
   const checkIfUserAlreadyCompletedQuiz = useCallback(() => {
     const name = userData.name;
     const phoneNumber = userData.phoneNumber;
@@ -130,7 +180,9 @@ const Quiz = () => {
       }
     });
   }, [userData]);
+  
 
+  // shuffled question
   useEffect(() => {
     const shuffledArray = questions.map((question) => {
       return {
@@ -151,7 +203,8 @@ const Quiz = () => {
     <section className="quiz">
     
     <div className="quiz-container" style={{ marginTop: "7rem" }}>
-      {showUserForm ? (
+    
+      {showUserForm ?  (
         <div className="form-group">
         <h1 className="heading">
         <span>Muarif Quranic Quiz Competition</span>
@@ -244,7 +297,19 @@ const Quiz = () => {
         </div>
       ) : (
         <div className="question-container">
-          <h1>Hi {userData.name}! your Question no {currentQuestionIndex + 1}</h1>
+        <h1>Hi {userData.name}!</h1>
+        {!showUserForm && !showResults && (
+        <div className="timer">
+          {timer > 0 ? (
+            <h1 className="heading">
+            <span>Time Remaining: {Math.floor(timer / 60)}:{timer % 60}</span>
+            </h1>
+          ) : (
+            <h1>Time's Up!</h1>
+          )}
+        </div>
+      )}
+          <h1>Question no {currentQuestionIndex + 1}</h1>
           <div className="question">
             <h2>{shuffledQuestions[currentQuestionIndex].question}</h2>
             <BackendCall />
