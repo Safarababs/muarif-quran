@@ -40,28 +40,7 @@ const Quiz = () => {
     });
   };
 
-  // const handleNextClick = () => {
-  //   if (showUserForm) {
-  //     if (!userData.name || !userData.phoneNumber || !userData.city) {
-  //       const errors = {
-  //         name: !userData.name,
-  //         phoneNumber: !userData.phoneNumber,
-  //         city: !userData.city,
-  //       };
-  //       setFormErrors(errors);
-  //     } else {
-  //       setFormErrors({});
-  //       setShowUserForm(false);
-  //     }
-  //   } else {
-  //     if (currentQuestionIndex === shuffledQuestions.length - 1) {
-  //       setShowResults(true);
-  //       saveUserDataAndAnswers();
-  //     } else {
-  //       setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
-  //     }
-  //   }
-  // };
+
 
   const calculateMarks = useCallback(() => {
     let totalMarks = shuffledQuestions.length;

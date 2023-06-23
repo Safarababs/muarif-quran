@@ -32,7 +32,7 @@ function App() {
   const currentHour = currentDate.getUTCHours() + 5;
   // test date and time
   const targetDate = 25;
-  const from = 9;
+  const from = 10;
   const to = 21
 
 

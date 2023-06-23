@@ -36,7 +36,11 @@ function Results() {
           throw new Error("Error fetching results");
         }
       })
-      .then((jsonRes) => setNotes(jsonRes))
+      .then((jsonRes) => {
+        // Sort notes array in descending order based on obtainedMarks
+        const sortedNotes = jsonRes.sort((a, b) => b.obtainedMarks - a.obtainedMarks);
+        setNotes(sortedNotes);
+      })
       .catch((error) => {
         console.error("Error fetching results:", error);
       });
