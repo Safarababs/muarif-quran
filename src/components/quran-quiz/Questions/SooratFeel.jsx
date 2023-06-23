@@ -1,4 +1,4 @@
-const SooratFeel = [
+const SooratFeelSwal = [
   {
     question: "سورت الفیل قرآن کی ۔۔۔ نمبر سورت ہے",
     options: ["107", "105", "110", "108"],
@@ -80,4 +80,4 @@ const SooratFeel = [
     correctAnswer: "ان کا مقصد تباہی نہیں اقتدار تھا",
   }
 ];
-export default SooratFeel;
+export default SooratFeelSwal;

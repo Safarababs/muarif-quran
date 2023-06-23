@@ -1,4 +1,4 @@
-const SooratMahoon = [
+const SooratMahoonswal = [
   {
     question: "سورۃ الماعون کی ۔۔۔۔ آیات ہیں",
     options: ["4", "5", "7", "8"],
@@ -75,4 +75,4 @@ const SooratMahoon = [
   },
 ];
 
-export default SooratMahoon;
+export default SooratMahoonswal;

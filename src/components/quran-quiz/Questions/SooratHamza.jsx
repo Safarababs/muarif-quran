@@ -1,5 +1,5 @@
-// SooratINaas.js
-const SooratINaas = [
+// SooratHamzaswal.js
+const SooratHamzaswal = [
   {
     question: "انسان کی ۔۔۔۔ کرنا گناہ کبیرہ ہے",
     options: [
@@ -96,4 +96,4 @@ const SooratINaas = [
   },
 ];
 
-export default SooratINaas;
+export default SooratHamzaswal;

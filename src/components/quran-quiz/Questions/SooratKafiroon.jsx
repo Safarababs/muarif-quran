@@ -1,5 +1,5 @@
-// SooratIKafiroon.js
-const SooratIKafiroon = [
+// questions.js
+const questions = [
     {
       question: "َاحادیث رسول صلی اللہ علیہ وآلہ وسلم و ائمہ اہل بیت علیہم السلام میں اس بات کی تاکید کی گئی ہے کہ اس سورۃ کو سوتے وقت پڑھا جائے چونکہ اس میں۔۔۔۔۔ہے",
       options: ["شفا","کافروں کو جہنم کی بشارت" , "شرک سے برائت", "رزق"],
@@ -32,5 +32,5 @@ const SooratIKafiroon = [
 
   
   
-  export default SooratIKafiroon;
+  export default questions;
   

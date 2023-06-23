@@ -1,5 +1,5 @@
 // SooratINaas.js
-const SooratINasar = [
+const SooratNasarswal = [
     {
       question: " سورۃ النصر۔۔۔۔۔سورۃ ہے",
       options: ["مدنی", "مکی"],
@@ -43,5 +43,5 @@ const SooratINasar = [
       }
   ];
   
-  export default SooratINasar;
+  export default SooratNasarswal;
   

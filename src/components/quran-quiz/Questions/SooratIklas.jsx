@@ -1,5 +1,5 @@
 // SooratIkhlas.js
-const SooratIkhlas = [
+const SooratIkhlasswal = [
     {
       question: "َ لَمۡ یَکُنۡ لَّہٗ کُفُوًا اَحَدٌ کا صحیح ترجمہ کیا ہے",
       options: ['نہ اس نے کسی کو جنا نہ وہ کسی سے جنا گیا', 'اللہ بے نیاز ہے', 'اور کوئی بھی اس کا ہمسر نہیں ہے', 'اس کا کوئ شریک نہیں'],
@@ -62,5 +62,5 @@ const SooratIkhlas = [
 
   
   
-  export default SooratIkhlas;
+  export default SooratIkhlasswal;
   

@@ -1,5 +1,5 @@
-// SooratINaas.js
-const SooratINaas = [
+// SooratQuraish.js
+const SooratQuraishswal = [
   {
     question: "سورت قریش ۔۔۔۔۔ سورت ہے",
     options: [
@@ -98,4 +98,4 @@ const SooratINaas = [
   },
 ];
 
-export default SooratINaas;
+export default SooratQuraishswal;

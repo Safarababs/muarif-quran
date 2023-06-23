@@ -26,6 +26,18 @@ import IndividualQuestion from "./quran-quiz/individualQuestion";
 import Footer from "./footer/Footer";
 import Logout from "./student/loginpage/logout";
 
+
+import SooratIKausar from "./quran-quiz/Revisions/SooratKausar";
+import SooratNaas from "./quran-quiz/Revisions/SooratNaas";
+import SooratQuraish from "./quran-quiz/Revisions/SooratQuraish";
+import SooratNasar from "./quran-quiz/Revisions/SooratNasar";
+import SooratMahoon from "./quran-quiz/Revisions/SooratMahoon";
+import SooratKafroon from "./quran-quiz/Revisions/SooratIKafiroon";
+import SooratIkhlas from "./quran-quiz/Revisions/SooratIkhlas";
+import SooratFalak from "./quran-quiz/Revisions/SooratFalak";
+import SooratFeel from "./quran-quiz/Revisions/SooratFeel";
+import SooratHamza from "./quran-quiz/Revisions/SooratHamza";
+
 function App() {
   const currentDate = new Date();
   const today = currentDate.getUTCDate();
@@ -95,6 +107,20 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />}></Route>
             <Route path="/login" element={<Login />}></Route>
             <Route path="/logout" element={<Logout />}></Route>
+
+            {/* previos all soorat quiz */}
+            
+            <Route path="/sooratkausar" element={<SooratIKausar />}></Route>
+            <Route path="/sooratnaas" element={<SooratNaas />}></Route>
+            <Route path="/sooratquraish" element={<SooratQuraish />}></Route>
+            <Route path="/sooratnasar" element= {<SooratNasar />}></Route>
+            <Route path="/sooratmahoon" element= {<SooratMahoon />}></Route>
+            <Route path="/sooratkafroon" element= {<SooratKafroon/>}></Route>
+            <Route path="/sooratikhlas" element= {<SooratIkhlas/>}></Route>
+            <Route path="/sooratfalak" element= {<SooratFalak/>}></Route>
+            <Route path="/sooratfeel" element= {<SooratFeel/>}></Route>
+            <Route path="/soorathamza" element= {<SooratHamza/>}></Route>
+
           </Routes>
         </AuthProvider>
       </Router>{" "}
