@@ -26,7 +26,6 @@ import IndividualQuestion from "./quran-quiz/individualQuestion";
 import Footer from "./footer/Footer";
 import Logout from "./student/loginpage/logout";
 
-
 import SooratIKausar from "./quran-quiz/Revisions/SooratKausar";
 import SooratNaas from "./quran-quiz/Revisions/SooratNaas";
 import SooratQuraish from "./quran-quiz/Revisions/SooratQuraish";
@@ -45,8 +44,7 @@ function App() {
   // test date and time
   const targetDate = 25;
   const from = 10;
-  const to = 21
-
+  const to = 21;
 
   return (
     <>
@@ -83,16 +81,21 @@ function App() {
                 )
               }
             ></Route>
-            <Route path="/demoquestion" element={<IndividualQuestion />}></Route>
+            <Route
+              path="/demoquestion"
+              element={<IndividualQuestion />}
+            ></Route>
 
             <Route path="/update" element={<UpdatePassword />}></Route>
             <Route
               path="/quranquiz"
               element={
-                today === targetDate && currentHour >= from && currentHour < to ? (
+                today === targetDate &&
+                currentHour >= from &&
+                currentHour < to ? (
                   <Quiz />
                 ) : (
-                  <QuizAccess date={targetDate} from={from} to={to}/>
+                  <QuizAccess date={targetDate} from={from} to={to} />
                 )
               }
             ></Route>
@@ -109,18 +112,187 @@ function App() {
             <Route path="/logout" element={<Logout />}></Route>
 
             {/* previos all soorat quiz */}
-            
-            <Route path="/sooratkausar" element={<SooratIKausar />}></Route>
-            <Route path="/sooratnaas" element={<SooratNaas />}></Route>
-            <Route path="/sooratquraish" element={<SooratQuraish />}></Route>
-            <Route path="/sooratnasar" element= {<SooratNasar />}></Route>
-            <Route path="/sooratmahoon" element= {<SooratMahoon />}></Route>
-            <Route path="/sooratkafroon" element= {<SooratKafroon/>}></Route>
-            <Route path="/sooratikhlas" element= {<SooratIkhlas/>}></Route>
-            <Route path="/sooratfalak" element= {<SooratFalak/>}></Route>
-            <Route path="/sooratfeel" element= {<SooratFeel/>}></Route>
-            <Route path="/soorathamza" element= {<SooratHamza/>}></Route>
 
+            <Route
+              path="/sooratkausar"
+              element={
+                today === targetDate ? (
+                  <h1
+                    style={{
+                      margin: "15rem 4rem",
+                      color: "red",
+                      fontSize: "4rem",
+                    }}
+                  >
+                    Accss denied
+                  </h1>
+                ) : (
+                  <SooratIKausar />
+                )
+              }
+            ></Route>
+            <Route
+              path="/sooratnaas"
+              element={
+                today === targetDate ? (
+                  <h1
+                    style={{
+                      margin: "15rem 4rem",
+                      color: "red",
+                      fontSize: "4rem",
+                    }}
+                  >
+                    Accss denied
+                  </h1>
+                ) : (
+                  <SooratNaas />
+                )
+              }
+            ></Route>
+            <Route
+              path="/sooratquraish"
+              element={
+                today === targetDate ? (
+                  <h1
+                    style={{
+                      margin: "15rem 4rem",
+                      color: "red",
+                      fontSize: "4rem",
+                    }}
+                  >
+                    Accss denied
+                  </h1>
+                ) : (
+                  <SooratQuraish />
+                )
+              }
+            ></Route>
+            <Route
+              path="/sooratnasar"
+              element={
+                today === targetDate ? (
+                  <h1
+                    style={{
+                      margin: "15rem 4rem",
+                      color: "red",
+                      fontSize: "4rem",
+                    }}
+                  >
+                    Accss denied
+                  </h1>
+                ) : (
+                  <SooratNasar />
+                )
+              }
+            ></Route>
+            <Route
+              path="/sooratmahoon"
+              element={
+                today === targetDate ? (
+                  <h1
+                    style={{
+                      margin: "15rem 4rem",
+                      color: "red",
+                      fontSize: "4rem",
+                    }}
+                  >
+                    Accss denied
+                  </h1>
+                ) : (
+                  <SooratMahoon />
+                )
+              }
+            ></Route>
+            <Route
+              path="/sooratkafroon"
+              element={
+                today === targetDate ? (
+                  <h1
+                    style={{
+                      margin: "15rem 4rem",
+                      color: "red",
+                      fontSize: "4rem",
+                    }}
+                  >
+                    Accss denied
+                  </h1>
+                ) : (
+                  <SooratKafroon />
+                )
+              }
+            ></Route>
+            <Route
+              path="/sooratikhlas"
+              element={
+                today === targetDate ? (
+                  <h1
+                    style={{
+                      margin: "15rem 4rem",
+                      color: "red",
+                      fontSize: "4rem",
+                    }}
+                  >
+                    Accss denied
+                  </h1>
+                ) : (
+                  <SooratIkhlas />
+                )
+              }
+            ></Route>
+            <Route
+              path="/sooratfalak"
+              element={
+                today === targetDate ? (
+                  <h1
+                    style={{
+                      margin: "15rem 4rem",
+                      color: "red",
+                      fontSize: "4rem",
+                    }}
+                  >
+                    Accss denied
+                  </h1>
+                ) : (
+                  <SooratFalak />
+                )
+              }
+            ></Route>
+            <Route
+              path="/sooratfeel"
+              element={
+                today === targetDate ? (
+                  <h1
+                    style={{
+                      margin: "15rem 4rem",
+                      color: "red",
+                      fontSize: "4rem",
+                    }}
+                  >
+                    Accss denied
+                  </h1>
+                ) : (
+                  <SooratFeel />
+                )
+              }
+            ></Route>
+            <Route
+              path="/soorathamza"
+              element={
+                today === targetDate ? (
+                  <h1
+                    style={{
+                      margin: "15rem 4rem",
+                      color: "red",
+                      fontSize: "4rem",
+                    }}
+                  >
+                    Accss denied
+                  </h1>
+                ) : (
+                  <SooratHamza />
+                )
+              }
+            ></Route>
           </Routes>
         </AuthProvider>
       </Router>{" "}
