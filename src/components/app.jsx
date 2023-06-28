@@ -37,20 +37,24 @@ import SooratFalak from "./quran-quiz/Revisions/SooratFalak";
 import SooratFeel from "./quran-quiz/Revisions/SooratFeel";
 import SooratHamza from "./quran-quiz/Revisions/SooratHamza";
 
+
 function App() {
   const currentDate = new Date();
   const today = currentDate.getUTCDate();
   const currentHour = currentDate.getUTCHours() + 5;
   // test date and time
-  const targetDate = 24;
+  const targetDate = 2;
   const from = 10;
-  const to = 21;
+  const to = 27;
+  // final quiz date add must to show certificate to individual student
+  const finalDate = 16;
 
   return (
     <>
       <Router>
         <AuthProvider>
           <Header />
+      
 
           <Routes>
             <Route path="/" exact element={<Home />}></Route>
@@ -62,7 +66,7 @@ function App() {
             <Route path="/gallery" element={<Gallery />}></Route>
             <Route path="/register" element={<Register />}></Route>
             <Route path="/results" element={<Results />}></Route>
-            <Route path="/resultcheck" element={<ResultCheck />}></Route>
+            <Route path="/resultcheck" element={<ResultCheck targetDate={finalDate} />}></Route>
             <Route
               path="/IndividualQuestion"
               element={
@@ -82,7 +86,7 @@ function App() {
               }
             ></Route>
             <Route
-              path="/demoquestion"
+              path="/recheck"
               element={<IndividualQuestion />}
             ></Route>
 

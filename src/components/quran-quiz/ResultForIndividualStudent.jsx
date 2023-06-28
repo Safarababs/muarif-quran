@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import data from "../data";
 import BackendCall from "../institute/BackendCall";
+import StudentResult from "./StudentResult";
 import NewResult from "./newResult";
 import "./quiz.css";
 
-function Results() {
+function Results(props) {
+  const targetDate = props.targetDate;
+  const currentDate = new Date();
+  const today = currentDate.getUTCDate();
   const [phoneNumber, setPhoneNumber] = useState("");
   const [notes, setNotes] = useState([
     {
@@ -15,10 +19,10 @@ function Results() {
     },
   ]);
   const [filteredNotes, setFilteredNotes] = useState([]);
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setLoading(true)
+    setLoading(true);
     fetch(data.backend + "/results")
       .then((res) => {
         if (res.ok) {
@@ -29,7 +33,7 @@ function Results() {
       })
       .then((jsonRes) => {
         setNotes(jsonRes);
-        setLoading(false)
+        setLoading(false);
       })
       .catch((error) => {
         console.log(error);
@@ -46,8 +50,6 @@ function Results() {
 
   return (
     <>
-      
-
       <form onSubmit={handleFilter} className="studentResult">
         <input
           type="text"
@@ -55,20 +57,31 @@ function Results() {
           onChange={(event) => setPhoneNumber(event.target.value)}
           placeholder="Enter your phone number"
         />
-        <button type="submit" className="btn">{loading ? "Loading":"Check Results"}</button>
+        <button type="submit" className="btn">
+          {loading ? "Loading" : "Check Results"}
+        </button>
       </form>
 
       {filteredNotes.length > 0 ? (
-        <section className="student" >
-          <div className="box-container" style={{marginTop:"0"}}>
-            {filteredNotes.map((note) => (
-              <NewResult
-                key={note._id}
-                name={note.name}
-                phoneNumber={note.phoneNumber}
-                obtainedMarks={note.obtainedMarks}
-              />
-            ))}
+        <section className="student">
+          <div className="box-container" style={{ marginTop: "0" }}>
+            {filteredNotes.map((note) =>
+              today === targetDate || today === targetDate + 1 || today === targetDate + 2 ? (
+                <StudentResult
+                  key={note._id}
+                  name={note.name}
+                  phoneNumber={note.phoneNumber}
+                  obtainedMarks={note.obtainedMarks}
+                />
+              ) : (
+                <NewResult
+                  key={note._id}
+                  name={note.name}
+                  phoneNumber={note.phoneNumber}
+                  obtainedMarks={note.obtainedMarks}
+                />
+              )
+            )}
           </div>
         </section>
       ) : null}

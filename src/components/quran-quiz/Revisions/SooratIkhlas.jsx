@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import SooratIkhlasswal from "../Questions/SooratIklas";
+import SooratIkhlasswal from "../Questions/25-June-2023 last 11 soorat/SooratIklas";
 import Darood from '../Darood';
 
 const SooratIkhlas = () => {

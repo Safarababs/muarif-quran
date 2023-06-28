@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import SooratQuraishswal from '../Questions/SooratQuraish';
+import SooratQuraishswal from "../Questions/25-June-2023 last 11 soorat/SooratQuraish";
 import Darood from '../Darood';
 
 const SooratQuraish = () => {

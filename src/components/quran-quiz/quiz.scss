@@ -48,9 +48,9 @@ $primary-color: #3498db;
       .heading {
         color: white;
         margin: 0;
-        span{
-            padding: 0;
-            color: white;
+        span {
+          padding: 0;
+          color: white;
         }
       }
 
@@ -152,10 +152,10 @@ $primary-color: #3498db;
   .question-container {
     user-select: none;
     -webkit-touch-callout: none; // Safari
-  -webkit-user-select: none; // Safari
-  -khtml-user-select: none; // Konqueror HTML
-  -moz-user-select: none; // Firefox
-  -ms-user-select: none;
+    -webkit-user-select: none; // Safari
+    -khtml-user-select: none; // Konqueror HTML
+    -moz-user-select: none; // Firefox
+    -ms-user-select: none;
     max-width: 90vw;
     margin: 0 auto;
     margin: 1rem;
@@ -166,9 +166,9 @@ $primary-color: #3498db;
       font-family: "Noto Nastaliq Urdu";
     }
 
-    .timer{
-      h1{
-        color:blueviolet;
+    .timer {
+      h1 {
+        color: blueviolet;
       }
     }
 
@@ -186,7 +186,6 @@ $primary-color: #3498db;
         border-width: auto;
         line-height: 5rem;
       }
-
 
       ul {
         list-style-type: none;
@@ -267,7 +266,6 @@ $primary-color: #3498db;
   }
 }
 
-
 .question-container-individual {
   max-width: 90vw;
   margin: 0 auto;
@@ -312,12 +310,12 @@ $primary-color: #3498db;
     }
   }
 
-  .btn{
+  .btn {
     color: $red;
     border-color: $red;
     outline-color: $red;
 
-    &:hover{
+    &:hover {
       color: #fff;
     }
   }
@@ -327,7 +325,7 @@ $primary-color: #3498db;
     padding-top: 10px;
     border-top: 1px solid #ccc;
 
-    p{
+    p {
       font-size: 2rem;
       font-family: "Noto Nastaliq Urdu";
     }
@@ -356,43 +354,39 @@ $primary-color: #3498db;
     line-height: 4rem;
     margin: 1rem;
     font-family: "Noto Nastaliq Urdu";
-    
-    
   }
 }
 
-.studentResult {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-top: 15rem;
+.newresult {
+  position: relative;
 
-  flex-flow: column;
+  .container {
+    display: inline-block;
 
-  input {
-    width: 90%;
-    border: solid 1px $red;
-    color: black;
-    padding: 1rem;
-    height: 4rem;
-    border-radius: 10px;
-    font-size: 2rem;
-    margin: 0.5rem;
+    img {
+      display: block;
+    }
 
-    ::placeholder {
-      color: $red;
-      font-size: 1rem;
-      margin: 1rem;
+    .text {
+      position: absolute;
+      top: 48%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 4vw;
+      text-align: center;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+      width: 90%;
     }
   }
 
-  .btn{
+  .btn {
     color: $red;
     border-color: $red;
     outline-color: $red;
+    width: 80%;
 
-    &:hover{
+    &:hover {
       color: #fff;
     }
   }
@@ -424,12 +418,49 @@ $primary-color: #3498db;
     }
   }
 
-  .btn{
+  .btn {
     color: $red;
     border-color: $red;
     outline-color: $red;
 
-    &:hover{
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+
+.studentResult {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 15rem;
+
+  flex-flow: column;
+
+  input {
+    width: 90%;
+    border: solid 1px $red;
+    color: black;
+    padding: 1rem;
+    height: 4rem;
+    border-radius: 10px;
+    font-size: 2rem;
+    margin: 0.5rem;
+
+    ::placeholder {
+      color: $red;
+      font-size: 1rem;
+      margin: 1rem;
+    }
+  }
+
+  .btn {
+    color: $red;
+    border-color: $red;
+    outline-color: $red;
+
+    &:hover {
       color: #fff;
     }
   }
@@ -492,11 +523,48 @@ $primary-color: #3498db;
           color: $white;
           font-size: 1.2rem;
         }
-        
       }
-      
     }
-    
   }
-  
+}
+
+
+@media (max-width: 1200px) {
+  .newresult {
+    .container {
+      .text {
+        top: 47%;
+      }
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .newresult {
+    .container {
+      .text {
+        top: 45%;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .newresult {
+    .container {
+      .text {
+        top: 42%;
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .newresult {
+    .container {
+      .text {
+        top: 37%;
+      }
+    }
+  }
 }

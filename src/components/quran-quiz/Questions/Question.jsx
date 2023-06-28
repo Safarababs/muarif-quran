@@ -1,4 +1,4 @@
-import FinalQuiz from "./FinalText";
+import SooratQadar from "./16-july-23 soorat no 97-103/SooratQadar";
 
 function shuffleArray(array) {
   const shuffled = [...array];
@@ -10,7 +10,7 @@ function shuffleArray(array) {
 }
 
 const allQuestions = [
-  ...FinalQuiz
+  ...SooratQadar
 ];
 
 const questions = shuffleArray(allQuestions);

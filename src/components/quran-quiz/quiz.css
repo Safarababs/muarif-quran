@@ -292,6 +292,36 @@
   font-family: "Noto Nastaliq Urdu";
 }
 
+.newresult {
+  position: relative;
+}
+.newresult .container {
+  display: inline-block;
+}
+.newresult .container img {
+  display: block;
+}
+.newresult .container .text {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 4vw;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  width: 90%;
+}
+.newresult .btn {
+  color: blueviolet;
+  border-color: blueviolet;
+  outline-color: blueviolet;
+  width: 80%;
+}
+.newresult .btn:hover {
+  color: #fff;
+}
+
 .studentResult {
   display: flex;
   justify-content: center;
@@ -419,4 +449,25 @@
   background-color: #89cff0;
   color: #fff;
   font-size: 1.2rem;
+}
+
+@media (max-width: 1200px) {
+  .newresult .container .text {
+    top: 47%;
+  }
+}
+@media (max-width: 1000px) {
+  .newresult .container .text {
+    top: 45%;
+  }
+}
+@media (max-width: 768px) {
+  .newresult .container .text {
+    top: 42%;
+  }
+}
+@media (max-width: 400px) {
+  .newresult .container .text {
+    top: 37%;
+  }
 }/*# sourceMappingURL=quiz.css.map */
