@@ -36,6 +36,7 @@ import SooratIkhlas from "./quran-quiz/Revisions/SooratIkhlas";
 import SooratFalak from "./quran-quiz/Revisions/SooratFalak";
 import SooratFeel from "./quran-quiz/Revisions/SooratFeel";
 import SooratHamza from "./quran-quiz/Revisions/SooratHamza";
+import NoPage from "./institute/NoPage";
 
 
 function App() {
@@ -43,9 +44,9 @@ function App() {
   const today = currentDate.getUTCDate();
   const currentHour = currentDate.getUTCHours() + 5;
   // test date and time
-  const targetDate = 2;
-  const from = 10;
-  const to = 27;
+  const targetDate = 1;
+  const from = 8;
+  const to = 23;
   // final quiz date add must to show certificate to individual student
   const finalDate = 16;
 
@@ -58,6 +59,7 @@ function App() {
 
           <Routes>
             <Route path="/" exact element={<Home />}></Route>
+            <Route path="*" element={<NoPage />} />
             <Route path="/courses" element={<Courses />}></Route>
             <Route path="/lectures" element={<Lecture />}></Route>
             <Route path="/contact" element={<Contact />}></Route>

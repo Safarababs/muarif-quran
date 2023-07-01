@@ -23,7 +23,7 @@ const SooratQadar = [
     questionNo: 5,
     question: "رسول اللہ(ص) نے خواب میں کیا دیکھا؟",
     options: ["قرآن نازل ہورہا ہے", "اپنی امت کا انجام", "بندر آپ (ص) کے منبر پر", "الف اور ب"],
-    correctAnswer: "ندر آپ (ص) کے منبر پر",
+    correctAnswer: "بندر آپ (ص) کے منبر پر",
   },{
     questionNo: 6,
     question: "اِنَّاۤ اَنۡزَلۡنٰہُ فِیۡ لَیۡلَۃِ الۡقَدۡرِ کا صحیح ترجمہ کیا ہے؟",
@@ -52,8 +52,8 @@ const SooratQadar = [
   },{
     questionNo: 10,
     question: "شیعہ مصادر میں شب قدر کن راتوں میں تلاش کرنے کا حکم ہے؟",
-    options: ["", "", "", ""],
-    correctAnswer: "",
+    options: ["19", "21", "23", "تمام آپشن"],
+    correctAnswer: "تمام آپشن",
   },{
     questionNo: 11,
     question: "مُحَدَّث کسے کہتے ہیں؟",
