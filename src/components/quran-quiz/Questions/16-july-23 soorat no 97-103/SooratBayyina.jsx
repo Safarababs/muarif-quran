@@ -2,7 +2,7 @@ const SooratBayyina = [
   {
     questionNo: 1,
     question: "صحف سے مراد کیا ہے؟",
-    options: ["صفحے", "صحیفے", "اجزائے قرآن", "الف اور ب"],
+    options: ["صفحے", "سورتیں", "اجزائے قرآن", "الف اور ب"],
     correctAnswer: "اجزائے قرآن",
   },{
     questionNo: 2,
