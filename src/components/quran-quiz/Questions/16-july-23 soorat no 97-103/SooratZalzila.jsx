@@ -91,3 +91,5 @@ const SooratZalzila = [
     correctAnswer: " اپنی آوازیں نبی کی آواز سے بلند نہ کرو ",
   },
 ];
+
+export default SooratZalzila;

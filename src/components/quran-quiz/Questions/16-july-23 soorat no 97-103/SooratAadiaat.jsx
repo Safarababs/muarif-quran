@@ -30,3 +30,5 @@ const SooratAadiaat = [
     correctAnswer: "پھر انبوہ (لشکر) میں گھس جاتے ہیں،",
   },
 ];
+
+export default SooratAadiaat;

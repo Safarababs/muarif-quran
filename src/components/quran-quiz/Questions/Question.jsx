@@ -1,6 +1,7 @@
-import SooratQadar from "./16-july-23 soorat no 97-103/SooratQadar";
-import SooratBayyina from "./16-july-23 soorat no 97-103/SooratBayyina";
-import SooratQariya from "./16-july-23 soorat no 97-103/SooratQariya";
+import SooratAadiaat from "./16-july-23 soorat no 97-103/SooratAadiaat";
+import SooratZalzila from "./16-july-23 soorat no 97-103/SooratZalzila";
+import SooratAsar from "./16-july-23 soorat no 97-103/SooratAsar";
+import SooratTakasur from "./16-july-23 soorat no 97-103/SooratTakasur";
 
 function shuffleArray(array) {
   const shuffled = [...array];
@@ -12,9 +13,10 @@ function shuffleArray(array) {
 }
 
 const allQuestions = [
-  ...SooratQadar,
-  ...SooratBayyina,
-  ...SooratQariya
+  ...SooratAadiaat,
+  ...SooratZalzila,
+  ...SooratAsar,
+  ...SooratTakasur
 ];
 
 const questions = shuffleArray(allQuestions);
