@@ -93,6 +93,19 @@ function App() {
             ></Route>
 
             <Route path="/update" element={<UpdatePassword />}></Route>
+            {/* special links */}
+            <Route
+              path="/abidaakhtar"
+              element={
+                today === 10 || today === 11 ? (
+                  <Quiz />
+                ) : (
+                  <QuizAccess date={targetDate} from={from} to={to} />
+                )
+              }
+            ></Route>
+            {/* special links end */}
+            
             <Route
               path="/quranquiz"
               element={
