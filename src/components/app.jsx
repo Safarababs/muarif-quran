@@ -38,7 +38,6 @@ import SooratFeel from "./quran-quiz/Revisions/SooratFeel";
 import SooratHamza from "./quran-quiz/Revisions/SooratHamza";
 import NoPage from "./institute/NoPage";
 
-
 function App() {
   const currentDate = new Date();
   const today = currentDate.getUTCDate();
@@ -55,7 +54,6 @@ function App() {
       <Router>
         <AuthProvider>
           <Header />
-      
 
           <Routes>
             <Route path="/" exact element={<Home />}></Route>
@@ -68,7 +66,10 @@ function App() {
             <Route path="/gallery" element={<Gallery />}></Route>
             <Route path="/register" element={<Register />}></Route>
             <Route path="/results" element={<Results />}></Route>
-            <Route path="/resultcheck" element={<ResultCheck targetDate={finalDate} />}></Route>
+            <Route
+              path="/resultcheck"
+              element={<ResultCheck targetDate={finalDate} />}
+            ></Route>
             <Route
               path="/IndividualQuestion"
               element={
@@ -87,25 +88,10 @@ function App() {
                 )
               }
             ></Route>
-            <Route
-              path="/recheck"
-              element={<IndividualQuestion />}
-            ></Route>
+            <Route path="/recheck" element={<IndividualQuestion />}></Route>
 
             <Route path="/update" element={<UpdatePassword />}></Route>
-            {/* special links */}
-            <Route
-              path="/abidaakhtar"
-              element={
-                today === 10 || today === 11 ? (
-                  <Quiz />
-                ) : (
-                  <QuizAccess date={targetDate} from={from} to={to} />
-                )
-              }
-            ></Route>
-            {/* special links end */}
-            
+
             <Route
               path="/quranquiz"
               element={
