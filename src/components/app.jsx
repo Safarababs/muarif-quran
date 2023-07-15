@@ -43,11 +43,12 @@ function App() {
   const today = currentDate.getUTCDate();
   const currentHour = currentDate.getUTCHours() + 5;
   // test date and time
-  const targetDate = 9;
+  const targetDate = 16;
   const from = 9;
   const to = 21;
   // final quiz date add must to show certificate to individual student
   const finalDate = 16;
+
 
   return (
     <>
