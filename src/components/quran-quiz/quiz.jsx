@@ -39,45 +39,54 @@ const Quiz = () => {
       return updatedAnswers;
     });
   };
+  
 
   const calculateMarks = useCallback(() => {
     let totalMarks = shuffledQuestions.length;
     let obtainedMarks = 0;
-    let resultDetails = [];
-
+  
     shuffledQuestions.forEach((question, index) => {
       const answer = answers[index];
-      const isCorrect = answer === question.correctAnswer;
-      if (isCorrect) {
+      if (answer === question.correctAnswer) {
         obtainedMarks++;
       }
-      resultDetails.push({ question, answer, isCorrect });
     });
-
-    return { totalMarks, obtainedMarks: Number(obtainedMarks), resultDetails };
+  
+    return { totalMarks, obtainedMarks: Number(obtainedMarks) };
   }, [shuffledQuestions, answers]);
-
+  
+  
+  
   const saveUserDataAndAnswers = useCallback(() => {
     setIsLoading(true);
-    const obtainedMarks = calculateMarks();
-    const name = userData.name;
-    const phoneNumber = userData.phoneNumber;
-    const city = userData.city;
-    const backup = { name, phoneNumber, city, obtainedMarks };
+    const { obtainedMarks } = calculateMarks();
+    const backup = {
+      name: userData.name,
+      phoneNumber: userData.phoneNumber,
+      city: userData.city,
+      obtainedMarks,
+      answers: JSON.stringify(answers),
+  shuffledQuestions: JSON.stringify(shuffledQuestions),
+    };
 
-    axios.post(data.backend + "/result", backup).then((res) => {
-      if (res.data.message === "Successfully sent") {
-        setIsLoading(false);
-      } else {
-        swal(
-          "Please Check your internet and try again",
-          "Please Check your network",
-          "error"
-        );
-        setIsLoading(false);
-      }
-    });
-  }, [calculateMarks, userData]);
+    axios.post("http://localhost:5000/result", backup)
+      .then((res) => {
+        if (res.data.message === "Successfully sent") {
+          setIsLoading(false);
+        } else {
+          swal(
+            "Please Check your internet and try again",
+            "Please Check your network",
+            "error"
+          );
+          setIsLoading(false);
+        }
+      });
+  }, [calculateMarks, userData, answers, shuffledQuestions]);
+  
+  
+  
+  
 
   // timer
   useEffect(() => {
@@ -166,11 +175,13 @@ const Quiz = () => {
     const shuffledArray = questions.map((question) => {
       return {
         ...question,
-        options: [...question.options], // Create a new array to keep the options unchanged
+        options: [...question.options],
       };
     });
+    console.log("Shuffled Array:", shuffledArray); // Add this line
     setShuffledQuestions(shuffledArray);
   }, []);
+  
 
   useEffect(() => {
     if (!showUserForm) {
@@ -250,7 +261,7 @@ const Quiz = () => {
                     <p className="answers">
                       Correct Answer: {result.question.correctAnswer}
                     </p>
-                    <p className="answers">Your Answer: {result.answer}</p>
+                    <p className="answers">Your Answer: safar {result.answer}</p>
 
                     {result.isCorrect ? (
                       <p className="answers">
@@ -294,8 +305,8 @@ const Quiz = () => {
               <BackendCall />
               <ul>
                 {shuffledQuestions[currentQuestionIndex].options.map(
-                  (option) => (
-                    <li>
+                  (option, index) => (
+                    <li key={index}>
                       <label>
                         <input
                           type="radio"

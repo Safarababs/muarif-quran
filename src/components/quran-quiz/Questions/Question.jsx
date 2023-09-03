@@ -1,4 +1,4 @@
-import FinalQuiz from "./16-july-23 soorat no 97-103/FinalQuiz";
+import FinalQuiz from "./futureTestPlan/FinalQuiz";
 
 function shuffleArray(array) {
   const shuffled = [...array];

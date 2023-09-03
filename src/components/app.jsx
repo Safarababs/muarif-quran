@@ -38,16 +38,18 @@ import SooratFeel from "./quran-quiz/Revisions/SooratFeel";
 import SooratHamza from "./quran-quiz/Revisions/SooratHamza";
 import NoPage from "./institute/NoPage";
 
+
 function App() {
   const currentDate = new Date();
   const today = currentDate.getUTCDate();
   const currentHour = currentDate.getUTCHours() + 5;
   // test date and time
-  const targetDate = 16;
-  const from = 9;
-  const to = 21;
+  const targetDate = 17;
+  const from = 0;
+  const to = 29;
   // final quiz date add must to show certificate to individual student
   const finalDate = 16;
+
 
 
   return (
