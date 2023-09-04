@@ -16,7 +16,7 @@ function Home() {
             The institute of <br></br>muarif-e-quran and ahel-e-bait a.S
           </h1>
           <a href="/lectures">
-            <button className="btn">get started</button>
+            <button className="btn">Learn More</button>
           </a>
         </div>
       </section>
