@@ -397,58 +397,43 @@
 }
 
 .student .box-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-  gap: 2rem;
   padding: 5rem 10%;
+  background-image: url("./1.jpg");
 }
-.student .box-container .box {
-  background: linear-gradient(#89cff0, blueviolet);
-  border: 0.1rem solid #89cff0;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-}
-.student .box-container .box:hover {
-  transform: scale(1.02);
-}
-.student .box-container .box .image {
-  overflow: hidden;
-  position: relative;
-  text-align: center;
-  margin-top: 4rem;
-}
-.student .box-container .box .image i {
-  font-size: 20rem;
-}
-.student .box-container .box .image h3 {
+.student .box-container .data p {
+  margin: 1rem;
+  padding: 1rem;
   font-size: 2rem;
-  text-transform: capitalize;
-  color: #fff;
-  color: #fff;
-  margin: 2rem;
-}
-.student .box-container .box .content {
-  padding: 2rem;
-  text-align: center;
-  border: 0.1rem solid #89cff0;
-}
-.student .box-container .box .content table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-.student .box-container .box .content td,
-.student .box-container .box .content th {
-  border: 1px solid #dddddd;
+  border: solid 1px white;
+  border-radius: 5px;
+  color: white;
+  font-family: "Noto Nastaliq Urdu";
   text-align: left;
-  padding: 8px;
-  font-size: 1.2rem;
-  background: #89cff0;
+}
+.student .box-container .questionWise {
+  margin: 10px;
+  padding: 10px;
+  background: linear-gradient(skyblue, blueviolet);
+  border: 1px solid #550505;
+  border-radius: 4px;
   color: black;
 }
-.student .box-container .box .content tr:nth-child(even) {
-  background-color: #89cff0;
-  color: #fff;
-  font-size: 1.2rem;
+.student .box-container .questionWise h3 {
+  margin: 10px;
+  font-size: 18px;
+  color: white;
+}
+.student .box-container .questionWise .answers {
+  margin: 5px;
+  font-size: 1.5rem;
+}
+.student .box-container .questionWise .answers span {
+  font-size: 3rem;
+  background: white;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 40%;
+  margin: 0.5rem;
 }
 
 @media (max-width: 1200px) {

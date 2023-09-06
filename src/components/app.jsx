@@ -20,7 +20,6 @@ import { RequireAuth } from "./admin/requireauth";
 import UpdatePassword from "./student/loginpage/UpdatePassword";
 import Quiz from "../components/quran-quiz/quiz";
 import QuizAccess from "./quran-quiz/Access";
-import Results from "./quran-quiz/ResultsForAgha";
 import ResultCheck from "./quran-quiz/ResultForIndividualStudent";
 import IndividualQuestion from "./quran-quiz/individualQuestion";
 import Footer from "./footer/Footer";
@@ -44,11 +43,11 @@ function App() {
   const today = currentDate.getUTCDate();
   const currentHour = currentDate.getUTCHours() + 5;
   // test date and time
-  const targetDate = 17;
-  const from = 0;
-  const to = 29;
-  // final quiz date add must to show certificate to individual student
-  const finalDate = 16;
+  const targetDate = 24;
+  const from = 9;
+  const to = 21;
+ 
+
 
 
 
@@ -68,15 +67,14 @@ function App() {
             <Route path="/about" element={<About />}></Route>
             <Route path="/gallery" element={<Gallery />}></Route>
             <Route path="/register" element={<Register />}></Route>
-            <Route path="/results" element={<Results />}></Route>
             <Route
               path="/resultcheck"
-              element={<ResultCheck targetDate={finalDate} />}
+              element={<ResultCheck  />}
             ></Route>
             <Route
               path="/IndividualQuestion"
               element={
-                today === targetDate + 1 ? (
+                today !== targetDate ? (
                   <IndividualQuestion />
                 ) : (
                   <h1

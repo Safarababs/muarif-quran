@@ -398,7 +398,6 @@ $primary-color: #3498db;
   align-items: center;
   flex-wrap: wrap;
   margin-top: 15rem;
-
   flex-flow: column;
 
   input {
@@ -468,63 +467,55 @@ $primary-color: #3498db;
 
 .student {
   .box-container {
-    @include grid(30rem);
     padding: 5rem 10%;
+    background-image: url("./1.jpg");
 
-    .box {
-      background: linear-gradient($green, blueviolet);
-      border: $border;
-      box-shadow: $box-shadow;
-
-      &:hover {
-        transform: scale(1.02);
-      }
-
-      .image {
-        overflow: hidden;
-        position: relative;
-        text-align: center;
-        margin-top: 4rem;
-
-        i {
-          font-size: 20rem;
-        }
-
-        h3 {
-          @include titleText(2rem);
-          color: $white;
-          margin: 2rem;
-        }
-      }
-
-      .content {
-        padding: 2rem;
-        text-align: center;
-        border: $border;
-
-        table {
-          font-family: arial, sans-serif;
-          border-collapse: collapse;
-          width: 100%;
-        }
-
-        td,
-        th {
-          border: 1px solid #dddddd;
-          text-align: left;
-          padding: 8px;
-          font-size: 1.2rem;
-          background: $green;
-          color: $black;
-        }
-
-        tr:nth-child(even) {
-          background-color: $green;
-          color: $white;
-          font-size: 1.2rem;
-        }
+    .data{
+      p {
+        margin: 1rem;
+        padding: 1rem;
+        font-size: 2rem;
+        border: solid 1px white;
+        border-radius: 5px;
+        color: white;
+        font-family: "Noto Nastaliq Urdu";
+        text-align: left;
       }
     }
+
+    .questionWise{
+      h3 {
+        margin: 10px;
+        font-size: 18px;
+        color: white;
+      }
+
+      margin: 10px;
+        padding: 10px;
+        background: linear-gradient(skyblue, $red);
+        border: 1px solid #550505;
+        border-radius: 4px;
+        color: black;
+
+        .answers {
+          margin: 5px;
+          font-size: 1.5rem;
+
+          span {
+            font-size: 3rem;
+            background: white;
+            width: 4rem;
+            height: 4rem;
+            border-radius: 40%;
+            margin: 0.5rem;
+          }
+        }
+
+    }
+
+    
+
+    
   }
 }
 

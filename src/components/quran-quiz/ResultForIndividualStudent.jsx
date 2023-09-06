@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from "react";
 import data from "../data";
 import BackendCall from "../institute/BackendCall";
-import StudentResult from "./StudentResult";
-import NewResult from "./newResult";
 import "./quiz.css";
 
-function Results(props) {
-  const targetDate = props.targetDate;
-  const currentDate = new Date();
-  const today = currentDate.getUTCDate();
+function Results() {
+
+
   const [phoneNumber, setPhoneNumber] = useState("");
   const [notes, setNotes] = useState([
     {
@@ -33,12 +30,14 @@ function Results(props) {
       })
       .then((jsonRes) => {
         setNotes(jsonRes);
+
         setLoading(false);
       })
       .catch((error) => {
         console.log(error);
       });
   }, []);
+  console.log(notes);
 
   const handleFilter = (event) => {
     event.preventDefault();
@@ -66,20 +65,28 @@ function Results(props) {
         <section className="student">
           <div className="box-container" style={{ marginTop: "0" }}>
             {filteredNotes.map((note) =>
-              today === targetDate || today === targetDate + 1 || today === targetDate + 2 ? (
-                <StudentResult
-                  key={note._id}
-                  name={note.name}
-                  phoneNumber={note.phoneNumber}
-                  obtainedMarks={note.obtainedMarks}
-                />
-              ) : (
-                <NewResult
-                  key={note._id}
-                  name={note.name}
-                  phoneNumber={note.phoneNumber}
-                  obtainedMarks={note.obtainedMarks}
-                />
+               (
+                <div key={note._id} className="data">
+                <p>phone Number: {note.phoneNumber}</p>
+                  <p>name: {note.name}</p>
+                  <p>city: {note.city}</p>
+                  <p>obtained Marks: {note.obtainedMarks}</p>
+                  <p>total marks: {notes.length}</p>
+                  
+                  {note.questionResults.map((question, index) => (
+                    <div key={question._id} className="questionWise">
+                    <h3>Question wise result: </h3>
+                      <p className="answers">Question: {question.question}</p>
+                      <p className="answers">Your answer: {question.selectedAnswer}</p>
+                      <p className="answers">Correct Answer: {question.correctAnswer}</p>
+                      {question.selectedAnswer === question.correctAnswer ? (
+                        <p className="answers"><span style={{ color: "green" }}>&#10004;</span></p>
+                      ) : (
+                        <p className="answers"><span style={{ color: "red" }}>&#10006;</span></p>
+                      )}
+                    </div>
+                  ))}
+                </div>
               )
             )}
           </div>

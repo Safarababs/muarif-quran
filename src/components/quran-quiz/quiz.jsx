@@ -69,7 +69,7 @@ const Quiz = () => {
   shuffledQuestions: JSON.stringify(shuffledQuestions),
     };
 
-    axios.post("http://localhost:5000/result", backup)
+    axios.post(data.backend + "/result", backup)
       .then((res) => {
         if (res.data.message === "Successfully sent") {
           setIsLoading(false);
@@ -246,8 +246,8 @@ const Quiz = () => {
                 <p>Total Marks: {calculateMarks().totalMarks}</p>
                 <p>Obtained Marks: {calculateMarks().obtainedMarks}</p>
 
-                <h3 style={{ color: "white" }}>Question-wise Results:</h3>
-                {calculateMarks().resultDetails.map((result, index) => (
+                <p style={{ color: "white", background:"red" }}>Detailed result will be show tomorrow</p>
+                {/* {calculateMarks().resultDetails.map((result, index) => (
                   <div key={index}>
                     <p
                       style={{
@@ -281,7 +281,7 @@ const Quiz = () => {
                       </p>
                     )}
                   </div>
-                ))}
+                ))} */}
               </>
             )}
           </div>
