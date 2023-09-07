@@ -178,7 +178,6 @@ const Quiz = () => {
         options: [...question.options],
       };
     });
-    console.log("Shuffled Array:", shuffledArray); // Add this line
     setShuffledQuestions(shuffledArray);
   }, []);
   
