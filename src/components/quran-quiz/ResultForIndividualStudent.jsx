@@ -75,7 +75,7 @@ function Results() {
                   
                   {note.questionResults.map((question, index) => (
                     <div key={question._id} className="questionWise">
-                    <h3>Question wise result: </h3>
+                    <h3>Question wise result: {index + 1} </h3>
                       <p className="answers">Question: {question.question}</p>
                       <p className="answers">Your answer: {question.selectedAnswer}</p>
                       <p className="answers">Correct Answer: {question.correctAnswer}</p>
