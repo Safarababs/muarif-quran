@@ -43,7 +43,11 @@ function App() {
   const today = currentDate.getUTCDate();
   const currentHour = currentDate.getUTCHours() + 5;
   // test date and time
+<<<<<<< HEAD
   const targetDate = 9;
+=======
+  const targetDate = 17;
+>>>>>>> 0c07f55805e85c9f2446d91b1d1a1585995d2dee
   const from = 9;
   const to = 21;
  
