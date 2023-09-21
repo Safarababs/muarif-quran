@@ -37,23 +37,16 @@ import SooratFeel from "./quran-quiz/Revisions/SooratFeel";
 import SooratHamza from "./quran-quiz/Revisions/SooratHamza";
 import NoPage from "./institute/NoPage";
 
-
 function App() {
   const currentDate = new Date();
   const today = currentDate.getUTCDate();
   const currentHour = currentDate.getUTCHours() + 5;
   // test date and time
-<<<<<<< HEAD
-  const targetDate = 9;
-=======
+
   const targetDate = 17;
->>>>>>> 0c07f55805e85c9f2446d91b1d1a1585995d2dee
+
   const from = 9;
   const to = 21;
- 
-
-
-
 
   return (
     <>
@@ -71,10 +64,7 @@ function App() {
             <Route path="/about" element={<About />}></Route>
             <Route path="/gallery" element={<Gallery />}></Route>
             <Route path="/register" element={<Register />}></Route>
-            <Route
-              path="/resultcheck"
-              element={<ResultCheck  />}
-            ></Route>
+            <Route path="/resultcheck" element={<ResultCheck />}></Route>
             <Route
               path="/IndividualQuestion"
               element={
