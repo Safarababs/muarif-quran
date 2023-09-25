@@ -35,10 +35,6 @@ function Results() {
       });
   }, []);
 
-  const calculateTotalMarks = (student) => {
-    // Assuming each question is worth one mark
-    return student.obtainedMarks;
-  };
 
   // Function to get the rank suffix (e.g., 1st, 2nd, 3rd)
   const getRankSuffix = (rank) => {
@@ -67,7 +63,7 @@ function Results() {
               <p>City: {note.city}</p>
 
               <p>Obtained Marks: {note.obtainedMarks}</p>
-              <p>Total Marks: {calculateTotalMarks(note)}</p>
+              <p>Total Marks: {note.questionResults.length}</p>
             </div>
           ))
         )}
