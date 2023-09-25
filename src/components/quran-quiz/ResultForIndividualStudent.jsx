@@ -71,7 +71,7 @@ function Results() {
                   <p>name: {note.name}</p>
                   <p>city: {note.city}</p>
                   <p>obtained Marks: {note.obtainedMarks}</p>
-                  <p>total marks: {notes.length}</p>
+                  <p>total marks: {note.questionResults.length}</p>
                   
                   {note.questionResults.map((question, index) => (
                     <div key={question._id} className="questionWise">
