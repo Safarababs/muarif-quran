@@ -480,6 +480,19 @@ $primary-color: #3498db;
         color: white;
         font-family: "Noto Nastaliq Urdu";
         text-align: left;
+     
+      }
+
+      .card{
+        margin: 1rem;
+        padding: 1rem;
+        font-size: 2rem;
+        border: solid 1px white;
+        border-radius: 5px;
+        color: white;
+        font-family: "Noto Nastaliq Urdu";
+        text-align: left;
+        background-color: rgba(5, 29, 37, 0.5);
       }
     }
 

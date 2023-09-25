@@ -29,7 +29,15 @@ function Results() {
         }
       })
       .then((jsonRes) => {
-        setNotes(jsonRes);
+        // Sort students by obtained marks in descending order
+      const sortedNotes = jsonRes.sort((a, b) => b.obtainedMarks - a.obtainedMarks);
+
+      // Assign rank to each student
+      sortedNotes.forEach((student, index) => {
+        student.rank = getRankSuffix(index + 1);
+      });
+
+      setNotes(sortedNotes);
 
         setLoading(false);
       })
@@ -45,6 +53,18 @@ function Results() {
     // Filter the notes based on the phone number
     const filtered = notes.filter((note) => note.phoneNumber === phoneNumber);
     setFilteredNotes(filtered);
+  };
+
+  const getRankSuffix = (rank) => {
+    if (rank === 1) {
+      return "1st";
+    } else if (rank === 2) {
+      return "2nd";
+    } else if (rank === 3) {
+      return "3rd";
+    } else {
+      return `${rank}th`;
+    }
   };
 
   return (
@@ -67,11 +87,13 @@ function Results() {
             {filteredNotes.map((note) =>
                (
                 <div key={note._id} className="data">
-                <p>phone Number: {note.phoneNumber}</p>
-                  <p>name: {note.name}</p>
-                  <p>city: {note.city}</p>
-                  <p>obtained Marks: {note.obtainedMarks}</p>
-                  <p>total marks: {note.questionResults.length}</p>
+                <p className="card">phone Number: {note.phoneNumber}</p>
+                  <p className="card">name: {note.name}</p>
+                  <p className="card">city: {note.city}</p>
+                  
+                  <p className="card">obtained Marks: {note.obtainedMarks}</p>
+                  <p className="card">total marks: {note.questionResults.length}</p>
+                  <p className="card" style={{color:"red"}}>Congratulations! you got {note.rank} position</p>
                   
                   {note.questionResults.map((question, index) => (
                     <div key={question._id} className="questionWise">

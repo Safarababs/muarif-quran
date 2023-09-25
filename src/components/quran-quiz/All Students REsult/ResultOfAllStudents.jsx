@@ -64,7 +64,8 @@ function Results() {
             <div key={note._id} className="result-card">
               <h2>{note.name}</h2>
               <p>Position: {note.rank}</p>
-              <p>Phone Number: {note.city}</p>
+              <p>Phone Number: {note.phoneNumber}</p>
+
               <p>Obtained Marks: {note.obtainedMarks}</p>
               <p>Total Marks: {calculateTotalMarks(note)}</p>
             </div>
