@@ -63,8 +63,8 @@ function Results() {
           notes.map((note, index) => (
             <div key={note._id} className="result-card">
               <h2>{note.name}</h2>
-              <p>Position: {note.rank}</p>
-              <p>Phone Number: {note.phoneNumber}</p>
+              <p>{note.rank} postiion</p>
+              <p>City: {note.city}</p>
 
               <p>Obtained Marks: {note.obtainedMarks}</p>
               <p>Total Marks: {calculateTotalMarks(note)}</p>
