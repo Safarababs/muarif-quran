@@ -21,6 +21,7 @@ import UpdatePassword from "./student/loginpage/UpdatePassword";
 import Quiz from "../components/quran-quiz/quiz";
 import QuizAccess from "./quran-quiz/Access";
 import ResultCheck from "./quran-quiz/ResultForIndividualStudent";
+import ResultsOfAll from "./quran-quiz/All Students REsult/ResultOfAllStudents";
 import IndividualQuestion from "./quran-quiz/individualQuestion";
 import Footer from "./footer/Footer";
 import Logout from "./student/loginpage/logout";
@@ -65,6 +66,7 @@ function App() {
             <Route path="/gallery" element={<Gallery />}></Route>
             <Route path="/register" element={<Register />}></Route>
             <Route path="/resultcheck" element={<ResultCheck />}></Route>
+            <Route path="/results" element={<ResultsOfAll />}></Route>
             <Route
               path="/IndividualQuestion"
               element={
