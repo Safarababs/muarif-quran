@@ -44,7 +44,7 @@ function App() {
   const currentHour = currentDate.getUTCHours() + 5;
   // test date and time
 
-  const targetDate = 24;
+  const targetDate = 15;
 
   const from = 9;
   const to = 21;
@@ -65,13 +65,12 @@ function App() {
             <Route path="/about" element={<About />}></Route>
             <Route path="/gallery" element={<Gallery />}></Route>
             <Route path="/register" element={<Register />}></Route>
-            <Route path="/resultcheck" element={<ResultCheck />}></Route>
             <Route path="/results" element={<ResultsOfAll />}></Route>
-            <Route
-              path="/IndividualQuestion"
+             <Route
+              path="/resultcheck"
               element={
-                today > targetDate ? (
-                  <IndividualQuestion />
+                today === targetDate ? (
+                  <ResultCheck />
                 ) : (
                   <h1
                     style={{
@@ -85,6 +84,25 @@ function App() {
                 )
               }
             ></Route>
+
+            {/* <Route
+              path="/IndividualQuestion"
+              element={
+                today === targetDate ? (
+                  <IndividualQuestion />
+                ) : (
+                  <h1
+                    style={{
+                      margin: "15rem 4rem",
+                      color: "red",
+                      fontSize: "4rem",
+                    }}
+                  >
+                    Access denied! contact developer
+                  </h1>
+                )
+              }
+            ></Route> */}
             <Route path="/recheck" element={<IndividualQuestion />}></Route>
 
             <Route path="/update" element={<UpdatePassword />}></Route>

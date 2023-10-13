@@ -1,4 +1,4 @@
-import FinalQuiz from "./futureTestPlan/FinalQuiz";
+import SooratYounasLast from "./futureTestPlan/SooratYounas51To109";
 
 function shuffleArray(array) {
   const shuffled = [...array];
@@ -10,7 +10,7 @@ function shuffleArray(array) {
 }
 
 const allQuestions = [
-  ...FinalQuiz
+  ...SooratYounasLast
 ];
 
 const questions = shuffleArray(allQuestions);
