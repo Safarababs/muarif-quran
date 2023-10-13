@@ -66,16 +66,11 @@ function App() {
             <Route path="/gallery" element={<Gallery />}></Route>
             <Route path="/register" element={<Register />}></Route>
             <Route path="/results" element={<ResultsOfAll />}></Route>
-             <Route
+            <Route
               path="/resultcheck"
               element={
-<<<<<<< HEAD
                 today === targetDate ? (
                   <ResultCheck />
-=======
-                today < targetDate ? (
-                  <IndividualQuestion />
->>>>>>> 41fc9ceb37a9832c4fd337c5724c08bf21023bcd
                 ) : (
                   <h1
                     style={{
