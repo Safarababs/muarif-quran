@@ -85,10 +85,10 @@ function App() {
               }
             ></Route>
 
-            {/* <Route
+            <Route
               path="/IndividualQuestion"
               element={
-                today === targetDate ? (
+                today !== targetDate ? (
                   <IndividualQuestion />
                 ) : (
                   <h1
@@ -102,7 +102,7 @@ function App() {
                   </h1>
                 )
               }
-            ></Route> */}
+            ></Route>
             <Route path="/recheck" element={<IndividualQuestion />}></Route>
 
             <Route path="/update" element={<UpdatePassword />}></Route>
