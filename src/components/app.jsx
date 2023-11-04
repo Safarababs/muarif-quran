@@ -69,11 +69,7 @@ function App() {
             <Route
               path="/resultcheck"
               element={
-<<<<<<< HEAD
-                today > targetDate? (
-=======
-                today !== targetDate ? (
->>>>>>> 9888a67dba599fa9c12ae1e29f2e9075681efbce
+                today >= targetDate? (
                   <ResultCheck />
                 ) : (
                   <h1
