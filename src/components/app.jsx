@@ -69,7 +69,11 @@ function App() {
             <Route
               path="/resultcheck"
               element={
+<<<<<<< HEAD
                 today > targetDate? (
+=======
+                today !== targetDate ? (
+>>>>>>> 9888a67dba599fa9c12ae1e29f2e9075681efbce
                   <ResultCheck />
                 ) : (
                   <h1
@@ -85,10 +89,10 @@ function App() {
               }
             ></Route>
 
-            {/* <Route
+            <Route
               path="/IndividualQuestion"
               element={
-                today === targetDate ? (
+                today !== targetDate ? (
                   <IndividualQuestion />
                 ) : (
                   <h1
@@ -102,7 +106,7 @@ function App() {
                   </h1>
                 )
               }
-            ></Route> */}
+            ></Route>
             <Route path="/recheck" element={<IndividualQuestion />}></Route>
 
             <Route path="/update" element={<UpdatePassword />}></Route>
