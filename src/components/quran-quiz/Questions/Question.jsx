@@ -1,4 +1,4 @@
-import SooratYounasLast from "./futureTestPlan/SooratYounas51To109";
+import SooratHud1to60 from "./futureTestPlan/SooratHud1to60";
 
 function shuffleArray(array) {
   const shuffled = [...array];
@@ -10,7 +10,7 @@ function shuffleArray(array) {
 }
 
 const allQuestions = [
-  ...SooratYounasLast
+  ...SooratHud1to60
 ];
 
 const questions = shuffleArray(allQuestions);

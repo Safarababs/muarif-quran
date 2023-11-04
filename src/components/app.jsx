@@ -44,7 +44,7 @@ function App() {
   const currentHour = currentDate.getUTCHours() + 5;
   // test date and time
 
-  const targetDate = 15;
+  const targetDate = 5;
 
   const from = 9;
   const to = 21;
@@ -69,7 +69,7 @@ function App() {
             <Route
               path="/resultcheck"
               element={
-                today === targetDate ? (
+                today > targetDate? (
                   <ResultCheck />
                 ) : (
                   <h1

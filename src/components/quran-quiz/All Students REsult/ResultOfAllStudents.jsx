@@ -25,8 +25,10 @@ function Results() {
         sortedNotes.forEach((student, index) => {
           student.rank = getRankSuffix(index + 1); // Format rank as 1st, 2nd, 3rd, etc.
         });
+        
 
         setNotes(sortedNotes);
+
         setLoading(false);
       })
       .catch((error) => {
@@ -35,11 +37,14 @@ function Results() {
       });
   }, []);
 
+  
+
 
   // Function to get the rank suffix (e.g., 1st, 2nd, 3rd)
   const getRankSuffix = (rank) => {
     if (rank === 1) {
       return "1st";
+      
     } else if (rank === 2) {
       return "2nd";
     } else if (rank === 3) {
@@ -49,13 +54,16 @@ function Results() {
     }
   };
 
+  
+
   return (
     <div className="result-card-container">
-      <h1 className="text-center">Student Results</h1>
+      <h1 className="text-center"><h1 style={{color: "red", display:"inline"}}>{notes.length}</h1> Results Found</h1>
       <div className="result-cards">
         {loading ? (
           <p>Loading...</p>
         ) : (
+          
           notes.map((note, index) => (
             <div key={note._id} className="result-card">
               <h2>{note.name}</h2>
