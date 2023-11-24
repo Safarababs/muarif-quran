@@ -1,4 +1,4 @@
-import SooratHud1to60 from "./futureTestPlan/SooratHud1to60";
+import SooratHud61to123 from "./SooratHud.jsx/sooratHud61To123";
 
 function shuffleArray(array) {
   const shuffled = [...array];
@@ -10,7 +10,7 @@ function shuffleArray(array) {
 }
 
 const allQuestions = [
-  ...SooratHud1to60
+  ...SooratHud61to123
 ];
 
 const questions = shuffleArray(allQuestions);

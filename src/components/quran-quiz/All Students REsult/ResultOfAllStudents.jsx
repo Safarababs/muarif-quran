@@ -28,7 +28,7 @@ function Results() {
         
 
         setNotes(sortedNotes);
-
+        console.log(sortedNotes);
         setLoading(false);
       })
       .catch((error) => {
