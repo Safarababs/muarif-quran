@@ -44,7 +44,9 @@ function App() {
   const currentHour = currentDate.getUTCHours() + 5;
   // test date and time
 
-  const targetDate =26;
+  const targetDate =31;
+  const EnglishMonth = "December";
+  const UrduMonth = "دسمبر";
 
   const from = 9;
   const to = 21;
@@ -115,7 +117,7 @@ function App() {
                 currentHour < to ? (
                   <Quiz />
                 ) : (
-                  <QuizAccess date={targetDate} from={from} to={to} />
+                  <QuizAccess date={targetDate} from={from} to={to} EnglishMonth={EnglishMonth} UrduMonth={UrduMonth}/>
                 )
               }
             ></Route>
