@@ -71,7 +71,7 @@ function App() {
             <Route
               path="/resultcheck"
               element={
-                today > targetDate? (
+                today !== targetDate? (
                   <ResultCheck />
                 ) : (
                   <h1
