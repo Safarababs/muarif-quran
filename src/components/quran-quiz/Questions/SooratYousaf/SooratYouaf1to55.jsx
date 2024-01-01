@@ -122,7 +122,7 @@ const SooratYousaf1to55 = [
   {
     question: " اللہ کا بڑا فضل ۔۔۔ ہے",
     options: ["ہدایت", "رحمت", "مغفرت", "تمام آپشن"],
-    correctAnswer: "یدایت",
+    correctAnswer: "ہدایت",
   },
   {
     question: "انسان کا فطری دین کیا ہے؟",
