@@ -154,11 +154,7 @@ const SooratYousaf1to55 = [
     options: ["ماں", "بیوی", "قنیض", "بہن"],
     correctAnswer: "بیوی",
   },
-  {
-    question: "",
-    options: ["", "", "", ""],
-    correctAnswer: "",
-  },
+
   {
     question: "داستان یوسف علیہ السلام کتنے خوابوں پر مشتمل ہے",
     options: ["1", "2", "3", "4"],
