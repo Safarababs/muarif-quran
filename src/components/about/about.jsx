@@ -6,6 +6,7 @@ import Cultural from "./cultural";
 import BackendCall from "../institute/BackendCall";
 import "./about.css";
 
+
 function About() {
   return (
     <>

@@ -44,12 +44,15 @@ function App() {
   const currentHour = currentDate.getUTCHours() + 5;
   // test date and time
 
-  const targetDate =31;
-  const EnglishMonth = "December";
-  const UrduMonth = "دسمبر";
+  const targetDate =14;
+  const EnglishMonth = "January";
+  const UrduMonth = "جنوری";
 
   const from = 9;
   const to = 21;
+
+  const screen = window.innerWidth;
+  console.log(screen);
 
   return (
     <>
