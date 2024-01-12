@@ -122,7 +122,7 @@ const SooratYousaf1to55 = [
   {
     question: " اللہ کا بڑا فضل ۔۔۔ ہے",
     options: ["ہدایت", "رحمت", "مغفرت", "تمام آپشن"],
-    correctAnswer: "یدایت",
+    correctAnswer: "ہدایت",
   },
   {
     question: "انسان کا فطری دین کیا ہے؟",
@@ -154,11 +154,7 @@ const SooratYousaf1to55 = [
     options: ["ماں", "بیوی", "قنیض", "بہن"],
     correctAnswer: "بیوی",
   },
-  {
-    question: "",
-    options: ["", "", "", ""],
-    correctAnswer: "",
-  },
+
   {
     question: "داستان یوسف علیہ السلام کتنے خوابوں پر مشتمل ہے",
     options: ["1", "2", "3", "4"],
