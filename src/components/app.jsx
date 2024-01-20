@@ -44,16 +44,12 @@ function App() {
   const currentHour = currentDate.getUTCHours() + 5;
   // test date and time
 
-  const targetDate =14;
+  const targetDate = 20;
   const EnglishMonth = "January";
   const UrduMonth = "جنوری";
 
   const from = 9;
   const to = 21;
-
-  const screen = window.innerWidth;
-  console.log(screen);
-
   return (
     <>
       <Router>
@@ -71,10 +67,13 @@ function App() {
             <Route path="/gallery" element={<Gallery />}></Route>
             <Route path="/register" element={<Register />}></Route>
             <Route path="/results" element={<ResultsOfAll />}></Route>
+            {/* for gulshan */}
+            <Route path="/gulshan" element={<ResultCheck />}></Route>
+            <Route path="/gulshanQuiz" element={<Quiz />}></Route>
             <Route
               path="/resultcheck"
               element={
-                today !== targetDate? (
+                today !== targetDate ? (
                   <ResultCheck />
                 ) : (
                   <h1
@@ -120,7 +119,13 @@ function App() {
                 currentHour < to ? (
                   <Quiz />
                 ) : (
-                  <QuizAccess date={targetDate} from={from} to={to} EnglishMonth={EnglishMonth} UrduMonth={UrduMonth}/>
+                  <QuizAccess
+                    date={targetDate}
+                    from={from}
+                    to={to}
+                    EnglishMonth={EnglishMonth}
+                    UrduMonth={UrduMonth}
+                  />
                 )
               }
             ></Route>
