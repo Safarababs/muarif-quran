@@ -70,6 +70,7 @@ function App() {
             {/* for gulshan */}
             <Route path="/gulshan" element={<ResultCheck />}></Route>
             <Route path="/gulshanQuiz" element={<Quiz />}></Route>
+            {/* gulshan portion end */}
             <Route
               path="/resultcheck"
               element={
