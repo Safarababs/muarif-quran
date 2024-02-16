@@ -1,4 +1,4 @@
-import SooratYousaf56to111 from "./SooratYousaf/SooratYousafAyatNo56to111";
+import SooratRahad from "./SooratRahad/SooratRahad";
 
 function shuffleArray(array) {
   const shuffled = [...array];
@@ -9,9 +9,7 @@ function shuffleArray(array) {
   return shuffled;
 }
 
-const allQuestions = [
-  ...SooratYousaf56to111
-];
+const allQuestions = [...SooratRahad];
 
 const questions = shuffleArray(allQuestions);
 

@@ -44,9 +44,9 @@ function App() {
   const currentHour = currentDate.getUTCHours() + 5;
   // test date and time
 
-  const targetDate = 21;
-  const EnglishMonth = "January";
-  const UrduMonth = "جنوری";
+  const targetDate = 18;
+  const EnglishMonth = "FEBRUARY";
+  const UrduMonth = "فروری";
 
   const from = 9;
   const to = 21;
@@ -68,8 +68,8 @@ function App() {
             <Route path="/register" element={<Register />}></Route>
             <Route path="/results" element={<ResultsOfAll />}></Route>
             {/* for gulshan */}
-            <Route path="/gulshan" element={<ResultCheck />}></Route>
-            <Route path="/gulshanQuiz" element={<Quiz />}></Route>
+            <Route path="/safar" element={<ResultCheck />}></Route>
+            <Route path="/safarQuiz" element={<Quiz />}></Route>
             {/* gulshan portion end */}
             <Route
               path="/resultcheck"
