@@ -44,9 +44,9 @@ function App() {
   const currentHour = currentDate.getUTCHours() + 5;
   // test date and time
 
-  const targetDate = 18;
-  const EnglishMonth = "FEBRUARY";
-  const UrduMonth = "فروری";
+  const targetDate = 3;
+  const EnglishMonth = "MARCH";
+  const UrduMonth = "مارچ";
 
   const from = 9;
   const to = 21;
