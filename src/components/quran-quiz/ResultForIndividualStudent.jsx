@@ -4,8 +4,6 @@ import BackendCall from "../institute/BackendCall";
 import "./quiz.css";
 
 function Results() {
-
-
   const [phoneNumber, setPhoneNumber] = useState("");
   const [notes, setNotes] = useState([
     {
@@ -30,14 +28,16 @@ function Results() {
       })
       .then((jsonRes) => {
         // Sort students by obtained marks in descending order
-      const sortedNotes = jsonRes.sort((a, b) => b.obtainedMarks - a.obtainedMarks);
+        const sortedNotes = jsonRes.sort(
+          (a, b) => b.obtainedMarks - a.obtainedMarks
+        );
 
-      // Assign rank to each student
-      sortedNotes.forEach((student, index) => {
-        student.rank = getRankSuffix(index + 1);
-      });
+        // Assign rank to each student
+        sortedNotes.forEach((student, index) => {
+          student.rank = getRankSuffix(index + 1);
+        });
 
-      setNotes(sortedNotes);
+        setNotes(sortedNotes);
 
         setLoading(false);
       })
@@ -45,7 +45,6 @@ function Results() {
         console.log(error);
       });
   }, []);
-  console.log(notes);
 
   const handleFilter = (event) => {
     event.preventDefault();
@@ -84,33 +83,43 @@ function Results() {
       {filteredNotes.length > 0 ? (
         <section className="student">
           <div className="box-container" style={{ marginTop: "0" }}>
-            {filteredNotes.map((note) =>
-               (
-                <div key={note._id} className="data">
+            {filteredNotes.map((note) => (
+              <div key={note._id} className="data">
                 <p className="card">phone Number: {note.phoneNumber}</p>
-                  <p className="card">name: {note.name}</p>
-                  <p className="card">city: {note.city}</p>
-                  
-                  <p className="card">obtained Marks: {note.obtainedMarks}</p>
-                  <p className="card">total marks: {note.questionResults.length}</p>
-                  <p className="card" style={{color:"red"}}>Congratulations! you got {note.rank} position</p>
-                  
-                  {note.questionResults.map((question, index) => (
-                    <div key={question._id} className="questionWise">
+                <p className="card">name: {note.name}</p>
+                <p className="card">city: {note.city}</p>
+
+                <p className="card">obtained Marks: {note.obtainedMarks}</p>
+                <p className="card">
+                  total marks: {note.questionResults.length}
+                </p>
+                <p className="card" style={{ color: "red" }}>
+                  Congratulations! you got {note.rank} position
+                </p>
+
+                {note.questionResults.map((question, index) => (
+                  <div key={question._id} className="questionWise">
                     <h3>Question wise result: {index + 1} </h3>
-                      <p className="answers">Question: {question.question}</p>
-                      <p className="answers">Your answer: {question.selectedAnswer}</p>
-                      <p className="answers">Correct Answer: {question.correctAnswer}</p>
-                      {question.selectedAnswer === question.correctAnswer ? (
-                        <p className="answers"><span style={{ color: "green" }}>&#10004;</span></p>
-                      ) : (
-                        <p className="answers"><span style={{ color: "red" }}>&#10006;</span></p>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              )
-            )}
+                    <p className="answers">Question: {question.question}</p>
+                    <p className="answers">
+                      Your answer: {question.selectedAnswer}
+                    </p>
+                    <p className="answers">
+                      Correct Answer: {question.correctAnswer}
+                    </p>
+                    {question.selectedAnswer === question.correctAnswer ? (
+                      <p className="answers">
+                        <span style={{ color: "green" }}>&#10004;</span>
+                      </p>
+                    ) : (
+                      <p className="answers">
+                        <span style={{ color: "red" }}>&#10006;</span>
+                      </p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            ))}
           </div>
         </section>
       ) : null}
