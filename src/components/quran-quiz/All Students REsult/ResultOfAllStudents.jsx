@@ -75,7 +75,7 @@ function Results() {
         )}
       </div>
       <BackendCall />
-      <DownloadResult />
+      <DownloadResult data={notes} />
     </div>
   );
 }
