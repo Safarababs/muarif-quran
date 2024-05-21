@@ -1,0 +1,63 @@
+form {
+  flex: 1 1 40rem;
+  border: solid 1px skyblue;
+  padding: 2rem;
+  border-radius: 10px;
+}
+form h3 {
+  font-size: 2.5rem;
+  text-transform: capitalize;
+  color: #fff;
+  padding-bottom: 1rem;
+  color: #000;
+}
+form .box {
+  width: 48%;
+  padding: 1rem;
+  border: solid 1px skyblue;
+  font-size: 1.6rem;
+  margin: 0.7rem;
+  border-radius: 10px;
+}
+form .box:focus {
+  background: skyblue;
+  color: #fff;
+}
+form .box:focus::-moz-placeholder {
+  color: #eee;
+}
+form .box:focus::placeholder {
+  color: #eee;
+}
+form textarea {
+  width: 95%;
+  height: 15rem;
+  resize: none;
+}
+form .btn {
+  width: 95%;
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 1rem 3rem;
+  font-size: 1.8rem;
+  border: solid 1px skyblue;
+  background: skyblue;
+  color: #fff;
+  cursor: pointer;
+  text-transform: capitalize;
+  border-radius: 10px;
+}
+form .btn:hover {
+  background: #fff;
+  color: black;
+}
+
+@media (max-width: 512px) {
+  form .box {
+    width: 95%;
+  }
+  form textarea,
+  form .btn {
+    width: 95%;
+  }
+}/*# sourceMappingURL=contact.css.map */

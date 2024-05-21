@@ -1,0 +1,119 @@
+// Define variables
+$green: skyblue;
+$border: solid 1px $green;
+$light-green: #40b5ad;
+$light-color: #777;
+$light-white: #eee;
+$black: black;
+$white: #fff;
+$box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+$primary-color: #3498db;
+
+// Mixin for grid layout
+@mixin grid($val) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($val, 1fr));
+  gap: 2rem;
+}
+
+// Mixin for title text
+@mixin titleText($titleSize) {
+  font-size: $titleSize;
+  text-transform: capitalize;
+  color: $white;
+}
+
+// Mixin for regular text
+@mixin graphText($graphSize) {
+  font-size: $graphSize;
+  line-height: 2;
+  color: $light-color;
+}
+
+// Mixin for button styling
+@mixin button {
+  height: 4rem;
+  width: 95%;
+  background: linear-gradient($green, blueviolet);
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  border: none;
+  outline: none;
+
+  &:hover {
+    letter-spacing: 0.2rem;
+    opacity: 0.8;
+  }
+}
+
+// Form styling
+form {
+  flex: 1 1 40rem;
+  border: $border;
+  padding: 2rem;
+  border-radius: 10px;
+
+  h3 {
+    @include titleText(2.5rem);
+    padding-bottom: 1rem;
+    color: #000;
+  }
+
+  .box {
+    width: 48%; // Default width for larger screens
+    padding: 1rem;
+    border: $border;
+    font-size: 1.6rem;
+    margin: 0.7rem;
+    border-radius: 10px;
+
+    &:focus {
+      background: $green;
+      color: $white;
+
+      &::placeholder {
+        color: $light-white;
+      }
+    }
+  }
+
+  textarea {
+    width: 95%; // Default width for larger screens
+    height: 15rem;
+    resize: none;
+  }
+
+  .btn {
+    width: 95%; // Default width for larger screens
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 1rem 3rem;
+    font-size: 1.8rem;
+    border: $border;
+    background: $green;
+    color: $white;
+    cursor: pointer;
+    text-transform: capitalize;
+    border-radius: 10px;
+
+    &:hover {
+      background: $white;
+      color: $black;
+    }
+  }
+}
+
+// Media query for laptops and larger screens
+@media (max-width: 512px) {
+  form {
+    .box {
+      width: 95%; // Adjusted width for larger screens
+    }
+
+    textarea,
+    .btn {
+      width: 95%; // Default width for larger screens
+    }
+  }
+}

@@ -37,6 +37,7 @@ import SooratFalak from "./quran-quiz/Revisions/SooratFalak";
 import SooratFeel from "./quran-quiz/Revisions/SooratFeel";
 import SooratHamza from "./quran-quiz/Revisions/SooratHamza";
 import NoPage from "./institute/NoPage";
+import Muree24 from "./Muree2024/Muree24";
 
 function App() {
   const currentDate = new Date();
@@ -44,9 +45,9 @@ function App() {
   const currentHour = currentDate.getUTCHours() + 5;
   // test date and time
 
-  const targetDate = 21;
-  const EnglishMonth = "May";
-  const UrduMonth = "مئی";
+  const targetDate = 2;
+  const EnglishMonth = "June";
+  const UrduMonth = "جون";
 
   const from = 9;
   const to = 21;
@@ -141,6 +142,7 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />}></Route>
             <Route path="/login" element={<Login />}></Route>
             <Route path="/logout" element={<Logout />}></Route>
+            <Route path="/muree" element={<Muree24 />}></Route>
 
             {/* previos all soorat quiz */}
 
