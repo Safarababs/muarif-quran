@@ -30,17 +30,7 @@ function Muree24() {
 
   function handleClick(event) {
     event.preventDefault();
-    const {
-      name,
-      fatherName,
-
-      phone,
-      city,
-      area,
-      age,
-      badge,
-      before,
-    } = input;
+    const { name, fatherName, phone, city, area, age, badge, before } = input;
 
     if (name && fatherName && phone && city && area && age && badge && before) {
       <BackendCall />;
