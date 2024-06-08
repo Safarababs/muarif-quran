@@ -1,4 +1,4 @@
-import SooratNahal from "./SooratHijr/SooratHijr";
+import SooratNahal from "../Questions/Soorat Nahal/SooratNahal";
 
 function shuffleArray(array) {
   const shuffled = [...array];
