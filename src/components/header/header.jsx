@@ -1,13 +1,10 @@
-
 import "./style.css";
 import Darood from "../quran-quiz/Darood";
 
 function Header() {
-
-
   return (
     <header>
-    <Darood />
+      <Darood />
       <div className="header-1">
         <div className="form-container">
           <div className="marquee">
@@ -48,11 +45,10 @@ function Header() {
             <li>
               <a href="/quranquiz">Quiz</a>
             </li>
-           
-              <li>
-                <a href="/dashboard">dashboard</a>
-              </li>
-         
+
+            <li>
+              <a href="/dashboard">dashboard</a>
+            </li>
           </ul>
         </nav>
 
@@ -66,36 +62,35 @@ function Header() {
             {" "}
           </a>
           <a
-              href="mailto:sajjadnaqvi9797@gmail.com"
-              target="_blank"
-              rel="noreferrer"
-              className="fas fa-envelope"
-            >
-             {""}
-            </a>
-            <a
-              href="https://www.facebook.com/profile.php?id=100066520402771"
-              target="_blank"
-              rel="noreferrer"
-              className="fab fa-facebook-f"
-            >
-              {""}
-            </a>
-            <a
-              href="https://www.youtube.com/channel/UCmvODTtMxqu0--sBAZispHg"
-              target="_blank"
-              rel="noreferrer"
-              className="fab fa-youtube"
-            >
-              {""}
-            </a>
-            <a
-              href="https://wa.me/989388030994/?text=I%20need%20some%20information%20can%20i%20?"
-              target="_blank"
-              rel="noreferrer"
-              className="fab fa-whatsapp"
-            >
-            </a>
+            href="mailto:sajjadnaqvi9797@gmail.com"
+            target="_blank"
+            rel="noreferrer"
+            className="fas fa-envelope"
+          >
+            {""}
+          </a>
+          <a
+            href="https://www.facebook.com/profile.php?id=100066520402771"
+            target="_blank"
+            rel="noreferrer"
+            className="fab fa-facebook-f"
+          >
+            {""}
+          </a>
+          <a
+            href="https://www.youtube.com/channel/UCmvODTtMxqu0--sBAZispHg"
+            target="_blank"
+            rel="noreferrer"
+            className="fab fa-youtube"
+          >
+            {""}
+          </a>
+          <a
+            href="https://wa.me/989388030994/?text=I%20need%20some%20information%20can%20i%20?"
+            target="_blank"
+            rel="noreferrer"
+            className="fab fa-whatsapp"
+          ></a>
         </div>
       </div>
     </header>
