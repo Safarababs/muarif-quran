@@ -90,7 +90,9 @@ function Header() {
             target="_blank"
             rel="noreferrer"
             className="fab fa-whatsapp"
-          ></a>
+          >
+            {""}
+          </a>
         </div>
       </div>
     </header>
