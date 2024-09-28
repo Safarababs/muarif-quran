@@ -133,6 +133,7 @@
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
+  direction: rtl; /* Add this line to set the entire question section to RTL */
 }
 .quiz .question-container .question h2 {
   margin: 1rem 0.1rem;
@@ -157,6 +158,7 @@
   height: 6rem;
   padding: 1rem;
   width: auto;
+  text-align: right;
 }
 .quiz .question-container .question ul li label {
   display: flex;
@@ -164,11 +166,13 @@
   cursor: pointer;
   font-size: 1.5rem;
   font-family: "Noto Nastaliq Urdu";
+  text-align: right;
 }
 .quiz .question-container .question ul li label input[type=radio] {
   margin: 0 10px;
   width: 2rem;
   height: 2rem;
+  text-align: right;
 }
 .quiz .question-container .navigation-buttons {
   display: flex;
@@ -489,7 +493,8 @@ table {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-th, td {
+th,
+td {
   padding: 12px;
   text-align: left;
 }
@@ -508,12 +513,14 @@ tr:hover {
 }
 
 @media screen and (max-width: 600px) {
-  th, td {
+  th,
+  td {
     font-size: 14px;
   }
 }
 @media screen and (max-width: 400px) {
-  th, td {
+  th,
+  td {
     font-size: 12px;
     padding: 8px;
   }

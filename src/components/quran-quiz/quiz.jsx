@@ -39,24 +39,21 @@ const Quiz = () => {
       return updatedAnswers;
     });
   };
-  
 
   const calculateMarks = useCallback(() => {
     let totalMarks = shuffledQuestions.length;
     let obtainedMarks = 0;
-  
+
     shuffledQuestions.forEach((question, index) => {
       const answer = answers[index];
       if (answer === question.correctAnswer) {
         obtainedMarks++;
       }
     });
-  
+
     return { totalMarks, obtainedMarks: Number(obtainedMarks) };
   }, [shuffledQuestions, answers]);
-  
-  
-  
+
   const saveUserDataAndAnswers = useCallback(() => {
     setIsLoading(true);
     const { obtainedMarks } = calculateMarks();
@@ -66,27 +63,22 @@ const Quiz = () => {
       city: userData.city,
       obtainedMarks,
       answers: JSON.stringify(answers),
-  shuffledQuestions: JSON.stringify(shuffledQuestions),
+      shuffledQuestions: JSON.stringify(shuffledQuestions),
     };
 
-    axios.post(data.backend + "/result", backup)
-      .then((res) => {
-        if (res.data.message === "Successfully sent") {
-          setIsLoading(false);
-        } else {
-          swal(
-            "Please Check your internet and try again",
-            "Please Check your network",
-            "error"
-          );
-          setIsLoading(false);
-        }
-      });
+    axios.post(data.backend + "/result", backup).then((res) => {
+      if (res.data.message === "Successfully sent") {
+        setIsLoading(false);
+      } else {
+        swal(
+          "Please Check your internet and try again",
+          "Please Check your network",
+          "error"
+        );
+        setIsLoading(false);
+      }
+    });
   }, [calculateMarks, userData, answers, shuffledQuestions]);
-  
-  
-  
-  
 
   // timer
   useEffect(() => {
@@ -180,7 +172,6 @@ const Quiz = () => {
     });
     setShuffledQuestions(shuffledArray);
   }, []);
-  
 
   useEffect(() => {
     if (!showUserForm) {
@@ -245,7 +236,9 @@ const Quiz = () => {
                 <p>Total Marks: {calculateMarks().totalMarks}</p>
                 <p>Obtained Marks: {calculateMarks().obtainedMarks}</p>
 
-                <p style={{ color: "white", background:"red" }}>Detailed result will be show tomorrow</p>
+                <p style={{ color: "white", background: "red" }}>
+                  Detailed result will be show tomorrow
+                </p>
                 {/* {calculateMarks().resultDetails.map((result, index) => (
                   <div key={index}>
                     <p
@@ -313,7 +306,6 @@ const Quiz = () => {
                           value={option}
                           onChange={handleAnswerSelect}
                           checked={answers[currentQuestionIndex] === option}
-                          style={{ textAlign: "right" }}
                         />
                         {option}
                       </label>
