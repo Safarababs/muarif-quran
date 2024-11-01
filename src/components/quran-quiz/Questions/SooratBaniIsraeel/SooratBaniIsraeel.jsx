@@ -2,18 +2,18 @@ const BaniIsraeel = [
   {
     questionNo: 1,
     question: "سورت بنی اسرائیل کا دور نزول -- ہے",
-    options: ["مکی", "مدنی", ""],
+    options: ["مکی", "مدنی"],
     correctAnswer: "مکی",
   },
   {
     questionNo: 2,
-    question: "اس صورت کو -- بھی کہتے ہیں",
+    question: "اس سورت کو -- بھی کہتے ہیں",
     options: ["سورہ عرفان", "سورہ الاسراء", "سورہ معراج"],
     correctAnswer: "سورہ الاسراء",
   },
   {
     questionNo: 3,
-    question: "لفظ 'الریہ' قرآن میں کتنی بار آیا ہے",
+    question: "لفظ  الرءیا قرآن میں کتنے مقامات پر آیا ہے ",
     options: ["3", "4", "5"],
     correctAnswer: "3",
   },
@@ -25,9 +25,9 @@ const BaniIsraeel = [
   },
   {
     questionNo: 5,
-    question: "'ذالقربی حقہ' کا مصدق کون ہے",
-    options: ["رشتہ دار", "پنجتن", "صحابہ"],
-    correctAnswer: "پنجتن",
+    question: "'ذالقربی حقہ' کا مصداق کون ہے",
+    options: ["رشتہ دار", "سیدہ فاطمؑہ زہرا", "صحابہ"],
+    correctAnswer: "سیدہ فاطمؑہ زہرا",
   },
   {
     questionNo: 6,
@@ -37,7 +37,7 @@ const BaniIsraeel = [
   },
   {
     questionNo: 7,
-    question: "یروشیلم حملے میں کتنے لوگ مارے گئے",
+    question: "یروشلم حملے میں کتنے لوگ مارے گئے",
     options: ["1 لاکھ تینتیس ہزار", "1 لاکھ چونتیس ہزار", "1 لاکھ پینتیس ہزار"],
     correctAnswer: "1 لاکھ تینتیس ہزار",
   },
@@ -61,14 +61,14 @@ const BaniIsraeel = [
   },
   {
     questionNo: 11,
-    question: "شجرہ معونہ سے مراد -- ہے",
+    question: "شجرہ ملعونہ سے مراد -- ہے",
     options: ["بنو امیہ", "بنو مروان", "بنو کثیف"],
     correctAnswer: "بنو امیہ",
   },
   {
     questionNo: 12,
     question: "عصر رسالت میں-- طریقوں سے نماز پڑھی جاتی تھی",
-    options: ["جمعا", "تفریقا", "ا ب دونوں"],
+    options: ["جمعاََ", "تفریقاََ", "ا ب دونوں"],
     correctAnswer: "ا ب دونوں",
   },
   {
@@ -93,7 +93,7 @@ const BaniIsraeel = [
     questionNo: 16,
     question: "عیش و عشرت میں فراخی اور وسعت کو -- کہتے ہیں",
     options: ["المترفتہ", "الترفتہ", "القریتہ"],
-    correctAnswer: "الترفتہ",
+    correctAnswer: "المترفتہ",
   },
   {
     questionNo: 17,
@@ -103,7 +103,7 @@ const BaniIsraeel = [
   },
   {
     questionNo: 18,
-    question: "حضرت موسی کو کتنی نشانیاں دی گئی",
+    question: "حضرت موسٰی ع کو کتنی نشانیاں دی گئی",
     options: ["8", "9", "10"],
     correctAnswer: "9",
   },
@@ -140,8 +140,8 @@ const BaniIsraeel = [
   {
     questionNo: 24,
     question: "ہاتھ باندھ کے نماز پڑھنے کی رسم کہاں سے شروع ہوئی",
-    options: ["پہلی صدی", "دوسری صدی", "تیسری صدی"],
-    correctAnswer: "دوسری صدی",
+    options: ["پہلی صدی ہجری", "دوسری صدی ہجری", "تیسری صدی ہجری"],
+    correctAnswer: "دوسری صدی ہجری",
   },
   {
     questionNo: 25,
@@ -158,8 +158,8 @@ const BaniIsraeel = [
   {
     questionNo: 27,
     question: "کس نبی کے ساتھ پہاڑ بھی تسبیح پڑھتے تھے",
-    options: ["حضرت داود", "حضرت الیاس", "حضرت ادریس"],
-    correctAnswer: "حضرت داود",
+    options: ["حضرت داود ع", "حضرت الیاس ع", "حضرت ادریس ع"],
+    correctAnswer: "حضرت داود ع",
   },
   {
     questionNo: 28,
@@ -176,8 +176,12 @@ const BaniIsraeel = [
   {
     questionNo: 30,
     question: "قرآن میں جن سلسلوں کو لعنت کا نشانہ بنایا گیا وہ -- ہیں",
-    options: ["مفسدین،منکرین،مشکرین", "اہل کتاب،منافقین،مشرکین", "ا ب دونوں"],
-    correctAnswer: "ا ب دونوں",
+    options: [
+      "مفسدین،منکرین،مشرکین",
+      "اہل کتاب،منافقین،مشرکین",
+      "ا اور ب دونوں",
+    ],
+    correctAnswer: "ا اور ب دونوں",
   },
 ];
 
