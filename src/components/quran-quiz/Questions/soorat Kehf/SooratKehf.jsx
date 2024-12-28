@@ -1,0 +1,171 @@
+const SooratIKehf = [
+  {
+    questionNo: "1",
+    question: "سورہ الکھف کا دور نزول -- ہے",
+    options: ["مکی", "مدنی"],
+    correctAnswer: "مکی",
+  },
+  {
+    questionNo: "2",
+    question: "سرب کے لغوی معنی -- ہے",
+    options: ["ڈھلوان کی طرف جانا", "نشیب کی طرف جانا", "غار کی طرف جانا"],
+    correctAnswer: "نشیب کی طرف جانا",
+  },
+  {
+    questionNo: "3",
+    question: "راہبوں کی عبادت گاہ --- ہے",
+    options: ["بیع", "صومعۃ", "صلوات"],
+    correctAnswer: "صومعۃ",
+  },
+  {
+    questionNo: "4",
+    question: "یہودیوں پر لعنت کی وجہ ---",
+    options: ["انبیاء کی قبروں کو مسجد بنانا", "پوجا پاٹ کرنا", "لہجہ مویدانہ"],
+    correctAnswer: "انبیاء کی قبروں کو مسجد بنانا",
+  },
+  {
+    questionNo: "5",
+    question: "یاجوج ماجوج کس کی نسل سے ہے",
+    options: ["ذوالقرنین", "یافث", "موسی"],
+    correctAnswer: "یافث",
+  },
+  {
+    questionNo: "6",
+    question: "سدین 2 پہاڑوں سے مراد -- ہے",
+    options: [
+      "آزربائجان اور نائجیریا",
+      "ارمینیا اور آذربائیجان",
+      "یورپ اور ایشیاء",
+    ],
+    correctAnswer: "ارمینیا اور آذربائیجان",
+  },
+  {
+    questionNo: "7",
+    question: "حدیث کے مطابق مردوں کی زینت کون ہیں",
+    options: ["پاک محمد ص", "مولا علی ع", "بی بی فاطمہ ع"],
+    correctAnswer: "مولا علی ع",
+  },
+  {
+    questionNo: "8",
+    question: "حد سے تجاوز کرنے والے کو -- کہتے ہیں",
+    options: ["الوصید", "الرقاد", "شطط"],
+    correctAnswer: "شطط",
+  },
+  {
+    questionNo: "9",
+    question:
+      "حضرت خضر نے جس لڑکے کو قتل کیا اس کے گھرانے سے کتنے نبی پیدا ہوئے",
+    options: ["70", "80", "90"],
+    correctAnswer: "70",
+  },
+  {
+    questionNo: "10",
+    question: '"عِبَادِیۡ" سے مراد -- لوگ ہیں',
+    options: ["نیک لوگ", "سرپرست لوگ", "مشرک لوگ"],
+    correctAnswer: "نیک لوگ",
+  },
+  {
+    questionNo: "11",
+    question: "ذوالقرنین کے ہونے کی دلیل کس علاقے میں ہے",
+    options: ["دریال", "اسسد", "ترک"],
+    correctAnswer: "دریال",
+  },
+  {
+    questionNo: "12",
+    question: "روایات کے مطابق اصحاب کہف -- تھے",
+    options: ["نگہبان", "شاہی درباری", "منگول"],
+    correctAnswer: "شاہی درباری",
+  },
+  {
+    questionNo: "13",
+    question: "ایک انسان کا ۔۔۔ بہت بڑا گناہ ہے",
+    options: ["بلا جرم قتل", "زنا", "شرک"],
+    correctAnswer: "بلا جرم قتل",
+  },
+  {
+    questionNo: "14",
+    question: "کلمۃ اللہ کس نبی کو کہا گیا ہے",
+    options: ["حضرت عیسی", "حضرت موسی", "حضرت خضر"],
+    correctAnswer: "حضرت عیسی",
+  },
+  {
+    questionNo: "15",
+    question: "سائرس کی حکومت کا دائرہ مغرب میں ایشیاء کوچک اور -- تک ہے",
+    options: ["مقدونیہ", "ملیشیا", "تاتاری"],
+    correctAnswer: "مقدونیہ",
+  },
+  {
+    questionNo: "16",
+    question: "جنت کی چوٹی فردوس ہے اور وہ -- ہے",
+    options: ["اللہ کیلیے ہے", "آل محمد علیہ السلام", "ا ب دونوں"],
+    correctAnswer: "آل محمد علیہ السلام",
+  },
+  {
+    questionNo: "17",
+    question: '"وَعۡدُ رَبِّیۡ" سے مراد',
+    options: ["اللہ کا وعدہ", "قیامت", "ا ب دونوں"],
+    correctAnswer: "قیامت",
+  },
+  {
+    questionNo: "18",
+    question: "ابلیس فرشتوں کے ساتھ کونسے مقام پر فائز تھا",
+    options: ["مقام ففسق", "مقام قدس", "کوئی بھی نہیں"],
+    correctAnswer: "مقام قدس",
+  },
+  {
+    questionNo: "19",
+    question: "قرآن کے مطابق اصحاب کہف غار میں کتنا رہے",
+    options: ["تین سو سال", "چار سو سال", "ایک سو سال"],
+    correctAnswer: "تین سو سال",
+  },
+  {
+    questionNo: "20",
+    question: "سنگم پر پہچنے کے بعد مچھلی کون بھولا تھا",
+    options: ["حضرت موسی", "خادم", "دونوں"],
+    correctAnswer: "خادم",
+  },
+  {
+    questionNo: "21",
+    question: "شاگردی کے آداب میں اولیت کس چیز کو حاصل ہے",
+    options: ["تعلیم", "تعریف", "اتباع"],
+    correctAnswer: "اتباع",
+  },
+  {
+    questionNo: "22",
+    question: "صالح عبد کیلیے بہترین چیز -- ہے",
+    options: ["صالح اولاد", "صالح مال", "صالح صبر"],
+    correctAnswer: "صالح مال",
+  },
+  {
+    questionNo: "23",
+    question: "اس زمانے میں سینگ کس چیز کی علامت تھی",
+    options: ["نافرمانی کی", "طاقت کی", "عذاب کی"],
+    correctAnswer: "طاقت کی",
+  },
+  {
+    questionNo: "24",
+    question: "یہودیوں کے مطابق ذوالقرنین سے مراد ---",
+    options: ["خسرو ہے", "مقدونی ہے", "اسکندر ہے"],
+    correctAnswer: "خسرو ہے",
+  },
+  {
+    questionNo: "25",
+    question: '"الۡکِتٰبُ" سے مراد ----',
+    options: ["قرآن", "نامہ اعمال", "کتاب"],
+    correctAnswer: "نامہ اعمال",
+  },
+  {
+    questionNo: "26",
+    question: "جنت کے کل کتنے درجات ہیں",
+    options: ["100", "200", "300"],
+    correctAnswer: "100",
+  },
+  {
+    questionNo: "27",
+    question: '"کھف" --- کو کہتے ہیں',
+    options: ["اصحاب کو", "غار کو", "مومن کو"],
+    correctAnswer: "غار کو",
+  },
+];
+
+export default SooratIKehf;
