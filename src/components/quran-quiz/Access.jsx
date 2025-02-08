@@ -12,7 +12,7 @@ const QuizAccess = (props) => {
       <h1>
         This Quiz{" "}
         <span>
-          will open on {props.date} {props.EnglishMonth} 2023 at {props.from}:00
+          will open on {props.date} {props.EnglishMonth} 2025 at {props.from}:00
           to {props.to}:00
         </span>{" "}
         Pakistan Time
