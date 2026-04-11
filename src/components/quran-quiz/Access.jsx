@@ -1,13 +1,6 @@
-// import React from "react";
-
-import data from "../data";
-
 const QuizAccess = (props) => {
   return (
     <div className="dateAdded">
-      {/* <h1>
-        The Quiz Access is <span>denied Now!</span>
-      </h1> */}
       <h1>
         The Quiz access is <span>denied Now</span>!
       </h1>
