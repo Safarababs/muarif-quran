@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useCallback } from "react";
-import axios from "axios";
 import swal from "sweetalert";
+import { serverTimestamp, doc, getDoc, setDoc } from "firebase/firestore";
 import questions from "./Questions/Question";
 import BackendCall from "../institute/BackendCall";
-import data from "../data";
 import "./quiz.css";
 import Darood from "./Darood";
+import { db } from "../../firebase";
+
+const RESULT_DAY = "2026-04-13";
 
 const Quiz = () => {
   const [shuffledQuestions, setShuffledQuestions] = useState([]);
@@ -19,12 +21,21 @@ const Quiz = () => {
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState(
-    new Array(questions.length).fill(null)
+    new Array(questions.length).fill(null),
   );
   const [showUserForm, setShowUserForm] = useState(true);
   const [showResults, setShowResults] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [formErrors, setFormErrors] = useState({});
+  const [submittedResult, setSubmittedResult] = useState(null);
+
+  const isResultDay = () => {
+    const today = new Date();
+    const resultDate = new Date(RESULT_DAY);
+    today.setHours(0, 0, 0, 0);
+    resultDate.setHours(0, 0, 0, 0);
+    return today >= resultDate;
+  };
 
   const handleUserDataChange = (event) => {
     const { name, value } = event.target;
@@ -54,44 +65,125 @@ const Quiz = () => {
     return { totalMarks, obtainedMarks: Number(obtainedMarks) };
   }, [shuffledQuestions, answers]);
 
-  const saveUserDataAndAnswers = useCallback(() => {
-    setIsLoading(true);
-    const { obtainedMarks } = calculateMarks();
-    const backup = {
-      name: userData.name,
-      phoneNumber: userData.phoneNumber,
-      city: userData.city,
-      obtainedMarks,
-      answers: JSON.stringify(answers),
-      shuffledQuestions: JSON.stringify(shuffledQuestions),
-    };
+  const buildQuestionResults = useCallback(() => {
+    return shuffledQuestions.map((question, index) => {
+      const studentAnswer = answers[index];
+      const isCorrect = studentAnswer === question.correctAnswer;
 
-    axios.post(data.backend + "/result", backup).then((res) => {
-      if (res.data.message === "Successfully sent") {
-        setIsLoading(false);
-      } else {
-        swal(
-          "Please Check your internet and try again",
-          "Please Check your network",
-          "error"
-        );
-        setIsLoading(false);
-      }
+      return {
+        questionNo: index + 1,
+        question: question.question,
+        options: question.options,
+        correctAnswer: question.correctAnswer,
+        studentAnswer: studentAnswer || "",
+        isCorrect,
+        isWrong: !isCorrect,
+      };
     });
-  }, [calculateMarks, userData, answers, shuffledQuestions]);
+  }, [shuffledQuestions, answers]);
 
-  // timer
+  const checkIfUserAlreadyCompletedQuiz = useCallback(async () => {
+    try {
+      const phoneNumber = userData.phoneNumber.trim();
+
+      if (!phoneNumber) {
+        swal("Error", "Phone number is required", "error");
+        return;
+      }
+
+      const docRef = doc(db, "quizResults", phoneNumber);
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        const existingResult = {
+          id: docSnap.id,
+          ...docSnap.data(),
+        };
+
+        setUserResults([existingResult]);
+        setShowUserForm(false);
+        setShowResults(true);
+      } else {
+        setUserResults([]);
+        setShowUserForm(false);
+        setTimer(questions.length * 60);
+      }
+    } catch (error) {
+      console.error("Error checking existing result:", error);
+      swal(
+        "Error",
+        error.message || "Could not verify previous submission",
+        "error",
+      );
+    }
+  }, [userData]);
+
+  const saveUserDataAndAnswers = useCallback(async () => {
+    try {
+      setIsLoading(true);
+
+      const phoneNumber = userData.phoneNumber.trim();
+      const docRef = doc(db, "quizResults", phoneNumber);
+      const docSnap = await getDoc(docRef);
+
+      // stop duplicate submission
+      if (docSnap.exists()) {
+        const existingResult = {
+          id: docSnap.id,
+          ...docSnap.data(),
+        };
+
+        setUserResults([existingResult]);
+        setSubmittedResult(null);
+        setShowResults(true);
+        setIsLoading(false);
+
+        swal(
+          "Already Submitted",
+          "This phone number has already submitted the quiz.",
+          "error",
+        );
+        return;
+      }
+
+      const { obtainedMarks, totalMarks } = calculateMarks();
+      const questionResults = buildQuestionResults();
+
+      const payload = {
+        name: userData.name.trim(),
+        phoneNumber,
+        city: userData.city.trim(),
+        obtainedMarks,
+        totalMarks,
+        questionResults,
+        resultDay: RESULT_DAY,
+        submittedAt: serverTimestamp(),
+      };
+
+      await setDoc(docRef, payload);
+
+      setSubmittedResult({
+        id: phoneNumber,
+        ...payload,
+      });
+
+      setIsLoading(false);
+    } catch (error) {
+      console.error("Error saving result:", error);
+      setIsLoading(false);
+      swal("Error", error.message || "Could not save quiz result", "error");
+    }
+  }, [calculateMarks, buildQuestionResults, userData]);
+
   useEffect(() => {
     const timerId = setInterval(() => {
-      setTimer((prevTimer) => prevTimer - 1);
+      setTimer((prevTimer) => (prevTimer > 0 ? prevTimer - 1 : 0));
     }, 1000);
 
-    return () => {
-      clearInterval(timerId);
-    };
+    return () => clearInterval(timerId);
   }, []);
 
-  const handleNextClick = useCallback(() => {
+  const handleNextClick = useCallback(async () => {
     if (showUserForm) {
       if (!userData.name || !userData.phoneNumber || !userData.city) {
         const errors = {
@@ -102,82 +194,56 @@ const Quiz = () => {
         setFormErrors(errors);
       } else {
         setFormErrors({});
-        setShowUserForm(false);
-        setTimer(questions.length * 60);
+        await checkIfUserAlreadyCompletedQuiz();
       }
     } else {
       if (currentQuestionIndex === shuffledQuestions.length - 1) {
         setShowResults(true);
-        saveUserDataAndAnswers();
+        await saveUserDataAndAnswers();
       } else {
         setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
       }
     }
   }, [
-    currentQuestionIndex,
-    saveUserDataAndAnswers,
-    setTimer,
-    setShowResults,
-    setFormErrors,
-    setShowUserForm,
-    shuffledQuestions.length,
-    userData.city,
-    userData.name,
-    userData.phoneNumber,
     showUserForm,
+    userData,
+    currentQuestionIndex,
+    shuffledQuestions.length,
+    saveUserDataAndAnswers,
+    checkIfUserAlreadyCompletedQuiz,
   ]);
 
   useEffect(() => {
-    if (timer === 0) {
+    if (
+      timer === 0 &&
+      !showUserForm &&
+      !showResults &&
+      shuffledQuestions.length > 0
+    ) {
       handleNextClick();
     }
-  }, [handleNextClick, timer]);
+  }, [
+    timer,
+    showUserForm,
+    showResults,
+    shuffledQuestions.length,
+    handleNextClick,
+  ]);
 
   const handleBackClick = () => {
-    if (currentQuestionIndex === 0) {
-      return;
-    }
+    if (currentQuestionIndex === 0) return;
     setCurrentQuestionIndex((prevIndex) => prevIndex - 1);
   };
 
-  const checkIfUserAlreadyCompletedQuiz = useCallback(() => {
-    const name = userData.name;
-    const phoneNumber = userData.phoneNumber;
-    const city = userData.city;
-
-    axios.get(data.backend + "/results").then((res) => {
-      if (res.data && res.data.length > 0) {
-        const existingResults = res.data.filter(
-          (result) =>
-            result.name === name &&
-            result.phoneNumber === phoneNumber &&
-            result.city === city
-        );
-        setUserResults(existingResults);
-        if (existingResults.length > 0) {
-          setShowUserForm(false);
-          setShowResults(true);
-        }
-      }
-    });
-  }, [userData]);
-
-  // shuffled question
   useEffect(() => {
-    const shuffledArray = questions.map((question) => {
-      return {
-        ...question,
-        options: [...question.options],
-      };
-    });
+    const shuffledArray = questions.map((question) => ({
+      ...question,
+      options: [...question.options],
+    }));
     setShuffledQuestions(shuffledArray);
   }, []);
 
-  useEffect(() => {
-    if (!showUserForm) {
-      checkIfUserAlreadyCompletedQuiz();
-    }
-  }, [showUserForm, checkIfUserAlreadyCompletedQuiz]);
+  const detailedResult = submittedResult || userResults[0] || null;
 
   return (
     <section className="quiz">
@@ -216,18 +282,75 @@ const Quiz = () => {
               placeholder={formErrors.city ? "City is required" : "City"}
               className={formErrors.city ? "error" : ""}
             />
-            <button onClick={handleNextClick} className="btn">
-              Start Quiz
+            <button
+              onClick={handleNextClick}
+              className="btn"
+              disabled={isLoading}
+            >
+              {isLoading ? "Please wait..." : "Start Quiz"}
             </button>
           </div>
         ) : showResults ? (
           <div className="results">
             <Darood />
-            {userResults.length > 0 ? (
-              <p style={{ color: "red", background: "white" }}>
-                You have already completed the quiz. Please wait for the
-                results.
-              </p>
+
+            {userResults.length > 0 && !submittedResult ? (
+              <>
+                <p style={{ color: "red", background: "white" }}>
+                  You have already completed the quiz.
+                </p>
+
+                <p>Name: {userResults[0]?.name}</p>
+                <p>Phone Number: {userResults[0]?.phoneNumber}</p>
+                <p>City: {userResults[0]?.city}</p>
+                <p>Total Marks: {userResults[0]?.totalMarks}</p>
+                <p>Obtained Marks: {userResults[0]?.obtainedMarks}</p>
+
+                {!isResultDay() ? (
+                  <p style={{ color: "white", background: "red" }}>
+                    Detailed result will be shown on 13, April 2026
+                  </p>
+                ) : (
+                  <>
+                    <p style={{ color: "white", background: "green" }}>
+                      Detailed result is now available
+                    </p>
+
+                    {userResults[0]?.questionResults?.map((result, index) => (
+                      <div key={index}>
+                        <p
+                          style={{
+                            color: "black",
+                            fontSize: "2rem",
+                            fontFamily: "Noto Nastaliq Urdu",
+                          }}
+                        >
+                          Question {result.questionNo}:<br />
+                          {result.question}
+                        </p>
+                        <p className="answers">
+                          Correct Answer: {result.correctAnswer}
+                        </p>
+                        <p className="answers">
+                          Your Answer: {result.studentAnswer || "Not Answered"}
+                        </p>
+
+                        {result.isCorrect ? (
+                          <p className="answers">
+                            Correct Answer:{" "}
+                            <span style={{ color: "green" }}>&#10004;</span>
+                          </p>
+                        ) : (
+                          <p className="answers">
+                            Wrong Answer:{" "}
+                            <span style={{ color: "red" }}>&#10006;</span>
+                          </p>
+                        )}
+                      </div>
+                    ))}
+                  </>
+                )}
+              </>
             ) : (
               <>
                 <p>Name: {userData.name}</p>
@@ -236,67 +359,77 @@ const Quiz = () => {
                 <p>Total Marks: {calculateMarks().totalMarks}</p>
                 <p>Obtained Marks: {calculateMarks().obtainedMarks}</p>
 
-                <p style={{ color: "white", background: "red" }}>
-                  Detailed result will be show tomorrow
-                </p>
-                {/* {calculateMarks().resultDetails.map((result, index) => (
-                  <div key={index}>
-                    <p
-                      style={{
-                        color: "black",
-                        fontSize: "2rem",
-                        fontFamily: "Noto Nastaliq Urdu",
-                      }}
-                    >
-                      Question {index + 1}:<br></br> {result.question.question}
+                {!isResultDay() ? (
+                  <p style={{ color: "white", background: "red" }}>
+                    Detailed result will be shown on result day
+                  </p>
+                ) : (
+                  <>
+                    <p style={{ color: "white", background: "green" }}>
+                      Detailed result is now available
                     </p>
-                    <p className="answers">
-                      Correct Answer: {result.question.correctAnswer}
-                    </p>
-                    <p className="answers">Your Answer: safar {result.answer}</p>
 
-                    {result.isCorrect ? (
-                      <p className="answers">
-                        Correct Answer:{" "}
-                        <span style={{ color: "green" }}>&#10004;</span>
-                      </p>
-                    ) : (
-                      <p className="answers">
-                        Wrong Answer:{" "}
-                        <span
+                    {detailedResult?.questionResults?.map((result, index) => (
+                      <div key={index}>
+                        <p
                           style={{
-                            color: "red",
+                            color: "black",
+                            fontSize: "2rem",
+                            fontFamily: "Noto Nastaliq Urdu",
                           }}
                         >
-                          &#10006;
-                        </span>
-                      </p>
-                    )}
-                  </div>
-                ))} */}
+                          Question {result.questionNo}:<br />
+                          {result.question}
+                        </p>
+                        <p className="answers">
+                          Correct Answer: {result.correctAnswer}
+                        </p>
+                        <p className="answers">
+                          Your Answer: {result.studentAnswer || "Not Answered"}
+                        </p>
+
+                        {result.isCorrect ? (
+                          <p className="answers">
+                            Correct Answer:{" "}
+                            <span style={{ color: "green" }}>&#10004;</span>
+                          </p>
+                        ) : (
+                          <p className="answers">
+                            Wrong Answer:{" "}
+                            <span style={{ color: "red" }}>&#10006;</span>
+                          </p>
+                        )}
+                      </div>
+                    ))}
+                  </>
+                )}
               </>
             )}
           </div>
         ) : (
           <div className="question-container">
             <h1>Hi {userData.name}!</h1>
+
             {!showUserForm && !showResults && (
               <div className="timer">
                 {timer > 0 ? (
                   <h1>
-                    Time Remaining: {Math.floor(timer / 60)}:{timer % 60}
+                    Time Remaining: {Math.floor(timer / 60)}:
+                    {String(timer % 60).padStart(2, "0")}
                   </h1>
                 ) : (
                   <h1>Time's Up!</h1>
                 )}
               </div>
             )}
+
             <h1>Question no {currentQuestionIndex + 1}</h1>
+
             <div className="question">
-              <h2>{shuffledQuestions[currentQuestionIndex].question}</h2>
+              <h2>{shuffledQuestions[currentQuestionIndex]?.question}</h2>
               <BackendCall />
               <ul>
-                {shuffledQuestions[currentQuestionIndex].options.map(
+                {shuffledQuestions[currentQuestionIndex]?.options?.map(
                   (option, index) => (
                     <li key={index}>
                       <label>
@@ -310,24 +443,36 @@ const Quiz = () => {
                         {option}
                       </label>
                     </li>
-                  )
+                  ),
                 )}
               </ul>
             </div>
+
             <div className="navigation-buttons">
               {currentQuestionIndex > 0 && (
-                <button onClick={handleBackClick} className="back">
+                <button
+                  onClick={handleBackClick}
+                  className="back"
+                  disabled={isLoading}
+                >
                   Back
                 </button>
               )}
-              <button onClick={handleNextClick} className="next">
-                {currentQuestionIndex === shuffledQuestions.length - 1
-                  ? "Submit"
-                  : "Next"}
+              <button
+                onClick={handleNextClick}
+                className="next"
+                disabled={isLoading}
+              >
+                {isLoading
+                  ? "Submitting..."
+                  : currentQuestionIndex === shuffledQuestions.length - 1
+                    ? "Submit"
+                    : "Next"}
               </button>
             </div>
           </div>
         )}
+
         {isLoading && <div className="loading">Saving results...</div>}
       </div>
     </section>
