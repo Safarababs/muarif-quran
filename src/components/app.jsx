@@ -44,7 +44,7 @@ function App() {
   const currentHour = currentDate.getUTCHours() + 5;
   // test date and time
 
-  const targetDate = 11;
+  const targetDate = 12;
   const EnglishMonth = "April";
   const UrduMonth = "اپرہل";
 
@@ -93,7 +93,7 @@ function App() {
             <Route
               path="/rightanswer"
               element={
-                today === 11 ? (
+                today === 13 ? (
                   <IndividualQuestion />
                 ) : (
                   <h1
