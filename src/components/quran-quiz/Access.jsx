@@ -1,5 +1,7 @@
 // import React from "react";
 
+import data from "../data";
+
 const QuizAccess = (props) => {
   return (
     <div className="dateAdded">
@@ -12,8 +14,8 @@ const QuizAccess = (props) => {
       <h1>
         This Quiz{" "}
         <span>
-          will open on {props.date} {props.EnglishMonth} 2025 at {props.from}:00
-          to {props.to}:00
+          will open on {props.date} {props.EnglishMonth}{" "}
+          {new Date().getFullYear()} at {props.from}:00 to {props.to}:00
         </span>{" "}
         Pakistan Time
       </h1>
