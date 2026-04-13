@@ -74,7 +74,7 @@ function App() {
             <Route
               path="/resultcheck"
               element={
-                today === targetDate ? (
+                today !== targetDate ? (
                   <ResultCheck />
                 ) : (
                   <h1
@@ -93,7 +93,7 @@ function App() {
             <Route
               path="/rightanswer"
               element={
-                today === 13 ? (
+                today !== targetDate ? (
                   <IndividualQuestion />
                 ) : (
                   <h1
