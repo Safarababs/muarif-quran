@@ -8,9 +8,8 @@
     "city": "Lahore",
     "phoneNumber": "03361151155",
     "rawPhone": "03361151155",
-    "feeStatus": "",
-    "isDuplicatePhone": false,
-    "notes": "",
+    "feeStatus": true,
+
     "canAttempt": true
   },
   {
@@ -22,9 +21,8 @@
     "city": "حیدرآباد",
     "phoneNumber": "03010238148",
     "rawPhone": "03010238148",
-    "feeStatus": "",
-    "isDuplicatePhone": false,
-    "notes": "",
+    "feeStatus": true,
+
     "canAttempt": true
   },
   {
@@ -36,9 +34,8 @@
     "city": "کوٹری",
     "phoneNumber": "03058160359",
     "rawPhone": "03058160359",
-    "feeStatus": "جی  فیس ادا کردی ہے۔",
-    "isDuplicatePhone": false,
-    "notes": "",
+    "feeStatus": true,
+
     "canAttempt": true
   },
   {
@@ -50,9 +47,8 @@
     "city": "",
     "phoneNumber": "03474911903",
     "rawPhone": "",
-    "feeStatus": "",
-    "isDuplicatePhone": false,
-    "notes": "",
+    "feeStatus": true,
+
     "canAttempt": true
   },
   {
@@ -64,9 +60,8 @@
     "city": "Taunsa shreef",
     "phoneNumber": "03160671582",
     "rawPhone": "03160671582",
-    "feeStatus": "",
-    "isDuplicatePhone": false,
-    "notes": "",
+    "feeStatus": true,
+
     "canAttempt": true
   },
   {
@@ -78,9 +73,8 @@
     "city": "سکردو",
     "phoneNumber": "03474817063",
     "rawPhone": "03474817063",
-    "feeStatus": "",
-    "isDuplicatePhone": false,
-    "notes": "",
+    "feeStatus": true,
+
     "canAttempt": true
   },
   {
@@ -92,9 +86,8 @@
     "city": "فیصل آباد",
     "phoneNumber": "03253116496",
     "rawPhone": "03253116496",
-    "feeStatus": "",
-    "isDuplicatePhone": false,
-    "notes": "",
+    "feeStatus": true,
+
     "canAttempt": true
   },
   {
@@ -106,9 +99,8 @@
     "city": "فیصل آباد",
     "phoneNumber": "03140645265",
     "rawPhone": "03140645265",
-    "feeStatus": "",
-    "isDuplicatePhone": false,
-    "notes": "",
+    "feeStatus": true,
+
     "canAttempt": true
   },
   {
@@ -120,9 +112,8 @@
     "city": "Karachi",
     "phoneNumber": "03312939780",
     "rawPhone": "03312939780",
-    "feeStatus": "",
-    "isDuplicatePhone": false,
-    "notes": "",
+    "feeStatus": true,
+
     "canAttempt": true
   },
   {
@@ -134,9 +125,8 @@
     "city": "لاہور",
     "phoneNumber": "03217356517",
     "rawPhone": "03217356517",
-    "feeStatus": "",
-    "isDuplicatePhone": false,
-    "notes": "",
+    "feeStatus": true,
+
     "canAttempt": true
   },
   {
@@ -148,9 +138,8 @@
     "city": "bangalore india",
     "phoneNumber": "9535088083",
     "rawPhone": "9535088083",
-    "feeStatus": "yes",
-    "isDuplicatePhone": false,
-    "notes": "",
+    "feeStatus": true,
+
     "canAttempt": true
   },
   {
@@ -162,9 +151,8 @@
     "city": "سکردو",
     "phoneNumber": "03554242932",
     "rawPhone": "03554242932",
-    "feeStatus": ": ادا کی ہے",
-    "isDuplicatePhone": false,
-    "notes": "",
+    "feeStatus": true,
+
     "canAttempt": true
   },
   {
@@ -176,9 +164,8 @@
     "city": "khaipur mirs sindh",
     "phoneNumber": "03333471330",
     "rawPhone": "03333471330",
-    "feeStatus": "جی  فیس ادا کردی ہے۔",
-    "isDuplicatePhone": false,
-    "notes": "",
+    "feeStatus": true,
+
     "canAttempt": true
   },
   {
@@ -190,9 +177,8 @@
     "city": "New Jersey",
     "phoneNumber": "7326689202",
     "rawPhone": "7326689202",
-    "feeStatus": "جی  فیس ادا کردی ہے۔",
-    "isDuplicatePhone": false,
-    "notes": "",
+    "feeStatus": true,
+
     "canAttempt": true
   },
   {
@@ -204,9 +190,8 @@
     "city": "Karachi",
     "phoneNumber": "03062044174",
     "rawPhone": "03062044174",
-    "feeStatus": "",
-    "isDuplicatePhone": false,
-    "notes": "",
+    "feeStatus": true,
+
     "canAttempt": true
   },
   {
@@ -218,9 +203,8 @@
     "city": "اسلام آباد",
     "phoneNumber": "03350097281",
     "rawPhone": "03350097281",
-    "feeStatus": "ادا کر دی",
-    "isDuplicatePhone": false,
-    "notes": "",
+    "feeStatus": true,
+
     "canAttempt": true
   },
   {
@@ -232,9 +216,8 @@
     "city": "فیصل آباد",
     "phoneNumber": "03327072425",
     "rawPhone": "03327072425",
-    "feeStatus": "جی",
-    "isDuplicatePhone": false,
-    "notes": "",
+    "feeStatus": true,
+
     "canAttempt": true
   },
   {
@@ -246,9 +229,8 @@
     "city": "England",
     "phoneNumber": "+447405157249",
     "rawPhone": "+447405157249",
-    "feeStatus": "نهین",
-    "isDuplicatePhone": false,
-    "notes": "",
+    "feeStatus": true,
+
     "canAttempt": true
   },
   {
@@ -260,9 +242,8 @@
     "city": "",
     "phoneNumber": "03220281563",
     "rawPhone": ":03220281563",
-    "feeStatus": ":ادا کر دی ہے",
-    "isDuplicatePhone": false,
-    "notes": "",
+    "feeStatus": true,
+
     "canAttempt": true
   },
   {
@@ -274,9 +255,8 @@
     "city": "فون نمبر: 09030537290",
     "phoneNumber": "09030537290",
     "rawPhone": "09030537290",
-    "feeStatus": "جی",
-    "isDuplicatePhone": false,
-    "notes": "",
+    "feeStatus": true,
+
     "canAttempt": true
   },
   {
@@ -289,8 +269,7 @@
     "phoneNumber": "03422629446",
     "rawPhone": "03422629446",
     "feeStatus": "*فیس درج ذیل نمبر پر* ایزی پیسہ/جاز کیش کریں۔۔",
-    "isDuplicatePhone": false,
-    "notes": "",
+
     "canAttempt": true
   },
   {
@@ -302,9 +281,8 @@
     "city": "لاہور",
     "phoneNumber": "03214945855",
     "rawPhone": "03214945855",
-    "feeStatus": "جی",
-    "isDuplicatePhone": false,
-    "notes": "",
+    "feeStatus": true,
+
     "canAttempt": true
   },
   {
@@ -316,9 +294,8 @@
     "city": "لاہور",
     "phoneNumber": "03337244599",
     "rawPhone": "0333-7244599",
-    "feeStatus": "ادا کر دی ہے",
-    "isDuplicatePhone": false,
-    "notes": "",
+    "feeStatus": true,
+
     "canAttempt": true
   },
   {
@@ -330,9 +307,8 @@
     "city": "Lahore",
     "phoneNumber": "03343004484",
     "rawPhone": "0334-3004484",
-    "feeStatus": "yes",
-    "isDuplicatePhone": false,
-    "notes": "",
+    "feeStatus": true,
+
     "canAttempt": true
   },
   {
@@ -344,9 +320,8 @@
     "city": "کوٹلہ جام",
     "phoneNumber": "+923449127952",
     "rawPhone": "+92 344 9127952",
-    "feeStatus": "*فیس درج ذیل نمبر پر* ایزی پیسہ/جاز کیش کریں۔۔",
-    "isDuplicatePhone": false,
-    "notes": "",
+    "feeStatus": true,
+
     "canAttempt": true
   },
   {
@@ -358,9 +333,8 @@
     "city": "لاہور",
     "phoneNumber": "989046129577",
     "rawPhone": "989046129577+",
-    "feeStatus": "جی ادا  کردی ہے۔",
-    "isDuplicatePhone": false,
-    "notes": "",
+    "feeStatus": true,
+
     "canAttempt": true
   },
   {
@@ -372,9 +346,8 @@
     "city": "بھکر",
     "phoneNumber": "03025937212",
     "rawPhone": "03025937212",
-    "feeStatus": "",
-    "isDuplicatePhone": false,
-    "notes": "",
+    "feeStatus": true,
+
     "canAttempt": true
   },
   {
@@ -386,9 +359,8 @@
     "city": "Bhakkar",
     "phoneNumber": "03110493809",
     "rawPhone": "03110493809",
-    "feeStatus": "Fee submitted",
-    "isDuplicatePhone": false,
-    "notes": "",
+    "feeStatus": true,
+
     "canAttempt": true
   },
   {
@@ -400,9 +372,8 @@
     "city": "لاہور",
     "phoneNumber": "03084672078",
     "rawPhone": "03084672078",
-    "feeStatus": "",
-    "isDuplicatePhone": false,
-    "notes": "",
+    "feeStatus": true,
+
     "canAttempt": true
   },
   {
@@ -414,9 +385,8 @@
     "city": "لاہور",
     "phoneNumber": "03104094447",
     "rawPhone": "03104094447",
-    "feeStatus": "کر دی",
-    "isDuplicatePhone": false,
-    "notes": "",
+    "feeStatus": true,
+
     "canAttempt": true
   },
   {
@@ -428,9 +398,8 @@
     "city": "Lahore",
     "phoneNumber": "03124588038",
     "rawPhone": "03124588038",
-    "feeStatus": "",
-    "isDuplicatePhone": false,
-    "notes": "",
+    "feeStatus": true,
+
     "canAttempt": true
   },
   {
@@ -442,9 +411,8 @@
     "city": "کراچی",
     "phoneNumber": "03363358353",
     "rawPhone": "03363358353",
-    "feeStatus": "اداکر دی",
-    "isDuplicatePhone": false,
-    "notes": "",
+    "feeStatus": true,
+
     "canAttempt": true
   },
   {
@@ -456,9 +424,8 @@
     "city": "03554505142",
     "phoneNumber": "03554505142",
     "rawPhone": "03554505142",
-    "feeStatus": "",
-    "isDuplicatePhone": false,
-    "notes": "",
+    "feeStatus": true,
+
     "canAttempt": true
   },
   {
@@ -470,9 +437,8 @@
     "city": "lahore",
     "phoneNumber": "03234064881",
     "rawPhone": "03234064881",
-    "feeStatus": "ji kr di",
-    "isDuplicatePhone": false,
-    "notes": "",
+    "feeStatus": true,
+
     "canAttempt": true
   },
   {
@@ -484,9 +450,8 @@
     "city": "Lahore",
     "phoneNumber": "02164025263",
     "rawPhone": "02164025263",
-    "feeStatus": "",
-    "isDuplicatePhone": false,
-    "notes": "",
+    "feeStatus": true,
+
     "canAttempt": true
   },
   {
@@ -498,9 +463,8 @@
     "city": "کراچی",
     "phoneNumber": "03312414375",
     "rawPhone": "03312414375",
-    "feeStatus": "کردی ۔",
-    "isDuplicatePhone": false,
-    "notes": "",
+    "feeStatus": true,
+
     "canAttempt": true
   },
   {
@@ -512,9 +476,8 @@
     "city": "Hafiz abad",
     "phoneNumber": "03438480922",
     "rawPhone": "0343 8480922",
-    "feeStatus": "",
-    "isDuplicatePhone": false,
-    "notes": "",
+    "feeStatus": true,
+
     "canAttempt": true
   },
   {
@@ -526,9 +489,8 @@
     "city": "لاہور",
     "phoneNumber": "03184644846",
     "rawPhone": "03184644846",
-    "feeStatus": "کردی",
-    "isDuplicatePhone": false,
-    "notes": "",
+    "feeStatus": true,
+
     "canAttempt": true
   },
   {
@@ -540,9 +502,8 @@
     "city": "",
     "phoneNumber": "03339913048",
     "rawPhone": "03339913048",
-    "feeStatus": "Fee paid 200",
-    "isDuplicatePhone": false,
-    "notes": "",
+    "feeStatus": true,
+
     "canAttempt": true
   },
   {
@@ -554,9 +515,8 @@
     "city": "Gujrat",
     "phoneNumber": "03194206241",
     "rawPhone": "03194206241",
-    "feeStatus": "",
-    "isDuplicatePhone": false,
-    "notes": "",
+    "feeStatus": true,
+
     "canAttempt": true
   },
   {
@@ -568,9 +528,8 @@
     "city": "پسرور سیالکوٹ",
     "phoneNumber": "03269509780",
     "rawPhone": "03269509780",
-    "feeStatus": "خود جاکر کتاب لینی ہے اور 300 پے کرنے ہیں۔۔",
-    "isDuplicatePhone": false,
-    "notes": "",
+    "feeStatus": true,
+
     "canAttempt": true
   },
   {
@@ -580,11 +539,10 @@
     "age": "25",
     "education": "گریجویشن",
     "city": "انڈیا",
-    "phoneNumber": "7794851687",
-    "rawPhone": "7794851687",
-    "feeStatus": "نہیں",
-    "isDuplicatePhone": false,
-    "notes": "",
+    "phoneNumber": "7794854687",
+    "rawPhone": "7794854687",
+    "feeStatus": true,
+
     "canAttempt": true
   },
   {
@@ -596,23 +554,33 @@
     "city": "03151050878",
     "phoneNumber": "03151050878",
     "rawPhone": "03151050878",
-    "feeStatus": "ادا کر دیتی ہوں۔",
-    "isDuplicatePhone": false,
-    "notes": "",
+    "feeStatus": true,
+
+    "canAttempt": true
+  },
+
+  {
+    "id": 46,
+    "name": "آرم بتول",
+    "fatherName": "منظور احمد",
+    "age": "22",
+    "education": "انٹرمیڈیٹ",
+    "city": "کراچی",
+    "phoneNumber": "03332240937",
+    "rawPhone": "03332240937",
+    "feeStatus": true,
     "canAttempt": true
   },
   {
-    "id": 45,
-    "name": "سیدہ نایاب زہرا",
-    "fatherName": "سید بختیار الحسن",
-    "age": "44",
-    "education": "ایم -اے",
+    "id": 47,
+    "name": "صغریٰ علی",
+    "fatherName": "غلام علی",
+    "age": "45",
+    "education": "میٹرک",
     "city": "لاہور",
-    "phoneNumber": "03016185271",
-    "rawPhone": "03016185271",
-    "feeStatus": "✅",
-    "isDuplicatePhone": false,
-    "notes": "",
+    "phoneNumber": "03004628182",
+    "rawPhone": "03004628182",
+    "feeStatus": true,
     "canAttempt": true
   }
 ]

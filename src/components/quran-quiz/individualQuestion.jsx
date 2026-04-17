@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import questions from './Questions/Question';
-import Darood from './Darood';
+import React, { useState } from "react";
+import questions from "./Questions/25-June-2023 last 11 soorat/SooratKausar";
+import Darood from "./Darood";
 
 const IndividualQuestion = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -21,7 +21,7 @@ const IndividualQuestion = () => {
 
   return (
     <div className="question-container-individual">
-    <Darood />
+      <Darood />
       <h1>Solved Quiz</h1>
       {currentQuestionData && (
         <div>
@@ -42,18 +42,22 @@ const IndividualQuestion = () => {
               </li>
             ))}
           </ul>
-          <button onClick={() => setShowAnswer(true)} className='btn'>Submit</button>
+          <button onClick={() => setShowAnswer(true)} className="btn">
+            Submit
+          </button>
           {showAnswer && (
-            <div className='answer-section'>
-              <p>
-                Correct Answer: {currentQuestionData.correctAnswer}
-              </p>
-              <button onClick={handleNext} className='btn'>Next</button>
+            <div className="answer-section">
+              <p>Correct Answer: {currentQuestionData.correctAnswer}</p>
+              <button onClick={handleNext} className="btn">
+                Next
+              </button>
             </div>
           )}
         </div>
       )}
-      {!currentQuestionData && <p style={{fontSize:"3rem"}}>Quiz completed!</p>}
+      {!currentQuestionData && (
+        <p style={{ fontSize: "3rem" }}>Quiz completed!</p>
+      )}
     </div>
   );
 };

@@ -1,10 +1,12 @@
 import "./style.css";
 import Darood from "../quran-quiz/Darood";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
     <header>
       <Darood />
+
       <div className="header-1">
         <div className="form-container">
           <div className="marquee">
@@ -22,32 +24,37 @@ function Header() {
         <nav className="navbar">
           <ul>
             <li>
-              <a href="/">home</a>
+              <Link to="/">home</Link>
             </li>
             <li>
-              <a href="/about">about</a>
+              <Link to="/about">about</Link>
             </li>
             <li>
-              <a href="/gallery">gallery</a>
+              <Link to="/gallery">gallery</Link>
             </li>
             <li>
-              <a href="/courses">courses</a>
+              <Link to="/courses">courses</Link>
             </li>
             <li>
-              <a href="/lectures">lectures</a>
+              <Link to="/lectures">lectures</Link>
             </li>
             <li>
-              <a href="/books">books</a>
+              <Link to="/books">books</Link>
             </li>
             <li>
-              <a href="/contact">contact</a>
+              <Link to="/contact">contact</Link>
             </li>
             <li>
-              <a href="/quranquiz">Quiz</a>
+              <Link to="/quiz-register">Quiz Register</Link>
             </li>
-
             <li>
-              <a href="/dashboard">dashboard</a>
+              <Link to="/quiz-page">Start Quiz</Link>
+            </li>
+            <li>
+              <Link to="/results">Results</Link>
+            </li>
+            <li>
+              <Link to="/admin-login">Admin Login</Link>
             </li>
           </ul>
         </nav>
@@ -67,7 +74,7 @@ function Header() {
             rel="noreferrer"
             className="fas fa-envelope"
           >
-            {""}
+            {" "}
           </a>
           <a
             href="https://www.facebook.com/profile.php?id=100066520402771"
@@ -75,7 +82,7 @@ function Header() {
             rel="noreferrer"
             className="fab fa-facebook-f"
           >
-            {""}
+            {" "}
           </a>
           <a
             href="https://www.youtube.com/channel/UCmvODTtMxqu0--sBAZispHg"
@@ -83,7 +90,7 @@ function Header() {
             rel="noreferrer"
             className="fab fa-youtube"
           >
-            {""}
+            {" "}
           </a>
           <a
             href="https://wa.me/989388030994/?text=I%20need%20some%20information%20can%20i%20?"
@@ -91,7 +98,7 @@ function Header() {
             rel="noreferrer"
             className="fab fa-whatsapp"
           >
-            {""}
+            {" "}
           </a>
         </div>
       </div>

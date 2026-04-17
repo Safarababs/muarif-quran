@@ -6,7 +6,7 @@
   box-sizing: border-box;
   text-decoration: none;
   outline: none;
-  text-transform: capitalize;
+  text-transform: none;
   transition: all 0.2s cubic-bezier(0.37, 1.14, 0.26, 1.24);
 }
 
@@ -67,4 +67,4 @@ html {
   html {
     font-size: 50%;
   }
-}/*# sourceMappingURL=style.css.map */
+} /*# sourceMappingURL=style.css.map */
