@@ -16,8 +16,21 @@ const cleanPhoneNumber = (phone) => {
   return (phone || "").trim().replace(/\s+/g, "");
 };
 
-const QuizPage = ({ quizId: defaultQuizId, quizTitle, quizDate }) => {
-  const [quizId, setQuizId] = useState(defaultQuizId);
+const formatHour = (hour) => {
+  const period = hour >= 12 ? "PM" : "AM";
+  const formattedHour = hour % 12 === 0 ? 12 : hour % 12;
+  return `${formattedHour}:00 ${period}`;
+};
+
+const QuizPage = ({
+  quizId: defaultQuizId,
+  quizTitle,
+  quizDate,
+  startHour,
+  endHour,
+  timeZone,
+}) => {
+  const [quizId] = useState(defaultQuizId);
   const [phoneNumber, setPhoneNumber] = useState("");
   const [student, setStudent] = useState(null);
 
@@ -30,14 +43,164 @@ const QuizPage = ({ quizId: defaultQuizId, quizTitle, quizDate }) => {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
   const [timer, setTimer] = useState(0);
+  const [autoSubmitted, setAutoSubmitted] = useState(false);
+  const [nowTick, setNowTick] = useState(Date.now());
 
-  const isQuizDay = () => {
-    const today = new Date();
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setNowTick(Date.now());
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const getPakistanNow = useCallback(() => {
+    const now = new Date();
+    return new Date(now.toLocaleString("en-US", { timeZone }));
+  }, [timeZone]);
+
+  const isQuizDay = useCallback(() => {
+    const pakNow = getPakistanNow();
+
+    const today = new Date(
+      pakNow.getFullYear(),
+      pakNow.getMonth(),
+      pakNow.getDate(),
+    );
+
     const target = new Date(quizDate);
-    today.setHours(0, 0, 0, 0);
-    target.setHours(0, 0, 0, 0);
-    return today.getTime() === target.getTime();
-  };
+    const quizDay = new Date(
+      target.getFullYear(),
+      target.getMonth(),
+      target.getDate(),
+    );
+
+    return today.getTime() === quizDay.getTime();
+  }, [getPakistanNow, quizDate]);
+
+  const isQuizTime = useCallback(() => {
+    const pakNow = getPakistanNow();
+
+    const hours = pakNow.getHours();
+    const minutes = pakNow.getMinutes();
+
+    const currentTime = hours * 60 + minutes;
+    const startTime = startHour * 60;
+    const endTime = endHour * 60;
+
+    return currentTime >= startTime && currentTime < endTime;
+  }, [getPakistanNow, startHour, endHour]);
+
+  const getCountdownToQuizStart = useCallback(() => {
+    const pakNow = getPakistanNow();
+
+    if (!isQuizDay()) return null;
+
+    const quizStart = new Date(pakNow);
+    quizStart.setHours(startHour, 0, 0, 0);
+
+    const diff = quizStart - pakNow;
+
+    if (diff <= 0) return null;
+
+    const totalSeconds = Math.floor(diff / 1000);
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+
+    return `${hours}h ${minutes}m ${seconds}s`;
+  }, [getPakistanNow, isQuizDay, startHour]);
+
+  const getCountdownToQuizEnd = useCallback(() => {
+    const pakNow = getPakistanNow();
+
+    const quizEnd = new Date(pakNow);
+    quizEnd.setHours(endHour, 0, 0, 0);
+
+    const diff = quizEnd - pakNow;
+
+    if (diff <= 0) return "Time Over";
+
+    const totalSeconds = Math.floor(diff / 1000);
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+
+    return `${hours}h ${minutes}m ${seconds}s`;
+  }, [getPakistanNow, endHour]);
+
+  const calculateMarks = useCallback(() => {
+    let obtainedMarks = 0;
+
+    shuffledQuestions.forEach((question, index) => {
+      if (answers[index] === question.correctAnswer) {
+        obtainedMarks++;
+      }
+    });
+
+    return {
+      totalMarks: shuffledQuestions.length,
+      obtainedMarks,
+    };
+  }, [shuffledQuestions, answers]);
+
+  const handleSubmit = useCallback(async () => {
+    try {
+      setLoading(true);
+      setMessage("");
+
+      const cleanedPhone = cleanPhoneNumber(phoneNumber);
+      const { obtainedMarks, totalMarks } = calculateMarks();
+
+      const questionResults = shuffledQuestions.map((question, index) => {
+        const studentAnswer = answers[index];
+        const isCorrect = studentAnswer === question.correctAnswer;
+
+        return {
+          questionNo: question.questionNo || String(index + 1),
+          question: question.question,
+          options: question.options,
+          correctAnswer: question.correctAnswer,
+          studentAnswer: studentAnswer || "",
+          isCorrect,
+          isWrong: !isCorrect,
+        };
+      });
+
+      const resultDocId = `${quizId}_submissions`;
+
+      await setDoc(doc(db, "Results", resultDocId, "data", cleanedPhone), {
+        quizId,
+        quizTitle,
+        quizDate,
+        name: student?.name || "",
+        phoneNumber: cleanedPhone,
+        city: student?.city || "",
+        obtainedMarks,
+        totalMarks,
+        questionResults,
+        submittedAt: serverTimestamp(),
+      });
+
+      setShowQuiz(false);
+      setCanStart(false);
+      setMessage("Quiz submitted successfully.");
+    } catch (error) {
+      console.error(error);
+      setMessage(error.message || "Failed to submit quiz.");
+    } finally {
+      setLoading(false);
+    }
+  }, [
+    phoneNumber,
+    calculateMarks,
+    shuffledQuestions,
+    answers,
+    quizId,
+    quizTitle,
+    quizDate,
+    student,
+  ]);
 
   const fetchEligibilityAndQuestions = async (e) => {
     e.preventDefault();
@@ -48,6 +211,18 @@ const QuizPage = ({ quizId: defaultQuizId, quizTitle, quizDate }) => {
       setChecked(false);
       setStudent(null);
       setCanStart(false);
+
+      if (!isQuizDay()) {
+        setMessage(`Quiz is only available on ${quizDate}.`);
+        return;
+      }
+
+      if (!isQuizTime()) {
+        setMessage(
+          `Quiz is only available between ${formatHour(startHour)} and ${formatHour(endHour)} (${timeZone}).`,
+        );
+        return;
+      }
 
       const cleanedPhone = cleanPhoneNumber(phoneNumber);
 
@@ -115,7 +290,6 @@ const QuizPage = ({ quizId: defaultQuizId, quizTitle, quizDate }) => {
       );
 
       setStudent(foundStudent);
-
       setShuffledQuestions(shuffled);
       setAnswers(new Array(shuffled.length).fill(null));
       setTimer(shuffled.length * 60);
@@ -130,6 +304,20 @@ const QuizPage = ({ quizId: defaultQuizId, quizTitle, quizDate }) => {
   };
 
   const handleStartQuiz = () => {
+    if (!isQuizDay()) {
+      setMessage(`Quiz is only available on ${quizDate}.`);
+      return;
+    }
+
+    if (!isQuizTime()) {
+      setMessage(
+        `Quiz is only available between ${formatHour(startHour)} and ${formatHour(endHour)} (${timeZone}).`,
+      );
+      return;
+    }
+
+    setCurrentQuestionIndex(0);
+    setAutoSubmitted(false);
     setShowQuiz(true);
   };
 
@@ -142,107 +330,105 @@ const QuizPage = ({ quizId: defaultQuizId, quizTitle, quizDate }) => {
     });
   };
 
-  const calculateMarks = useCallback(() => {
-    let obtainedMarks = 0;
+  const handleBack = () => {
+    if (currentQuestionIndex === 0) return;
+    setCurrentQuestionIndex((prev) => prev - 1);
+  };
 
-    shuffledQuestions.forEach((question, index) => {
-      if (answers[index] === question.correctAnswer) {
-        obtainedMarks++;
-      }
-    });
-
-    return {
-      totalMarks: shuffledQuestions.length,
-      obtainedMarks,
-    };
-  }, [shuffledQuestions, answers]);
-
-  const handleSubmit = useCallback(async () => {
-    try {
-      setLoading(true);
-      setMessage("");
-
-      const cleanedPhone = cleanPhoneNumber(phoneNumber);
-      const { obtainedMarks, totalMarks } = calculateMarks();
-
-      const questionResults = shuffledQuestions.map((question, index) => {
-        const studentAnswer = answers[index];
-        const isCorrect = studentAnswer === question.correctAnswer;
-
-        return {
-          questionNo: question.questionNo || String(index + 1),
-          question: question.question,
-          options: question.options,
-          correctAnswer: question.correctAnswer,
-          studentAnswer: studentAnswer || "",
-          isCorrect,
-          isWrong: !isCorrect,
-        };
-      });
-
-      const resultDocId = `${quizId}_submissions`;
-
-      await setDoc(doc(db, "Results", resultDocId, "data", cleanedPhone), {
-        quizId,
-        name: student.name || "",
-        phoneNumber: cleanedPhone,
-        city: student.city || "",
-        obtainedMarks,
-        totalMarks,
-        questionResults,
-        submittedAt: serverTimestamp(),
-      });
-
-      setShowQuiz(false);
-      setCanStart(false);
-      setMessage("Quiz submitted successfully.");
-    } catch (error) {
-      console.error(error);
-      setMessage(error.message || "Failed to submit quiz.");
-    } finally {
-      setLoading(false);
-    }
-  }, [
-    answers,
-    shuffledQuestions,
-    phoneNumber,
-    student,
-    quizId,
-    calculateMarks,
-  ]);
+  const handleNext = () => {
+    if (currentQuestionIndex >= shuffledQuestions.length - 1) return;
+    setCurrentQuestionIndex((prev) => prev + 1);
+  };
 
   useEffect(() => {
+    if (!showQuiz) return;
+
     const timerId = setInterval(() => {
       setTimer((prevTimer) => (prevTimer > 0 ? prevTimer - 1 : 0));
     }, 1000);
 
     return () => clearInterval(timerId);
-  }, []);
+  }, [showQuiz]);
 
   useEffect(() => {
-    if (timer === 0 && showQuiz && shuffledQuestions.length > 0) {
+    if (!showQuiz || autoSubmitted) return;
+
+    if (timer === 0 && shuffledQuestions.length > 0) {
+      setAutoSubmitted(true);
       handleSubmit();
     }
-  }, [timer, showQuiz, shuffledQuestions.length, handleSubmit]);
+  }, [timer, showQuiz, shuffledQuestions.length, handleSubmit, autoSubmitted]);
+
+  useEffect(() => {
+    if (!showQuiz || autoSubmitted) return;
+
+    if (!isQuizTime()) {
+      setAutoSubmitted(true);
+      setMessage(
+        "Quiz time is over. Your quiz is being submitted automatically.",
+      );
+      handleSubmit();
+    }
+  }, [nowTick, showQuiz, autoSubmitted, isQuizTime, handleSubmit]);
+
+  const countdownToStart = getCountdownToQuizStart();
+  const countdownToEnd = getCountdownToQuizEnd();
+
   if (!isQuizDay()) {
     return (
       <div className="quiz-simple-page">
         <div className="quiz-simple-container">
           <h1 className="quiz-simple-title">{quizTitle}</h1>
           <div className="quiz-simple-card">
-            <p>Quiz is not active today.</p>
+            <p>Quiz is not active right now.</p>
             <p>
-              Quiz Date: <strong>{quizDate}</strong>
+              The Quiz Date is: <strong>{quizDate}</strong>
+            </p>
+            <p>
+              Quiz Time: <strong>{formatHour(startHour)}</strong> to{" "}
+              <strong>{formatHour(endHour)}</strong> ({timeZone})
             </p>
           </div>
         </div>
       </div>
     );
   }
+
+  if (!isQuizTime() && !showQuiz) {
+    return (
+      <div className="quiz-simple-page">
+        <div className="quiz-simple-container">
+          <h1 className="quiz-simple-title">{quizTitle}</h1>
+
+          <div className="quiz-simple-card">
+            <p>Quiz is only available between:</p>
+            <p>
+              <strong>
+                {formatHour(startHour)} → {formatHour(endHour)} ({timeZone})
+              </strong>
+            </p>
+
+            {countdownToStart && (
+              <p
+                style={{
+                  marginTop: "10px",
+                  color: "#0f766e",
+                  fontWeight: "bold",
+                }}
+              >
+                Quiz starts in: {countdownToStart}
+              </p>
+            )}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="quiz-simple-page">
       <div className="quiz-simple-container">
-        <h1 className="quiz-simple-title">Start Quiz</h1>
+        <h1 className="quiz-simple-title">{quizTitle}</h1>
 
         {message ? <div className="quiz-simple-message">{message}</div> : null}
 
@@ -251,12 +437,7 @@ const QuizPage = ({ quizId: defaultQuizId, quizTitle, quizDate }) => {
             <form onSubmit={fetchEligibilityAndQuestions}>
               <div className="quiz-simple-group">
                 <label>Quiz ID</label>
-                <input
-                  type="text"
-                  value={quizId}
-                  onChange={(e) => setQuizId(e.target.value)}
-                  placeholder="e.g. SooratTehreem2026"
-                />
+                <input type="text" value={quizId} readOnly />
               </div>
 
               <div className="quiz-simple-group">
@@ -300,11 +481,17 @@ const QuizPage = ({ quizId: defaultQuizId, quizTitle, quizDate }) => {
           </div>
         ) : (
           <div className="quiz-simple-card">
-            <h2>Hi {student?.name}</h2>
+            <h2>
+              {student?.name}, you are welcome in {quizTitle}
+            </h2>
 
             <div className="quiz-simple-timer">
-              Time Remaining: {Math.floor(timer / 60)}:
+              Question Timer: {Math.floor(timer / 60)}:
               {String(timer % 60).padStart(2, "0")}
+            </div>
+
+            <div className="quiz-simple-timer" style={{ color: "#0f766e" }}>
+              Quiz time Ending In: {countdownToEnd}
             </div>
 
             <h3>
@@ -336,19 +523,11 @@ const QuizPage = ({ quizId: defaultQuizId, quizTitle, quizDate }) => {
 
             <div className="quiz-nav-buttons">
               {currentQuestionIndex > 0 && (
-                <button
-                  onClick={() => setCurrentQuestionIndex((prev) => prev - 1)}
-                >
-                  Back
-                </button>
+                <button onClick={handleBack}>Back</button>
               )}
 
               {currentQuestionIndex < shuffledQuestions.length - 1 ? (
-                <button
-                  onClick={() => setCurrentQuestionIndex((prev) => prev + 1)}
-                >
-                  Next
-                </button>
+                <button onClick={handleNext}>Next</button>
               ) : (
                 <button onClick={handleSubmit} disabled={loading}>
                   {loading ? "Submitting..." : "Submit Quiz"}

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { doc, setDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../../../firebase";
 import "./QuizSimple.css";
@@ -130,6 +131,13 @@ const QuizAdminPanel = ({
           <button onClick={uploadQuestions} disabled={loading}>
             {loading ? "Please wait..." : "Upload Questions"}
           </button>
+        </div>
+        <div className="quiz-simple-card">
+          <h2>All Results</h2>
+
+          <Link to="/safarResult" className="admin-link">
+            <button type="button">View Results for {quizId}</button>
+          </Link>
         </div>
 
         <div className="quiz-simple-card">

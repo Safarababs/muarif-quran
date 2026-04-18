@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { doc, getDoc, setDoc, serverTimestamp } from "firebase/firestore";
-import { db } from "../../../firebase";
-import QuizEligibilityChecker from "./QuizEligibilityChecker";
+import React, { useCallback, useEffect, useState } from "react";
+import { doc, getDoc, serverTimestamp, setDoc } from "firebase/firestore";
+import { db } from "../../firebase";
+import "./QuizSimple.css";
 
 const shuffleArray = (array) => {
   const newArray = [...array];
@@ -12,183 +12,393 @@ const shuffleArray = (array) => {
   return newArray;
 };
 
-const QuizPage = () => {
-  const sooratName = "SooratTehreem";
+const cleanPhoneNumber = (phone) => {
+  return (phone || "").trim().replace(/\s+/g, "");
+};
 
-  const [approvedStudent, setApprovedStudent] = useState(null);
-  const [questions, setQuestions] = useState([]);
+const QuizPage = ({
+  quizId,
+  quizTitle,
+  quizDate,
+  startHour,
+  endHour,
+  timeZone,
+}) => {
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [student, setStudent] = useState(null);
   const [shuffledQuestions, setShuffledQuestions] = useState([]);
   const [answers, setAnswers] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [checked, setChecked] = useState(false);
+  const [canStart, setCanStart] = useState(false);
   const [showQuiz, setShowQuiz] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
+  const [timer, setTimer] = useState(0);
 
-  useEffect(() => {
-    const fetchQuestions = async () => {
-      try {
-        const questionsRef = doc(db, "Questions", sooratName);
-        const questionsSnap = await getDoc(questionsRef);
+  const getPakistanNow = () => {
+    const now = new Date();
+    return new Date(now.toLocaleString("en-US", { timeZone }));
+  };
 
-        if (!questionsSnap.exists()) {
-          return;
-        }
+  const isQuizWindowOpen = () => {
+    const pakNow = getPakistanNow();
 
-        const data = questionsSnap.data().data || [];
-        setQuestions(data);
-
-        const shuffled = shuffleArray(data);
-        setShuffledQuestions(shuffled);
-        setAnswers(new Array(shuffled.length).fill(null));
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchQuestions();
-  }, []);
-
-  const handleApproved = async (studentData) => {
-    const resultRef = doc(
-      db,
-      "QuizResults",
-      sooratName,
-      "submissions",
-      studentData.phoneNumber,
+    const today = new Date(
+      pakNow.getFullYear(),
+      pakNow.getMonth(),
+      pakNow.getDate(),
     );
 
-    const resultSnap = await getDoc(resultRef);
+    const target = new Date(quizDate);
+    const quizDay = new Date(
+      target.getFullYear(),
+      target.getMonth(),
+      target.getDate(),
+    );
 
-    if (resultSnap.exists()) {
-      alert("You already submitted this quiz.");
-      return;
-    }
+    const sameDay = today.getTime() === quizDay.getTime();
 
-    setApprovedStudent(studentData);
-    setShowQuiz(true);
+    const currentMinutes = pakNow.getHours() * 60 + pakNow.getMinutes();
+    const startMinutes = startHour * 60;
+    const endMinutes = endHour * 60;
+
+    return (
+      sameDay && currentMinutes >= startMinutes && currentMinutes < endMinutes
+    );
   };
 
-  const handleAnswerSelect = (value) => {
-    const updatedAnswers = [...answers];
-    updatedAnswers[currentQuestionIndex] = value;
-    setAnswers(updatedAnswers);
-  };
+  const calculateMarks = useCallback(() => {
+    let obtainedMarks = 0;
 
-  const handleSubmit = async () => {
+    shuffledQuestions.forEach((question, index) => {
+      if (answers[index] === question.correctAnswer) {
+        obtainedMarks++;
+      }
+    });
+
+    return {
+      totalMarks: shuffledQuestions.length,
+      obtainedMarks,
+    };
+  }, [shuffledQuestions, answers]);
+
+  const handleSubmit = useCallback(async () => {
     try {
       setLoading(true);
+      setMessage("");
 
-      let obtainedMarks = 0;
+      const cleanedPhone = cleanPhoneNumber(phoneNumber);
+      const { obtainedMarks, totalMarks } = calculateMarks();
 
       const questionResults = shuffledQuestions.map((question, index) => {
         const studentAnswer = answers[index];
         const isCorrect = studentAnswer === question.correctAnswer;
 
-        if (isCorrect) obtainedMarks++;
-
         return {
           questionNo: question.questionNo || String(index + 1),
           question: question.question,
+          options: question.options,
           correctAnswer: question.correctAnswer,
           studentAnswer: studentAnswer || "",
           isCorrect,
+          isWrong: !isCorrect,
         };
       });
 
-      const payload = {
-        name: approvedStudent.name,
-        phoneNumber: approvedStudent.phoneNumber,
-        city: approvedStudent.city || "",
+      const resultDocId = `${quizId}_submissions`;
+
+      await setDoc(doc(db, "Results", resultDocId, "data", cleanedPhone), {
+        quizId,
+        quizTitle,
+        quizDate,
+        name: student?.name || "",
+        phoneNumber: cleanedPhone,
+        city: student?.city || "",
         obtainedMarks,
-        totalMarks: shuffledQuestions.length,
+        totalMarks,
         questionResults,
         submittedAt: serverTimestamp(),
-      };
+      });
 
-      const resultRef = doc(
-        db,
-        "QuizResults",
-        sooratName,
-        "submissions",
-        approvedStudent.phoneNumber,
-      );
-
-      await setDoc(resultRef, payload);
-
-      alert("Quiz submitted successfully!");
       setShowQuiz(false);
+      setCanStart(false);
+      setMessage("Quiz submitted successfully.");
     } catch (error) {
       console.error(error);
-      alert(error.message);
+      setMessage(error.message || "Failed to submit quiz.");
+    } finally {
+      setLoading(false);
+    }
+  }, [
+    phoneNumber,
+    calculateMarks,
+    shuffledQuestions,
+    answers,
+    quizId,
+    quizTitle,
+    quizDate,
+    student,
+  ]);
+
+  const fetchEligibilityAndQuestions = async (e) => {
+    e.preventDefault();
+
+    try {
+      setLoading(true);
+      setMessage("");
+      setChecked(false);
+      setStudent(null);
+      setCanStart(false);
+
+      if (!isQuizWindowOpen()) {
+        setMessage(
+          `Quiz is only available on ${quizDate} from ${startHour}:00 to ${endHour}:00 (${timeZone}).`,
+        );
+        return;
+      }
+
+      const cleanedPhone = cleanPhoneNumber(phoneNumber);
+
+      if (!cleanedPhone) {
+        setMessage("Phone number is required.");
+        return;
+      }
+
+      const studentsRef = doc(db, "Students", quizId);
+      const studentsSnap = await getDoc(studentsRef);
+
+      if (!studentsSnap.exists()) {
+        setMessage("Students data not found for this quiz.");
+        return;
+      }
+
+      const studentsData = studentsSnap.data().data || [];
+      const foundStudent = studentsData.find(
+        (item) => cleanPhoneNumber(item.phoneNumber) === cleanedPhone,
+      );
+
+      setChecked(true);
+
+      if (!foundStudent) {
+        setMessage("Student not found.");
+        return;
+      }
+
+      if (!foundStudent.canAttempt) {
+        setStudent(foundStudent);
+        setMessage("You are not allowed to attempt this quiz.");
+        return;
+      }
+
+      const resultDocId = `${quizId}_submissions`;
+      const existingResultRef = doc(
+        db,
+        "Results",
+        resultDocId,
+        "data",
+        cleanedPhone,
+      );
+      const existingResultSnap = await getDoc(existingResultRef);
+
+      if (existingResultSnap.exists()) {
+        setStudent(foundStudent);
+        setMessage("You have already submitted this quiz.");
+        return;
+      }
+
+      const questionsRef = doc(db, "Questions", quizId);
+      const questionsSnap = await getDoc(questionsRef);
+
+      if (!questionsSnap.exists()) {
+        setMessage("Questions not found for this quiz.");
+        return;
+      }
+
+      const questionsData = questionsSnap.data().data || [];
+      const shuffled = shuffleArray(
+        questionsData.map((item) => ({
+          ...item,
+          options: Array.isArray(item.options) ? [...item.options] : [],
+        })),
+      );
+
+      setStudent(foundStudent);
+      setShuffledQuestions(shuffled);
+      setAnswers(new Array(shuffled.length).fill(null));
+      setTimer(shuffled.length * 60);
+      setCanStart(true);
+      setMessage("Eligible. You can start the quiz.");
+    } catch (error) {
+      console.error(error);
+      setMessage(error.message || "Something went wrong.");
     } finally {
       setLoading(false);
     }
   };
 
-  if (!showQuiz) {
-    return (
-      <QuizEligibilityChecker
-        sooratName={sooratName}
-        onApproved={handleApproved}
-      />
-    );
-  }
+  const handleStartQuiz = () => {
+    if (!isQuizWindowOpen()) {
+      setMessage(
+        `Quiz is only available on ${quizDate} from ${startHour}:00 to ${endHour}:00 (${timeZone}).`,
+      );
+      return;
+    }
 
-  const currentQuestion = shuffledQuestions[currentQuestionIndex];
+    setCurrentQuestionIndex(0);
+    setShowQuiz(true);
+  };
+
+  const handleAnswerSelect = (event) => {
+    const { value } = event.target;
+    setAnswers((prev) => {
+      const updated = [...prev];
+      updated[currentQuestionIndex] = value;
+      return updated;
+    });
+  };
+
+  const handleBack = () => {
+    if (currentQuestionIndex === 0) return;
+    setCurrentQuestionIndex((prev) => prev - 1);
+  };
+
+  const handleNext = () => {
+    if (currentQuestionIndex >= shuffledQuestions.length - 1) return;
+    setCurrentQuestionIndex((prev) => prev + 1);
+  };
+
+  useEffect(() => {
+    if (!showQuiz) return;
+
+    const timerId = setInterval(() => {
+      setTimer((prevTimer) => (prevTimer > 0 ? prevTimer - 1 : 0));
+    }, 1000);
+
+    return () => clearInterval(timerId);
+  }, [showQuiz]);
+
+  useEffect(() => {
+    if (timer === 0 && showQuiz && shuffledQuestions.length > 0) {
+      handleSubmit();
+    }
+  }, [timer, showQuiz, shuffledQuestions.length, handleSubmit]);
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>Quiz: {sooratName}</h2>
-      <h3>Welcome {approvedStudent?.name}</h3>
+    <div className="quiz-simple-page">
+      <div className="quiz-simple-container">
+        <h1 className="quiz-simple-title">{quizTitle}</h1>
 
-      {currentQuestion && (
-        <>
-          <h4>
-            Question {currentQuestionIndex + 1}: {currentQuestion.question}
-          </h4>
+        {message ? <div className="quiz-simple-message">{message}</div> : null}
 
-          <ul>
-            {currentQuestion.options.map((option, index) => (
-              <li key={index}>
-                <label>
-                  <input
-                    type="radio"
-                    name="option"
-                    value={option}
-                    checked={answers[currentQuestionIndex] === option}
-                    onChange={() => handleAnswerSelect(option)}
-                  />
-                  {option}
-                </label>
-              </li>
-            ))}
-          </ul>
+        {!showQuiz ? (
+          <div className="quiz-simple-card">
+            <form onSubmit={fetchEligibilityAndQuestions}>
+              <div className="quiz-simple-group">
+                <label>Quiz ID</label>
+                <input type="text" value={quizId} readOnly />
+              </div>
 
-          <div style={{ marginTop: "20px" }}>
-            {currentQuestionIndex > 0 && (
-              <button onClick={() => setCurrentQuestionIndex((p) => p - 1)}>
-                Back
+              <div className="quiz-simple-group">
+                <label>Quiz Date</label>
+                <input
+                  type="text"
+                  value={`${quizDate} (${startHour}:00 - ${endHour}:00 ${timeZone})`}
+                  readOnly
+                />
+              </div>
+
+              <div className="quiz-simple-group">
+                <label>Phone Number</label>
+                <input
+                  type="text"
+                  value={phoneNumber}
+                  onChange={(e) => setPhoneNumber(e.target.value)}
+                  placeholder="Enter your phone number"
+                />
+              </div>
+
+              <button type="submit" disabled={loading}>
+                {loading ? "Checking..." : "Check Eligibility"}
               </button>
+            </form>
+
+            {checked && student && (
+              <div className="quiz-simple-student-box">
+                <p>
+                  <strong>Name:</strong> {student.name}
+                </p>
+                <p>
+                  <strong>Phone:</strong> {student.phoneNumber}
+                </p>
+                <p>
+                  <strong>City:</strong> {student.city}
+                </p>
+                <p>
+                  <strong>Status:</strong>{" "}
+                  {student.canAttempt ? "Eligible" : "Not Allowed"}
+                </p>
+              </div>
             )}
 
-            {currentQuestionIndex < shuffledQuestions.length - 1 ? (
-              <button
-                onClick={() => setCurrentQuestionIndex((p) => p + 1)}
-                style={{ marginLeft: "10px" }}
-              >
-                Next
-              </button>
-            ) : (
-              <button
-                onClick={handleSubmit}
-                disabled={loading}
-                style={{ marginLeft: "10px" }}
-              >
-                {loading ? "Submitting..." : "Submit"}
+            {canStart && (
+              <button onClick={handleStartQuiz} className="secondary-btn">
+                Start Quiz
               </button>
             )}
           </div>
-        </>
-      )}
+        ) : (
+          <div className="quiz-simple-card">
+            <h2>Hi {student?.name}</h2>
+
+            <div className="quiz-simple-timer">
+              Time Remaining: {Math.floor(timer / 60)}:
+              {String(timer % 60).padStart(2, "0")}
+            </div>
+
+            <h3>
+              Question {currentQuestionIndex + 1} of {shuffledQuestions.length}
+            </h3>
+
+            <p className="quiz-question-text">
+              {shuffledQuestions[currentQuestionIndex]?.question}
+            </p>
+
+            <ul className="quiz-options-list">
+              {shuffledQuestions[currentQuestionIndex]?.options?.map(
+                (option, index) => (
+                  <li key={index}>
+                    <label>
+                      <input
+                        type="radio"
+                        name="option"
+                        value={option}
+                        checked={answers[currentQuestionIndex] === option}
+                        onChange={handleAnswerSelect}
+                      />
+                      {option}
+                    </label>
+                  </li>
+                ),
+              )}
+            </ul>
+
+            <div className="quiz-nav-buttons">
+              {currentQuestionIndex > 0 && (
+                <button onClick={handleBack}>Back</button>
+              )}
+
+              {currentQuestionIndex < shuffledQuestions.length - 1 ? (
+                <button onClick={handleNext}>Next</button>
+              ) : (
+                <button onClick={handleSubmit} disabled={loading}>
+                  {loading ? "Submitting..." : "Submit Quiz"}
+                </button>
+              )}
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

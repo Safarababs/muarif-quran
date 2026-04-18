@@ -45,16 +45,16 @@ function Header() {
               <Link to="/contact">contact</Link>
             </li>
             <li>
-              <Link to="/quiz-register">Quiz Register</Link>
+              <Link to="/auth-register">Quiz Register</Link>
             </li>
             <li>
               <Link to="/quiz-page">Start Quiz</Link>
             </li>
             <li>
-              <Link to="/results">Results</Link>
+              <Link to="/quiz-result">Results</Link>
             </li>
             <li>
-              <Link to="/admin-login">Admin Login</Link>
+              <Link to="/auth-login">Login</Link>
             </li>
           </ul>
         </nav>
