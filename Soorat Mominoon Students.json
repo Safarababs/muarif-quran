@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1,
+    "name": "Ali",
+    "phoneNumber": "03361151155",
+    "city": "Lahore",
+    "canAttempt": true
+  },
+
+  {
+    "id": 2,
+    "name": "Safar Abbas",
+    "phoneNumber": "03016005735",
+    "city": "Bhera",
+    "canAttempt": true
+  },
+  {
+    "id": 3,
+    "name": "Birjees Kausar",
+    "phoneNumber": "00447946761542",
+    "city": "United Kingdom",
+    "canAttempt": true
+  }
+]

@@ -27,10 +27,10 @@ import AdminResultsPage from "./student/FirebaseREgistration/AdminResultsPage";
 
 function App() {
   const quizConfig = {
-    quizId: "SooratTehreemSecondRound",
-    quizTitle: "Soorat Tehreem 2026",
-    quizDate: "2026-04-19",
-    resultDate: "2026-04-20",
+    quizId: "SooratMominoonQuiz",
+    quizTitle: "Soorat Mominoon",
+    quizDate: "2026-10-16",
+    resultDate: "2026-10-15",
     startHour: 19,
     endHour: 22,
     timeZone: "Asia/Karachi",
