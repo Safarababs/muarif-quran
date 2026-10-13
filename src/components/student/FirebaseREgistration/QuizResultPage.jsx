@@ -8,7 +8,7 @@ const cleanPhoneNumber = (phone) => {
 };
 
 const QuizResultPage = ({ quizId: defaultQuizId, quizTitle, resultDate }) => {
-  const [quizId, setQuizId] = useState(defaultQuizId);
+  const [quizId] = useState(defaultQuizId);
   const [phoneNumber, setPhoneNumber] = useState("");
   const [result, setResult] = useState(null);
   const [message, setMessage] = useState("");
@@ -82,12 +82,7 @@ const QuizResultPage = ({ quizId: defaultQuizId, quizTitle, resultDate }) => {
           <form onSubmit={fetchResult}>
             <div className="quiz-simple-group">
               <label>Quiz ID</label>
-              <input
-                type="text"
-                value={quizId}
-                onChange={(e) => setQuizId(e.target.value)}
-                placeholder="e.g. SooratTehreem2026"
-              />
+              <input type="text" value={quizId} readOnly />
             </div>
 
             <div className="quiz-simple-group">
