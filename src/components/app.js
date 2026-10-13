@@ -29,10 +29,10 @@ function App() {
   const quizConfig = {
     quizId: "SooratMominoonQuiz",
     quizTitle: "Soorat Mominoon",
-    quizDate: "2026-10-16",
-    resultDate: "2026-10-15",
-    startHour: 19,
-    endHour: 22,
+    quizDate: "2026-10-14",
+    resultDate: "2026-10-14",
+    startHour: 1,
+    endHour: 23,
     timeZone: "Asia/Karachi",
   };
 
