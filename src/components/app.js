@@ -32,7 +32,7 @@ function App() {
     quizDate: "2026-10-18",
     resultDate: "2026-10-19",
     startHour: 19,
-    endHour: 21,
+    endHour: 23,
     timeZone: "Asia/Karachi",
   };
 

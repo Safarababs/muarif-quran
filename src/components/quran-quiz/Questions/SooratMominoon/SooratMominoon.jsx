@@ -1,4 +1,4 @@
-const SooratMominoon = [
+[
   {
     questionNo: "1",
     question: "سورۃ المؤمنون میں کل کتنی آیات ہیں؟",
